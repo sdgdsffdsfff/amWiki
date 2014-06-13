@@ -1,0 +1,65 @@
+{%- extends "layout.html" -%}
+{%- block title %}{{pagination.title}}{% endblock %}
+
+{% block navigation %}
+
+<ul class="nav">
+    {%- for item in config.navigation %}
+    <li>
+        <a {% if item.id == pagination.title %} class="active" {% endif %} archiveId = "{{item.id}}" href="{{content_url(item.link)}}"> {{item.title}} </a>
+            {% if item.sub_nav %}
+        <ul class="nav-sub">
+            {%- for subItem in item.sub_nav %}
+            <li>
+                <a href="{{content_url(subItem.link)}}">{{subItem.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+            {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="content">
+<div class="archive">
+  <div class="entry-list">
+    {%- for item in pagination.items %}
+    <div class="entry-item">
+      <a href="{{permalink_url(item)}}" class="entry-header">
+        <h3 href="{{permalink_url(item)}}" class="entry-title">{{item.title}}</h3>
+        <span class="entry-meta"><span>{{item.meta.author}}</span> / <time datetime="{{item.pubdate|xmldatetime}}">{{item.pubdate|date('Y-m-d')}}</time></span>
+      </a>
+    </div>
+    {%- endfor %}
+  </div>
+</div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hsinglinlocalblog"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+</div>
+{% endblock %}
+
+{% block pages %}
+<div class="pages clearfix">
+{% if pagination.has_prev %}
+  <a class="pull-left" href="{{pagination_url(pagination.prev_num)}}">上一页</a>
+  {% endif%}
+  {% if pagination.has_next %}
+  <a class="pull-right" href="{{pagination_url(pagination.next_num)}}">下一页</a>
+  {% endif%}
+</div>
+{% endblock %}
