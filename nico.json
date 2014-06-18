@@ -88,6 +88,11 @@
 					"id": "about",
 					"title": "关于H5Container",
 					"link": "h5container/about.html"
+				},
+				{
+					"id": "public_home_api",
+					"title": "商户API文档",
+					"link": "h5container/public-home-api.html"
 				}
 			]
 		},

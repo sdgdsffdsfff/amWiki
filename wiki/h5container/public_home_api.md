@@ -1,15 +1,13 @@
-# Hello Nico
-
-- pubdate: 2014-06-04
+# 公众平台接口文档
 
 ------
 
-## 1文档说明
-###  1.1功能描述
+## 文档说明
+### 功能描述
 该文档为服务窗开发商或者机构入驻支付宝服务窗平台技术标准文档，详细了说明和约束各个接口的参数和规则。
-###  1.2阅读对象
+### 阅读对象
 该文档面向即将使用支付宝钱包服务窗平台的相关人员，需要具有一定的网站开发能力，了解ASP、PHP、JAVA、ASP.NET等开发语言中的一种及SQL数据库语言的网站开发、维护和管理人员。
-###  1.3业务术语
+### 业务术语
 1.业务术语
 
 | 术语 | 解释 |
@@ -26,8 +24,8 @@
 |信息授权 | 钱包内访问服务窗网站的时候，可以把当前用户的信息授权给服务窗，服务窗可以用此信息注册账户或登录服务窗网站。|
 
 
-## 2简单接入
-### 2.1接入指南
+##简单接入
+### 接入指南
 
 * 2.1.1第一步：申请消息接口
 
@@ -83,7 +81,7 @@ eventType消息体的子类型，verifygw标识验证网关
 
 服务窗可以在服务窗管理平台网站中申请认证，认证成功的服务窗将获得众多接口权限，以满足开发者需求。此后用户每次向服务窗发送消息、或者产生自定义菜单点击事件时，响应URL将得到推送。服务窗调用各接口时，一般会获得正确的结果，具体结果可见对应接口的说明。返回错误时，可根据返回码来查询错误原因。全局返回码说明用户向服务窗发送消息时，服务窗收到的消息发送者是一个OpenID，是使用用户支付宝账户加密后的结果，每个用户对每个公众号有一个唯一的OpenID。
 
-### 2.2典型案例介绍
+### 典型案例介绍
 
 值得借鉴的公众帐号主要是服务号，试列举并介绍如下： 
 
@@ -108,7 +106,7 @@ eventType消息体的子类型，verifygw标识验证网关
 
 在我们身处异地办理违章缴款并不方便、或是时间不充裕的时候，选择支付宝钱包代办交通违章无疑非常方便，万事不求人，填写完车牌号、发动机号等资料后就可以对车辆的违章情况进行查询，如果我们对违章情况没有异议的话可以直接在这里缴纳违章费用。。
 
-### 2.3开放者规范
+### 开放者规范
 
 开发者进行服务窗开发时，除了需要满足每个接口的规范限制、调用频率限制外，还需特别注意模版消息、用户数据等敏感信息的使用规范。
 
@@ -129,19 +127,19 @@ eventType消息体的子类型，verifygw标识验证网关
 * 请勿公开表达或暗示，您与支付宝之间存在合作关系，包括但不限于相互持股、商业往来或合作关系等，或声称支付宝对您的认可。
 
 
-## 3基础支持
+## 基础支持
 
-### 3.1签名机制
+### 签名机制
 
 详见9.签名机制。
 
-## 4接收消息
+## 接收消息
 
-### 4.1验证消息有效性 
+### 验证消息有效性 
 
 请参见“验证 URL有效性”。 
 
-### 4.2接收事件推送 
+### 接收事件推送 
 
 用户在支付宝钱包客户端的服务窗账号所做操作触发的消息，支付宝服务器将POST该消息到商户的服务器上。目前消息类型主要为事件消息。
 
@@ -242,8 +240,8 @@ https://商户服务端网关地址?sign=SKlbQBMz7ImtuU0dvTvYybMI+jRu2hvM9RXHcs4
 | AccountNo | 商户的会员账号 | String | 商户的会员账号。只有在绑定商户会员号高级功能且为click事件才会有值。| 可空 | 188986578765 | 
 | UserInfo | 用户信息 | 	String | 支付宝的用户信息，json字符串。目前包括：logon_id：隐藏的支付宝账号，如：shu***@163.com；user_name：用户姓名，如：*小虎。| 可空 | { "logon_id": "135****1009","user_name":"*iuxu527"}| 
 
-## 5发送消息 
-### 5.1发送被动响应消息
+## 发送消息 
+### 发送被动响应消息
 
  * 5.1.1概述
  
@@ -295,7 +293,7 @@ https://商户服务端网关地址?sign=SKlbQBMz7ImtuU0dvTvYybMI+jRu2hvM9RXHcs4
 | ActionName | 跳转说明| String | 服务窗账号消息页面展现消息按钮文案，建议跳转就用“立即前往”，查看就用“立即查看”，不超过10个汉字。默认：立即查看| 可空 | 立即查看 | 
 | AuthType | 授权类型 | String | 配置参数为loginAuth即为信息授权，请参见“网页授权用户基本信息”。该参数只支持loginAuth。| 可空 | loginAuth |
 
-### 5.2向用户发送消息
+### 向用户发送消息
 
 * 5.2.1概述
 
@@ -420,9 +418,9 @@ biz_content数据示例如下：
 
 ````
 
-## 6用户管理
+## 用户管理
 
-### 6.1获取用户地理位置
+### 获取用户地理位置
 
 * 概述
 
@@ -474,7 +472,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | longitude | 经度 | String | 经度信息。 | 不可空 | 120.0208392468977 |
 | accuracy | 误差范围 | String | 误差范围，单位：米。 | 不可空 | 65.0 | 
 
-#### 6.2网页授权获取用户基本信息
+#### 网页授权获取用户基本信息
 
 * 6.2.1 概述
 
@@ -582,8 +580,8 @@ https://openhome.alipay.com/doc/viewApiDoc.htm?name=alipay.system.oauth.token&ve
 禁止出现让用户设置商户网站的会员密码的操作界面等把支付宝会员转换为商户网站自己的会员的操作。
 
 
-##7  自定义菜单
-###7.1  概述
+##   自定义菜单
+###   概述
 服务窗账号可以使用该接口完成自定义菜单的创建、查询和更新操作。
 
 菜单说明：
@@ -592,8 +590,8 @@ https://openhome.alipay.com/doc/viewApiDoc.htm?name=alipay.system.oauth.token&ve
 * 删除原有菜单，服务窗账号需要保留删除菜单的响应服务一天。
 * 菜单包括支付宝预定义菜单和服务窗账号自定义菜单。一级菜单最多设置4个， 二级菜单最多设置5个。支付宝预定义一级菜单最多可以设置2个，服务窗账号自定义的一级菜单，最多可以设置4个。服务窗号自定义一级菜单的个数和支付宝预设一级菜单的个数，其两者的总数不能超过4个。
 * 一级菜单的显示名称最多不能超过4个汉字，二级菜单其名称最多不能超过12个汉字。
-###7.2  自定义菜单创建接口
-####7.2.1  请求样例
+###   自定义菜单创建接口
+####   请求样例
 
 注意：https请求实际方式为POST。
 
@@ -642,7 +640,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
   
 图7-1 菜单样例
 
-####7.2.2  请求参数
+####   请求参数
 通过POST一个特定结构体，实现支付宝钱包客户端的服务窗账号创建自定义菜单。
 本接口只可以调用一次，菜单已存在无需再次创建，今后只需要调用更新接口。
 
@@ -666,7 +664,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | authType | 信息授权标识 | String | 当需要免登时，该参数必须取值为loginAuth。只有actionType为link时才能配置该参数。如果actionType为out，需在商户调用“5  商户回复消息”接口时，设置参数authType来标识是否免登。 | 可空 | loginAuth |
 
 
-####7.2.3  同步返回参数
+####   同步返回参数
 
 表7-3 菜单创建返回参数列表
 
@@ -677,7 +675,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | msg | 含义 | String | 支付宝返回的处理结果说明。处理成功：success；处理失败：请参考“13.1业务返回码”。 | 不可空 | 成功 |
 | sign | 签名结果 | String | 支付宝返回的签名结果。 | 不可空 | gi771WtMTPpLY68/jCibUyHZ1S6wbVFzD+E2ggH2TkwrJAl6tP2a/TyJIgxWrwnoYQfT6MEY3FwzC5x1jAhvb4l31fDKXfhi9iqfs87y4WT27rXRvvszXt5ILOkFLZ7NbZ1lZcZzPvL4fUf5qZLfsGlhzfkMUlThiMD8T+6VqVw= |
 
-####7.2.4  同步返回样例
+####   同步返回样例
 
 *	正常输出：
 ```
@@ -687,8 +685,8 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 ```
 {"alipay_mobile_public_menu_add_response":{"code":11013,"msg":"菜单已经创建过"},"sign":"SFIJp0ZUTrjymCGTfLnfsGBh8objZgCEF1HsDvofpCjCZmTAnuuz/x8rRKiEEtnfipp0XHGpGRykMEzCvaJ6jt+FkAFiU0WCQAhXQFMX62tDCAqWu2RsKJVYeoJf1ApZESbIxAz0GE6WOwDFXQSHlCastLt30Lt4s9+vhiF7cHk="}
 ```
-###7.3  自定义菜单更新接口
-####7.3.1  请求样例
+###   自定义菜单更新接口
+####   请求样例
 注意：https请求实际方式为POST。
 ```
 http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay.mobile.public.menu.update&charset=GBK&app_id=2013091300001633&biz_content =“biz_content示例”
@@ -730,7 +728,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 
 图7-2 菜单样例
 
-####7.3.2  请求参数
+####   请求参数
 
 通过POST一个特定结构体，实现支付宝钱包客户端的服务窗账号更新自定义菜单。每一次的更新是针对全部自定义菜单的更新。
 
@@ -748,7 +746,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 
 表7-5 菜单更新biz_content参数说明
 
-####7.3.3  同步返回参数
+####   同步返回参数
 
 表7-6 菜单更新返回参数列表
 
@@ -759,7 +757,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | msg | 含义	| String | 支付宝返回的处理结果说明。处理成功：成功；处理失败：请参考“13.1业务返回码”。 | 不可空 | 成功 |
 | sign | 签名结果 | String | 支付宝返回的签名结果。 | 不可空 | gi771WtMTPpLY68/jCibUyHZ1S6wbVFzD+E2ggH2TkwrJAl6tP2a/TyJIgxWrwnoYQfT6MEY3FwzC5x1jAhvb4l31fDKXfhi9iqfs87y4WT27rXRvvszXt5ILOkFLZ7NbZ1lZcZzPvL4fUf5qZLfsGlhzfkMUlThiMD8T+6VqVw= |
 
-####7.3.4  同步返回样例
+####   同步返回样例
 
 *	正常输出：
 ```
@@ -769,13 +767,13 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 ```
 {"alipay_mobile_public_menu_update_response":{"code":11006,"msg":"二级菜单超出个数"},"sign":"wwd3ofIpMD/eJIYhm3xTJgo4k1YvoW5JYInWxNJLVmqZ4ikTyZ90/KJCNN3PyquWyslego/6FSFj4D9TFRuGFSiTqQ0vnM0TT/wznn/8pKdC8cmmoZAIIAuyA/tnHoWYSt1cG/SsceF2pX87/TEL6rDY7xp36ha6D4SD4cpXxgA="}
 ```
-###7.4  自定义菜单查询接口
-####7.4.1  请求样例
+###   自定义菜单查询接口
+####   请求样例
 注意：https请求实际方式为POST。
 ```
 http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay.mobile.public.menu.get&charset=GBK&app_id=2013091300001633&biz_content =“biz_content示例”
 ```
-####7.4.2  请求参数
+####   请求参数
 查询当前使用的自定义菜单。
 
 表7-7 菜单查询请求参数说明
@@ -786,7 +784,7 @@ http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.menu.get。 | 不可空 | alipay.mobile.public.menu.get |
 
 
-####7.4.3  同步返回参数
+####   同步返回参数
 
 表7-8 菜单查询返回参数说明
 
@@ -811,7 +809,7 @@ http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay
 
 
 
-####7.4.4  同步返回样例
+####   同步返回样例
 
 *	查询成功：
 ```
@@ -849,15 +847,15 @@ http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay
     ]
 }
 ```
-###7.5  自定义菜单事件推送
+###   自定义菜单事件推送
 请参考章节“接收时间发送”中关于菜单点击事件。
 
-##8  商户会员号
-###8.1  添加绑定商户会员号
-####8.1.1  概述
+##   商户会员号
+###   添加绑定商户会员号
+####   概述
 当用户成为商户的关注用户后，可以在商户的服务窗平台中点击“添加绑定商户会员号”功能，支付宝系统收到操作请求后将该动作通知给商户（调用“4  用户发送消息到”接口，eventType（事件类型）为click，actionParam（按钮标识）为authentication），商户根据此通知调用“5  商户回复消息”接口（其中须包含Url链接地址），支付宝收到商户的回复消息中的链接地址后，自动跳转至商户平台的上商户会员绑定界面中，让用户完成账户绑定。
 当用户有效完成账户绑定后，商户调用本接口，把绑定结果数据通知给支付宝。
-####8.1.2  请求样例
+####   请求样例
 
 注意：https请求实际方式为POST。
 ```
@@ -874,7 +872,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 "fromUserId":" aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01 "
 }
 ```
-####8.1.3  请求参数
+####   请求参数
 表8-1 请求参数说明
 
 | 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
@@ -898,7 +896,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 
 参数	参数名称	类型（长度范围）	参数说明	是否可为空	样例
 
-####8.1.4  同步返回参数
+####   同步返回参数
 
 表8-3 添加绑定商户会员号返回参数说明
 
@@ -910,7 +908,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | agreement_id | 协议号 | String | 协议号是商户会员在支付宝服务窗账号中的唯一标识。只有以下2种情况下不可空：当成功时，即code为200，返回成功的协议号；当重复添加同一个商户会员号时，code为200，此时返回的协议号为该账号之前已经添加的协议号，如果请求的其他会员信息有变更，则会更新但协议号不变。| 可空 | 3214313123131 |
 | sign | 签名结果 | String | 支付宝返回的签名结果。目前仅支持RSA方式。 | 不可空 | f3AKCWksumTLzW5Pm38xiP9llqwHptZl9QJQxcm7zRvcXA4g/9tqOxH3Fva5anJyYo4lq5BZ2zdyPrzNR3sooggHzqi645cT85huT6i9KZUdE1M/vl5lyZWTKwmNyZ8dcA9t7y2PSYpyGWaawp82l93tKYiL32KV9S0AhhExXj8= | 
 
-####8.1.5  同步返回样例
+####   同步返回样例
 *	正常输出：
 ```
 {"alipay_mobile_public_account_add_response":{"agreement_id":"20131017000001476688","code":200,"msg":"成功"},"sign":"f3AKCWksumTLzW5Pm38xiP9llqwHptZl9QJQxcm7zRvcXA4g/9tqOxH3Fva5anJyYo4lq5BZ2zdyPrzNR3sooggHzqi645cT85huT6i9KZUdE1M/vl5lyZWTKwmNyZ8dcA9t7y2PSYpyGWaawp82l93tKYiL32KV9S0AhhExXj8="}
@@ -919,8 +917,8 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 ```
 {"alipay_mobile_public_account_add_response":{"code":10013,"msg":"您添加的账户已达上限"},"sign":"WTU3FQRE0Ol6IfjsBQFlvHXY0ai8stWDIvGb84WDtHiG0me7WXA1/7MF5qXOLsIZS9aGCqOvZi6YB4CW+R9UGz+hpAZIFwi2vJH8vRGpXTVy+/Px9H7mNOgqaKmpV1+L2bb8VO7zHuP7MNaetk82obgbPR2aZjOeLzYg9Hie/aE="}
 ```
-###8.2  解除绑定商户会员号
-####8.2.1  概述
+###   解除绑定商户会员号
+####   概述
 有以下三种情况会触发解除绑定在支付宝服务窗号的商户会员号：
 
 *	用户在支付宝客户端取消关注某服务窗号，也就是在服务窗账号列表上长按某个服务窗账号，显示出移除按钮，点击移除，此时会把该服务窗账号下所有已绑定的会员账户都解绑；
@@ -929,7 +927,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 
 前两种是支付宝通知商户服务器调用“4  用户发送消息到商户”接口实现，第三种是商户主动请求支付宝，调用“7  解除绑定商户会员号”接口实现。其中第一种情况下，如果用户有绑定三个商户会员号，那么此时支付宝服务器会发送4次通知（无顺序），这些通知分别是取消关注通知及解除绑定每个商户会员号的通知。
 
-####8.2.2  请求样例
+####   请求样例
 注意：https请求实际方式为POST。
 ```
 https://openapi.alipay.com/gateway.do?charset=GBK&biz_content=“biz_content示例”
@@ -941,7 +939,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 "agreementld":"20131017000001476688",
 }
 ```
-####8.2.3  请求参数
+####   请求参数
 表8-4 请求参数说明
 
 | 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
@@ -957,7 +955,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | agreementId | 协议号 | String(32) | 协议号是商户会员在支付宝服务窗账号中的唯一标识。 | 有一项不可空 | 20131017000001476688 |
 | bindAccountNo | 绑定账号 | String(64) | 要绑定的商户会员号。建议在商户的系统中保持唯一性。 | 有一项不可空 | 6226250032060088 | 
 
-####8.2.4  同步返回参数
+####   同步返回参数
 表8-6 解除绑定商户会员号返回参数说明
 
 | 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
@@ -970,7 +968,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 
 
 
-####8.2.5  同步返回样例
+####   同步返回样例
 *	正常输出：
 ```
 {"alipay_mobile_public_account_delete_response":{"agreement_id":"20131017000001476688","code":200,"msg":"成功"},"sign":"f3AKCWksumTLzW5Pm38xiP9llqwHptZl9QJQxcm7zRvcXA4g/9tqOxH3Fva5anJyYo4lq5BZ2zdyPrzNR3sooggHzqi645cT85huT6i9KZUdE1M/vl5lyZWTKwmNyZ8dcA9t7y2PSYpyGWaawp82l93tKYiL32KV9S0AhhExXj8="}
@@ -979,10 +977,10 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 ```
 {"alipay_mobile_public_account_add_response":{"code":10019,"msg":"查不到对应的外部账号"},"sign":"WTU3FQRE0Ol6IfjsBQFlvHXY0ai8stWDIvGb84WDtHiG0me7WXA1/7MF5qXOLsIZS9aGCqOvZi6YB4CW+R9UGz+hpAZIFwi2vJH8vRGpXTVy+/Px9H7mNOgqaKmpV1+L2bb8VO7zHuP7MNaetk82obgbPR2aZjOeLzYg9Hie/aE="}
 ```
-###8.3  查询已绑定商户会员号
-####8.3.1  概述
+###   查询已绑定商户会员号
+####   概述
 当用户成为商户的关注用户后，商户可以通过本接口查询关注者的绑定账户，以便补全异常情况下的单边账户数据。
-####8.3.2  请求样例
+####   请求样例
 注意：https请求实际方式为POST。
 ```
 https://openapi.alipay.com/gateway.do?charset=GBK&biz_content=“biz_content示例”
@@ -993,7 +991,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 {
 "userId":"aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01 "
 ```
-####8.3.3  请求参数
+####   请求参数
 表8-7 请求参数说明
 
 
@@ -1008,7 +1006,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | ------------ | -------------|
 | userId | 支付宝用户号 | String | 要查询的关注用户的支付宝用户号，以英文加字母组合的字符串。 | 不可空 | aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01 | 
 
-####8.3.4  同步返回参数
+####   同步返回参数
 
 表8-9 查询关注者的绑定账户返回参数说明
 
@@ -1033,7 +1031,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | realName | 真实姓名 | String | 绑定的商户会员的真实姓名。最长10个汉字。 | 可空 | 王小毛 |
 | display_name | 显示信息 | String | 服务窗账号期望支付宝用户在服务窗账号首页看到的关于该用户的显示信息。最长10个汉字。 | 不可空 | 尾号0088 |
 
-####8.3.5  同步返回样例
+####   同步返回样例
 *	正常输出：
 ```
 {
@@ -1075,9 +1073,9 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 }
 ```
 
-##9  签名机制
-###9.1  请求签名
-####9.1.1  生成请求签名字符串
+##   签名机制
+###   请求签名
+####   生成请求签名字符串
  1. 参与签名的参数
 在商户向支付宝发起请求的接口的请求参数列表中，除去sign参数外，其他需要使用到的参数皆是要签名的参数，包含参数sign_type。
  2. 生成待签名字符串
@@ -1104,10 +1102,10 @@ appid=2013080800008888&biz_content=XXXXX&charset=gbk&method=alipay.mobile.public
 *	如果传递了charset参数，这个参数也该包含在待签名数据中；
 *	根据HTTP协议要求，传递参数的值中如果存在特殊字符（如：&、@等），那么该值需要做URL Encoding，这样请求接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原始值而不是encoding之后的值。例如：调用某接口需要对请求参数email进行数字签名，那么待签名数据应该是email=test@msn.com，而不是email=test%40msn.com。
 
-####9.1.2  签名
+####   签名
 用待签名字符串和商户的RSA私钥生成签名串（sign）。
-###9.2  同步返回验签
-####9.2.1  生成同步返回验签字符串
+###   同步返回验签
+####   生成同步返回验签字符串
 1. XML格式
 在XML返回参数列表中，如果节点中存在sign，则此次的返回数据支持做验签，不存在则不支持验签。
 在XML返回参数列表中，在根节点下面除去sign节点（含节点名、节点值）外，其他所有数据以字符串形式作为要参与验签的字符串。
@@ -1133,11 +1131,11 @@ appid=2013080800008888&biz_content=XXXXX&charset=gbk&method=alipay.mobile.public
 ```
 包含符号，如双引号（"）、大括号（{、}）、逗号（,）、分号（:）。
 以上的各个节点需事先按照字母a到z的顺序排序。
-####9.2.2  验签
+####   验签
 用待签名字符串和支付宝RSA公钥对签名串（sign）进行验证。通过则进行后续业务处理。
-###9.3  商户获得用户发送消息的验签
+###   商户获得用户发送消息的验签
 支付宝调用“4  用户发送消息到商户”接口，把数据请求给商户时，商户需先做验签，再做业务逻辑处理。
-####9.3.1  生成验签字符串
+####   生成验签字符串
 1. 参与验签的参数
 在用户发送消息到商户的参数列表中，除去sign参数外，凡是通知返回回来的参数皆是要签名的参数，包含参数sign_type。
 2. 生成待验签字符串
@@ -1157,10 +1155,10 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 *	如果传递了charset参数，这个参数也该包含在待签名数据中；
 *	根据HTTP协议要求，传递参数的值中如果存在特殊字符（如：&、@等），那么该值需要做URL Encoding，这样请求接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原始值而不是encoding之后的值。例如：调用某接口需要对请求参数email进行数字签名，那么待签名数据应该是email=test@msn.com，而不是email=test%40msn.com。
 
-####9.3.2  验签
+####   验签
 用待签名字符串和支付宝RSA公钥对签名串（sign）进行验证。通过则进行后续业务处理。
-##10  附录
-###10.1  业务返回码
+##   附录
+###   业务返回码
 表10-1 业务返回码
 
 | 返回码 | 含义 |
@@ -1208,7 +1206,7 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 | 13004 | 用户地理位置信息不存在 |
 
 
-###10.2  安全机制错误码
+###   安全机制错误码
 表10-2 安全机制错误码
 
 
@@ -1233,9 +1231,9 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 | 20000	| Service Currently Unavailable |	aop.unknow-error | 系统繁忙 |
 | 20000	| Service Currently Unavailable	| isp.unknow-error | 系统繁忙 |
 
-###10.3  安全机制异常同步返回参数
+###   安全机制异常同步返回参数
 当商户通过接口请求支付宝，支付宝同步返回参数时，如果支付宝在安全机制环节校验不通过，则返回安全机制异常参数信息，而不会返回本文档中其他章节的同步返回参数。
-####10.3.1  安全机制异常同步返回参数列表
+####   安全机制异常同步返回参数列表
 
 表10-3 安全机制异常同步返回参数列表
 
@@ -1247,11 +1245,11 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 | sub_code | 明细错误码 | String | 支付宝返回的详细错误码，请参考“13.2  安全机制错误码”。 | 不可空 |	isv.invalid-app-id |
 | sub_msg |	明细错误描述 | String | 支付宝返回的详细错误描述信息，请参考“13.2  安全机制错误码”。 | 不可空 |	无效的AppID参数 |
 
-####10.3.2  同步返回参数样例
+####   同步返回参数样例
 ```
 {"error_response":{"code":"40002","msg":"Invalid Arguments","sub_code":"isv.invalid-app-id","sub_msg":"无效的AppID参数"}}
 ```
-###10.4  服务窗账号信息设置规格
+###   服务窗账号信息设置规格
 1. 服务窗账号LOGO大小
 640px*640px，200k以下，png格式。
 2. 背景图片
@@ -1271,47 +1269,3 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 8. 图文消息
 	字数限制：55个汉字以内，一个汉字2个英文字母。
 	图片格式：540px*270px，200k以内，支持jpeg、jpg、png。
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
