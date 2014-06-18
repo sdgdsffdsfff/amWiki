@@ -1,45 +1,137 @@
 {
-    "sitename":"AM WIKI",
-    "source": "wiki",
-    "output": "_site",
-    "theme": "theme",
-    "archive_title":"all",
-    "perpage": 100,
-    "permalink": "{{directory}}/{{filename}}.html",
-    "navigation": [
-        {"id":"about","title": "关于AM", "link": "about/about.html"},
-        {"id":"amj","title": "AMJ", "link": "amj/about.html","sub_nav":[
-            {"id":"about","title": "关于AMJ", "link": "amj/about.html"},
-            {"id":"doc","title": "接口文档", "link": "amj/amj接口文档.html"}
-        ]},
-        {"id":"amui","title": "AMUI", "link": "amui/about.html","sub_nav":[
-            {"id":"about","title": "使用文档", "link": "amui/about.html"},
-            {"id":"think","title": "建设想法", "link": "amui/think.html"}
-        ]},
-        {"id":"amb","title": "AMB", "link": "amb/about.html","sub_nav":[
-            {"id":"about","title": "关于AMB", "link": "amb/about.html"}
-        ]},
-        {"id":"amt","title": "AMT", "link": "amt/about.html"},
-        {"id":"h5container","title": "H5Container", "link": "h5container/about.html","sub_nav":[
-            {"id":"about","title": "关于H5Container", "link": "h5container/about.html"},
-            {"id":"doc","title": "接口文档", "link": "h5container/doc.html"},
-            {"id":"alipayjsbridge","title": "AlipayJSBridge", "link": "h5container/alipayjsbridge.html"},
-            {"id":"h5appdemo","title": "离线类H5App开发指南", "link": "h5container/h5appdemo.html"}
-        ]},
-        {"id":"sample","title": "样例库", "link": "sample/index.html"},
-        {"id":"bookmarks","title": "书签", "link": "/AM/index.html","sub_nav":[
-            {"id":"caniuse","title": "Can I use", "link": "http://caniuse.com/"},
-            {"id":"base64","title": "base64 Image", "link": "http://www.base64-image.de/"}
-        ]},
-        {"id":"wiki","title": "知识库", "link": "/AMWD/index.html"}
-    ],
-    "writers": [
-        "nico.PostWriter",
-        "nico.DirectoryWriter",
-        "nico.ArchiveWriter",
-        "nico.FileWriter",
-        "nico.StaticWriter",
-        "nico.TagWriter",
-        "nico.FeedWriter"
-    ]
+	"sitename": "AM PORT",
+	"source": "wiki",
+	"output": "_site",
+	"theme": "theme",
+	"archive_title": "all",
+	"perpage": 100,
+	"permalink": "{{directory}}/{{filename}}.html",
+	"navigation": [
+		{
+			"id": "about",
+			"title": "关于AM",
+			"link": "about/about.html"
+		},
+		{
+			"id": "amguild",
+			"title": "移动开发指南",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "移动开发规范",
+					"link": "amui/dev_guild.html"
+				},
+				{
+					"id": "think",
+					"title": "移动建站指南",
+					"link": "amui/website_guild.html"
+				}
+			]
+		},
+		{
+			"id": "amui",
+			"title": "AMUI",
+			"link": "amui/about.html",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "关于AMUI",
+					"link": "amui/about.html"
+				},
+				{
+					"id": "api",
+					"title": "API文档",
+					"link": "amui/api.html"
+				}
+			]
+		},
+		{
+			"id": "amj",
+			"title": "AMJ",
+			"link": "amj/about.html",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "关于AMJ",
+					"link": "amj/about.html"
+				},
+				{
+					"id": "doc",
+					"title": "接口文档",
+					"link": "amj/api.html"
+				}
+			]
+		},
+		{
+			"id": "amw",
+			"title": "AMW",
+			"link": "amw/about.html",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "关于AMW",
+					"link": "amw/about.html"
+				},
+				{
+					"id": "doc",
+					"title": "接口文档",
+					"link": "amw/api.html"
+				}
+			]
+		},
+		{
+			"id": "H5Container",
+			"title": "H5Container",
+			"link": "h5container/about.html",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "关于H5Container",
+					"link": "h5container/about.html"
+				}
+			]
+		},
+		{
+			"id": "H5app",
+			"title": "H5App",
+			"link": "h5app/about.html",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "关于H5App",
+					"link": "h5app/about.html"
+				},
+				{
+					"id": "h5appdemo",
+					"title": "开发指南",
+					"link": "h5container/h5appdemo.html"
+				}
+			]
+		},
+		{
+			"id": "sample",
+			"title": "Demo库",
+			"link": "sample/index.html"
+		},
+		{
+			"id": "wiki",
+			"title": "知识库",
+			"link": "https://github.com/am-team/amWiki/wiki",
+			"sub_nav": [
+				{
+					"id": "bookmarks",
+					"title": "收藏阁"
+				}
+			]
+		}
+	],
+	"writers": [
+		"nico.PostWriter",
+		"nico.DirectoryWriter",
+		"nico.ArchiveWriter",
+		"nico.FileWriter",
+		"nico.StaticWriter",
+		"nico.TagWriter",
+		"nico.FeedWriter"
+	]
 }
