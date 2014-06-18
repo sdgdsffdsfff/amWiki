@@ -81,7 +81,7 @@
 		},
 		{
 			"id": "H5Container",
-			"title": "H5Container",
+			"title": "H5 Container",
 			"link": "h5container/about.html",
 			"sub_nav": [
 				{
@@ -91,19 +91,19 @@
 				},
 				{
 					"id": "public_home_api",
-					"title": "商户API文档",
+					"title": "开发者API文档",
 					"link": "h5container/public-home-api.html"
 				}
 			]
 		},
 		{
 			"id": "H5app",
-			"title": "H5App",
+			"title": "H5 APP",
 			"link": "h5app/about.html",
 			"sub_nav": [
 				{
 					"id": "about",
-					"title": "关于H5App",
+					"title": "关于H5 App",
 					"link": "h5app/about.html"
 				},
 				{
