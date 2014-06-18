@@ -19,12 +19,12 @@
 				{
 					"id": "about",
 					"title": "移动开发规范",
-					"link": "amui/dev_guild.html"
+					"link": "amguild/dev-guild.html"
 				},
 				{
 					"id": "think",
 					"title": "移动建站指南",
-					"link": "amui/website_guild.html"
+					"link": "amguild/website-guild.html"
 				}
 			]
 		},
@@ -119,7 +119,6 @@
 		}
 	],
 	"writers": [
-		"nico.PostWriter",
 		"nico.DirectoryWriter",
 		"nico.ArchiveWriter",
 		"nico.FileWriter",
