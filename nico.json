@@ -90,26 +90,14 @@
 					"link": "h5container/about.html"
 				},
 				{
+					"id": "ab",
+					"title": "AmBridge组件",
+					"link": "h5container/ab.html"
+				},
+				{
 					"id": "public_home_api",
 					"title": "开发者API文档",
 					"link": "h5container/public-home-api.html"
-				}
-			]
-		},
-		{
-			"id": "H5app",
-			"title": "H5 APP",
-			"link": "h5app/about.html",
-			"sub_nav": [
-				{
-					"id": "about",
-					"title": "关于H5 App",
-					"link": "h5app/about.html"
-				},
-				{
-					"id": "h5appdemo",
-					"title": "开发指南",
-					"link": "h5container/h5appdemo.html"
 				}
 			]
 		},
@@ -135,8 +123,6 @@
 		"nico.DirectoryWriter",
 		"nico.ArchiveWriter",
 		"nico.FileWriter",
-		"nico.StaticWriter",
-		"nico.TagWriter",
-		"nico.FeedWriter"
+		"nico.StaticWriter"
 	]
 }
