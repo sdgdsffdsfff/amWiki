@@ -1,4 +1,4 @@
-# Hello Nico
+# 
 
 - pubdate: 2014-06-04
 
@@ -135,6 +135,10 @@ eventType消息体的子类型，verifygw标识验证网关
 
 详见9.签名机制。
 
+### 3.2接入工具包
+
+详见接入工具包
+
 ## 4接收消息
 
 ### 4.1验证消息有效性 
@@ -218,9 +222,33 @@ https://商户服务端网关地址?sign=SKlbQBMz7ImtuU0dvTvYybMI+jRu2hvM9RXHcs4
 </XML>
 
 ````
-* 4.2.4发送消息到商户的请求参数 
 
-1.发送消息到商户请求参数说明
+* 4.2.4 自定义二维码扫码
+
+````
+<XML>  <AppId><![CDATA[2013091400029967]]></AppId>   <FromUserId><![CDATA[aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3 K2r70Eebm4r01]]></FromUserId>  <CreateTime>1380111761024</CreateTime>   <MsgType><![CDATA[event]]></MsgType>   <EventType><![CDATA[enter]]></EventType>  <ActionParam>  <![CDATA[{"gotoUrl":"自定义 url","scene":{"sceneId":"自定义场景码"}}]]>  </ActionParam>  <AgreementId><![CDATA[20130925000001318457]]></AgreementId>   <AccountNo><![CDATA[]]></AccountNo>  <UserInfo><![CDATA[  {              "logon_id":  "135****1009",              "user_name":  "*iuxu527"  }  ]]></UserInfo>  </XML>  
+
+````
+
+* 4.2.5 申请商户会员绑定
+
+````
+<XML>  <AppId><![CDATA[2013091400029967]]></AppId>   <FromUserId><![CDATA[aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3 K2r70Eebm4r01]]></FromUserId>  <CreateTime>1380111761024</CreateTime>   <MsgType><![CDATA[event]]></MsgType>   <EventType><![CDATA[click]]></EventType>   <ActionParam><![CDATA[authentication]]></ActionParam>   <AgreementId><![CDATA[]]></AgreementId>   <AccountNo><![CDATA[]]></AccountNo>  <UserInfo><![CDATA[  {              "logon_id":  "135****1009",              "user_name":  "*iuxu527"  }  ]]></UserInfo>  </XML>  
+
+````
+
+* 4.2.6 删除商户会员绑定 
+
+````
+<XML>  <AppId><![CDATA[2013091400029967]]></AppId>   <FromUserId><![CDATA[aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3 K2r70Eebm4r01]]></FromUserId>  <CreateTime>1380111761024</CreateTime>   <MsgType><![CDATA[event]]></MsgType>   <EventType><![CDATA[click]]></EventType>   <ActionParam><![CDATA[delete]]></ActionParam>   <AgreementId><![CDATA[]]></AgreementId>   <AccountNo><![CDATA[]]></AccountNo>  <UserInfo><![CDATA[  {              "logon_id":  "135****1009",              "user_name":  "*iuxu527"  }  ]]></UserInfo>  </XML>  
+
+````
+
+
+
+* 4.2.7发送消息到商户的请求参数 
+
+1.表4-1 发送消息到商户请求参数说明
 
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
 | ------------ | -------------|
@@ -228,7 +256,7 @@ https://商户服务端网关地址?sign=SKlbQBMz7ImtuU0dvTvYybMI+jRu2hvM9RXHcs4
 | service | 接口名称 | String | 本接口名称：alipay.mobile.public.message.notify | 不可空 | alipay.mobile.public.message.notify|
 
 
-2.用户发送消息到服务窗账号biz_content参数说明
+2.表4-2 用户发送消息到服务窗账号biz_content参数说明
 
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
 | ------------ | -------------|
@@ -242,6 +270,14 @@ https://商户服务端网关地址?sign=SKlbQBMz7ImtuU0dvTvYybMI+jRu2hvM9RXHcs4
 | AccountNo | 商户的会员账号 | String | 商户的会员账号。只有在绑定商户会员号高级功能且为click事件才会有值。| 可空 | 188986578765 | 
 | UserInfo | 用户信息 | 	String | 支付宝的用户信息，json字符串。目前包括：logon_id：隐藏的支付宝账号，如：shu***@163.com；user_name：用户姓名，如：*小虎。| 可空 | { "logon_id": "135****1009","user_name":"*iuxu527"}| 
 
+
+￼ 注意:    
+支付宝发送消息到商户请求actionParam对应值存在几个关键字,商户在设置自定义菜单时,务必不能设置相同的值:  
+authentication:用于标记用户申请商户会员绑定请求。  
+delete:用于标记用户删除商户会员绑定通知。  
+
+
+
 ## 5发送消息 
 ### 5.1发送被动响应消息
 
@@ -252,28 +288,44 @@ https://商户服务端网关地址?sign=SKlbQBMz7ImtuU0dvTvYybMI+jRu2hvM9RXHcs4
 
 * 5.1.2回复样例 
 
+    通讯应答:
+    
 ````
-<XML>
-    <ToUserId><![CDATA[aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01]]></ToUserId>
-    <AppId><![CDATA[2013091300001603]]></AppId>
-    <CreateTime>1380160451638</CreateTime>
-    <MsgType><![CDATA[image-text]]></MsgType>
-    <ArticleCount>1</ArticleCount>
-    <Articles>
-        <Item>
-            <Title><![CDATA[优惠信息]]></Title>
-            <Desc><![CDATA[老用户全场优惠，免运费。]]></Desc>
-            <ImageUrl><![CDATA[http://alipay.com/ima/2013.jpg]]></ImageUrl>
-            <Url><![CDATA[http://alipay.com/7602.html]]></Url>
-        </Item>
-    </Articles>
-</XML>
+<?xml  version="1.0"  encoding="GBK"?>  <alipay>        <response></response>   <sign>djRg8yFRYRJfieP69uFIbJRXivOEwCBZFmfkwiPcoDGgLClm2+loZhRt61OsRICSKHrWF Wmb3T5BYguwg0zWuahihEs7Zig270gkCTYVHMj5H0heo0WwQAUxtkBcguyGQSy23bh7Swz rho3l6xysKD3ZxHF1TrULrPTS19KHGvg=</sign>        <sign_type>RSA</sign_type> 
+   </alipay>  
 
 ````
+	业务应答:(图文格式)  
+	
+````
+<?xml  version="1.0"  encoding="GBK"?>   <alipay>        <response>          <XML>                      <ArticleCount><![CDATA[1]]></ArticleCount>                     <Articles>                    <Item>                                  <Title><![CDATA[消息标题]]></Title>                                      <Desc><![CDATA[消息描述]]></Desc>                         <ImageUrl><![CDATA[http:/xxx/1.jpg]]></ImageUrl>                                      <Url><![CDATA[http://1.com/1.hml]]></Url>                                      <ActionName><![CDATA[立即点击]]></ActionName>                                      <AuthType><![CDATA[loginAuth]]></AuthType>                     </Item>                </Articles>                        <AppId><![CDATA[2014041000004740]]></AppId>         <ToUserId><![CDATA[9xfdVyB6hen5ECY-jH0gdCiFDCMb0Zg23KGv6wXx7Tk0hpUgSZcfyQF h1iGoZMLq01]]></ToUserId>                    <AgreementId/>                        <CreateTime><![CDATA[1397203982541]]></CreateTime>                          <MsgType><![CDATA[image-text]]></MsgType>                    <ShowType/>            </XML>        </response>         <sign>djRg8yFRYRJfieP69uFIbJRXivOEwCBZFmfkwiPcoDGgLClm2+loZhRt61OsRICSKHrWF Wmb3T5BYguwg0zWuahihEs7Zig270gkCTYVHMj5H0heo0WwQAUxtkBcguyGQSy23bh7Swz rho3l6xysKD3ZxHF1TrULrPTS19KHGvg=</sign>        <sign_type>RSA</sign_type>  </alipay>  
+
+````
+	业务应答:(纯文本格式)  
+	
+````
+<?xml  version="1.0"  encoding="GBK"?>   <alipay>        <response>          <XML>               <ArticleCount><![CDATA[1]]></ArticleCount>                      			<Articles>                    <Item>                          <Title><![CDATA[消息标题]]></Title>                              <Desc><![CDATA[消息描述]]></Desc>                                						<ImageUrl/  >    							<Url/>                       
+						<ActionName/>                           
+						<AuthType/>                     
+						</Item>                 
+						</Articles>                        <AppId><![CDATA[2014041000004740]]></AppId>          <ToUserId><![CDATA[9xfdVyB6hen5ECY-jH0gdCiFDCMb0Zg23KGv6wXx7Tk0hpUgSZcfyQF h1iGoZMLq01]]></ToUserId>                    <AgreementId/>                        <CreateTime><![CDATA[1397203982541]]></CreateTime>                           <MsgType><![CDATA[image-text]]></MsgType>                     
+			<ShowType/>            </XML>        </response>         <sign>djRg8y98ssjjsfsjjfskkfsskjsjncpgLClm2+loZhRt61OsRICSKHrWFWmb3T5BYguwg0zW kajdjadajqgkCTYVHMj5H0heo0WwQAUxtkBcguyGQSy23bh7Swzrho3l6xysKD3ZxHF1TrULrP TS19K9jsIl=</sign>        <sign_type>RSA</sign_type>  </alipay>  
+
+````
+
+
 
 * 5.1.3回复参数 
 
-服务窗账号回复消息参数说明
+表5-1 服务窗账号回复消息参数说明
+
+| 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
+| ------------ | -------------|
+| sign | 签名 | String | RSA 加密算法后得出的结 果,请参见“签名机制”。 | 不可空 | 899rerojeorjeo9434343 |
+| sign_type | 签名方式 | String | 签名方式只支持 RSA。 | 不可空 | RSA |
+| response | 响应内容 | String | 1.若是通讯应答,则此处为 空字符串  2.若是业务应答,则此处为 XML 格式,具体参见下表 说明 | 可空 | 为空表示通讯应答   不为空则参见下表 | 
+
+ 表5-2 服务窗账号回复消息 response 参数说明  
  
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
 | ------------ | -------------|
@@ -354,14 +406,14 @@ biz_content数据示例如下：
 
 * 5.2.3请求参数
 
-1.请求参数说明
+表5-3 请求参数说明
 
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
 | ------------ | -------------|
 | 协议参数 | 
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.message.push。| 不可空 | alipay.mobile.public.message.push | 
 
-2.服务窗账号下发消息biz_content参数说明
+ 表5-4 服务窗账号下发消息biz_content参数说明
 
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
 | ------------ | -------------|
@@ -386,7 +438,7 @@ biz_content数据示例如下：
 
 商户可以根据下表设置要发送消息的特定类型的用户
  
- 1. 推送消息关键参数设置说明
+ 表5-5 推送消息关键参数设置说明
 
 | 参数：ToUserId | 推送效果 | 
 | ------------ | -------------|
@@ -395,7 +447,7 @@ biz_content数据示例如下：
 
 * 5.2.5 同步返回参数 
 
-1 返回参数列表
+1 表5-6 返回参数列表
 
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
 | ------------ | -------------|
@@ -404,7 +456,7 @@ biz_content数据示例如下：
 | msg | 含义 | String | 支付宝返回的处理结果说明处理成功：success；处理失败：请参考“13.1  业务返回码”。| 不可空 | 成功 |
 | sign | 签名结果 | String | 支付宝返回的签名结果。目前仅支持RSA方式。 | 不可空 | gi771WtMTPpLY68/jCibUyHZ1S6wbVFzD+E2ggH2TkwrJAl6tP2a/TyJIgxWrwnoYQfT6MEY3FwzC5x1jAhvb4l31fDKXfhi9iqfs87y4WT27rXRvvszXt5ILOkFLZ7NbZ1lZcZzPvL4fUf5qZLfsGlhzfkMUlThiMD8T+6VqVw= |
 
-* 同步返回样例
+* 5.2.6 同步返回样例
 
 正常输出：
 
@@ -560,6 +612,172 @@ http://商户自定义地址?ALIPAY_AUTH=publicp&auth_code=af1a1304b37240d2a78f2
 
 * 6.2.5 调用换取授权访问令牌接口
 
+商户拿到 auth_code(授权码)后,调用换取授权访问令牌接口(alipay.system.oauth.token),  
+请求样例：
+
+````
+￼http://openapi.alipaydev.com/gateway.do?app_id=2013102100032529   &charset=GBK&method=   alipay.system.oauth.token   &sign_type=RSA&timestamp=2013-12-04   15:11:41&sign=c3q5%2fV30dO18%2f0hTNdUP6Sly08Bp368Y9pgRBsUUfkLQQcnLxcl8TtKufJ Ab7E4KGxVOy0PeZRMoY%2f%2bxpRJcfiNZER7u5UlX%2fPzjZsP6GWP8CtxR7S7%2fhRvb8M 9SYLQ%2b8O7TWG5pm%2fYBBXQn1v%2bJBib5F7UNOACbBNAAwIdSABU%3d&grant_typ e=authorization_code&=code=xxx  
+
+````
+
+表6-4 令牌交换请求参数说明  
+
+| 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
+| ------------ | -------------|
+| 协议参数 |
+| method | 接口名称 | String | 本接口名称: alipay.system.oauth.token。  | 不可空 | alipay.system.o auth.token | 
+| app_id | 服务窗账 号 ID | String | 服务窗账号 ID,服务窗账号唯一标 识。 商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001 633  | 
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= | 
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码 字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。  默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳  | 不可空 | 2014-04-11   10:01:39  |
+| grant_type | 授权类型 | String | 授权类型  | 不可空 | authorization_c ode  |
+| code | 授权码 | String | 授权码,即商户参数中 auth_code 对应值   | 不可空 | 4b203fe6c1154 8bcabd8da5bb 087a83b  |
+| refresh_token | 刷新令牌 | String | 刷新令牌,上次请求时返回,当需要 刷新时设置 | 可空 | 20121293ac6ffd sdf2djshs384bf 9835314781038 |
+
+
+表6-5 返回参数列表  
+
+| 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 |
+| ------------ | -------------|
+| alipay_system_oauth_token_response || code | 返回码 | String | 支付宝返回的处理结果代码。处理成功:200; 处理失败:请参考“12.1业务返回码”。 | 不可空 | 200 || msg | 含义 | String | 支付宝返回的处理结果说明 处理成功:成功; 处理失败:请参考“12.1业务返回码”。 | 不可空 | 成功 || access_token | 交换令牌 | String | 换取用户信息的交换令牌 | 不可空 | 20120823ac6ffaa4d2d84e7384bf9￼83531473993 || expires_in | 令牌有效期 | String | 交换令牌的有效期,单位秒 | 不可空 | 500 || refresh_token | 刷新令牌 | String | 刷新令牌,用于刷新交换令牌 | 不可空 | 20121293ac6ffdsdf2djshs384bf9835314781038 || re_expires_in | 刷新令牌有效期 | String | 刷新令牌的有效期,单位秒 | 不可空 | 3600 |
+
+* 6.2.6 用户信息获取接口
+
+通过换取交换令牌接口(alipay.system.oauth.token)成功获取 access_token 后,通过用户信息获取接口(alipay.user.userinfo.share)接口获取支付宝钱包用户的身份信息。   
+请求样例:  
+
+````
+http://openapi.alipaydev.com/gateway.do?app_id=2013102100032529   &charset=GBK&method=alipay.user.userinfo.share&sign_type=RSA&timestamp=2013-12- 0415:11:41&sign=c3q5%2fV30dO18%2f0hTNdUP6Sly08Bp368Y9pgRBsUUfkLQQcnLxcl8TtK ufJAb7E4KGxVOy0PeZRMoY%2f%2bxpRJcfiNZER7u5UlX%2fPzjZsP6GWP8CtxR7S7%2fhRvb 8M9SYLQ%2b8O7TWG5pm%2fYBBXQn1v%2bJBib5F7UNOACbBNAAwIdSABU%3d&auth_t oken=xx  
+
+````表6-6 用户信息获取请求参数说明
+| 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
+| ------------ | -------------|
+| 协议参数 |
+| method | 接口名称 | String | 本接口名称: alipay.user.userinfo.share。 | 不可空 | alipay.user.useri nfo.share |
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。 商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。 默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11 10:01:39 |
+| auth_token | 交换令牌 | String | 通过交换令牌接口获取到的 access_token | 不可空 | 20120823ac6ffaa4d2d84e7384bf983531473993 |
+
+表6-7 用户信息获取返回参数列表
+
+| 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 | 
+| ------------ | -------------|
+| alipay_user_userinfo_share_response |
+| code | 返回码 | String | 支付宝返回的处理结果代码。 处理成功:200; 处理失败:请参考“12.1 业务返回码”。 | 不可空 | 200 |
+| msg | 含义 | String | 支付宝返回的处理结果说明 处理成功:成功; 处理失败:请参考“12.1    业务返回码”。 | 不可空 | 成功 | 
+| user_id | 用户 id | String | 接收方的支付宝账户 OpenID。 | 可空 | aYMvrMC8+qdi 3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01 | 
+| user_type_value | 用户类型 | String | 1 代表公司账户   2 代表个人账户 | 可空 | 1 |
+| user_status | 用户状态 | String | 用户状态(Q/T/B/W)。   Q 代表快速注册用户     T 代表已认证用户     B 代表被冻结账户     W 代表已注册,未激活的账户  | 可空 | Q |
+| firm_name | 公司名称 | String | 公司名称(用户类型是公司类型时公 司名称才有此字段)。 | 可空 | XXX 商务公司 |
+| real_name | 用户的真实姓名 | String | 用户的真实姓名。 | 可空 | 张三 |
+| email | 邮件地址 | String | 用户支付宝账号绑定的邮箱地址 | 可空 | zhangsan@163.com |
+| ￼cert_type_value | 证件类型 | String | 0:身份证      1:护照      2:军官证      3:士兵证      4:回乡证      5:临时身份证      6:户口簿      7:警官证      8:台胞证      9:营业执照      10 其它证件 | 可空 | 0 |
+| cert_no | 证件号码 | String | 证件号码 | 可空 | 339001293817391827 |
+| gender | 性别 | String | 性别(F:女性;M:男性) | 可空 | F  |
+| phone | 电话号码 | String | 电话号码 | 可空 | 0571-26888888 |
+| mobile | 手机号码 | String | 手机号码 | 可空 | 13698989898 |
+| is_certified | 实名认证标识 |  String | 是否通过实名认证。T 是通过   F 是没 有实名认证 | 可空 | T | 
+| is_bank_auth | 银行卡认证标识 | String | T 为是银行卡认证,F 为非银行卡认 证。 | 可空 | F |
+| is_id_auth | 身份证认证标识 | String | T 为是身份证认证,F 为非身份证认 证  | 可空 | T |
+| is_mobile_auth | 手机号认证标识 | String | T 为是手机认证,F 为非手机认证。 | 可空 | T |
+| is_licence_auth | 营业执照认证 | String | T 为通过营业执照认证,F 为没有通 过  | 可空 | T |
+| province | 省份 | String | 省份 | 可空 | 浙江 |
+| city | 城市 | String | 城市 | 可空 | 杭州 |
+| area | 县区 | String | 县区 | 可空 | 西湖区 |
+| zip | 邮政编码 | String | 邮政编码 | 可空 | 37100 |
+| address | 详细地址 | String | 详细地址 | 可空 | 黄龙时代广场 B 座 |
+| deliver_phone | 收货地址固定电话 | String | 收货地址的联系人固定电话 | 可空 | 0571-26888888 |
+| ￼deliver_mobile | 收货地址 移动电话 | String | 收货地址的联系人移动电话 | 可空 | 13698989898 |
+| deliver_fullname | 收货人全名 | String | 收货人全名 | 可空 | 张三 |#### 6.3网页授权获取用户基本信息
+
+* 6.3.1 概述
+
+如果用户在钱包中访问服务窗的第三方网页，开发者可以通过此接口获取当前用户基本信息（包括昵称、性别、城市、国家）。利用用户信息，可以实现体验优化、用户来源统计、帐号绑定、用户身份鉴权等功能。请注意，“获取用户基本信息接口是在用户和服务窗产生消息交互时，才能根据用户OpenID获取用户基本信息，而网页授权的方式获取用户基本信息，则无需消息交互，只是用户进入到公众号的网页，就可弹出请求用户授权的界面，用户授权后，就可获得其基本信息（此过程甚至不需要用户已经关注公众号。）”
+ 本接口是通过OAuth2.0来完成网页授权的，是安全可靠的，关于OAuth2.0的详细介绍，可以参考OAuth2.0协议标准。
+具体而言，网页授权流程分为四步：
+
+1.引导用户进入授权页面同意授权，获取auth_code。这个获取在钱包中有多种模式。
+2.通过auth_code换取网页授权access_token（与基础支持中的access_token不同）
+3.如果需要，开发者可以刷新网页授权access_token，避免过期
+4.通过网页授权access_token获取用户基本信息
+
+* 6.3.2 获得授权码
+
+当触发信息授权功能时，当前页面会跳转至商户的页面上，商户的服务端会接收支付宝传递过来的参数auth_code（授权码）。如下：
+http://商户自定义地址?ALIPAY_AUTH=publicp&auth_code=af1a1304b37240d2a78f2c51ea8500e1&PUBLIC_ID=2013102100032529&app_id=2013102100032529&sourceId=publicplatform
+
+有以下2种方式可配置信息授权。
+
+
+* 6.3.3 在服务窗平台中配置
+
+商户可登录服务窗平台，在“菜单管理”中，选择“设置动作”为“自动登录网页”，并填写网址，点击“完成”，即可实现。
+ 
+![alt text](https://i.alipayobjects.com/i/ecmng/png/201406/2mBvRHXF25.png)
+
+
+* 6.3.4 通过调用API配置
+
+在接口API中有2种菜单类型：一种是link，一种是out。
+设置link类型菜单时
+在url参数中的biz_content业务参数内容里把authType配置为loginAuth。
+设置out类型菜单时
+
+   商户同步返回
+	
+支付宝调用商户“接收事件推送”接口时，发送的回复消息中需设置<AuthType>loginAuth</AuthType>参数，且Item节点下的参数Url必须设置。ActionName参数是消息体里面展现的文案，建议配置成立即前往，如下：
+
+````
+<XML>
+<ToUserId><![CDATA[aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01]]></ToUserId>
+<AppId><![CDATA[2013081700023966]]></AppId>
+<CreateTime>12334349884</CreateTime>
+<MsgType><![CDATA[image-text]]></MsgType>
+<ArticleCount>1</ArticleCount>
+<Articles>
+<Item>
+<Title><![CDATA[标题]]></Title>
+<Desc><![CDATA[内容]]></Desc>
+<ImageUrl><![CDATA[http://domain.url]]></ImageUrl>
+<Url><![CDATA[http://domain/do.url]]></Url>
+<ActionName><![CDATA[立即前往]]></ActionName>
+<AuthType><![CDATA[loginAuth]]></AuthType>
+</Item>
+</Articles>
+</XML>
+
+````
+
+   商户主动发起
+支付宝调用商户“接收事件推送”接口时，发送的回复消息中需设置<AuthType>loginAuth</AuthType>参数，且Item节点下的参数Url必须设置。ActionName参数是消息体里面展现的文案，建议配置成立即前往，如下：
+
+````
+<XML>
+<ToUserId><![CDATA[aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01 ]]></ToUserId>
+<AppId><![CDATA[2013081700023966]]></AppId>
+<CreateTime>12334349884</CreateTime>
+<MsgType><![CDATA[image-text]]></MsgType>
+<ArticleCount>1</ArticleCount>
+<Articles>
+<Item>
+<Title><![CDATA[标题]]></Title>
+<Desc><![CDATA[内容]]></Desc>
+<ImageUrl><![CDATA[http://domain.url]]></ImageUrl>
+<Url><![CDATA[http://domain/do.url]]></Url>
+<ActionName><![CDATA[立即前往]]></ActionName>
+<AuthType><![CDATA[loginAuth]]></AuthType>
+</Item>
+</Articles>
+</XML>
+
+````
+
+* 6.2.5 调用换取授权访问令牌接口
+
 商户拿到auth_code（授权码）后，调用换取授权访问令牌接口（alipay.system.oauth.token），该接口相关信息请参考：
 
 ````
@@ -582,8 +800,10 @@ https://openhome.alipay.com/doc/viewApiDoc.htm?name=alipay.system.oauth.token&ve
 禁止出现让用户设置商户网站的会员密码的操作界面等把支付宝会员转换为商户网站自己的会员的操作。
 
 
+
 ##7  自定义菜单
 ###7.1  概述
+
 服务窗账号可以使用该接口完成自定义菜单的创建、查询和更新操作。
 
 菜单说明：
@@ -643,6 +863,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 图7-1 菜单样例
 
 ####7.2.2  请求参数
+
 通过POST一个特定结构体，实现支付宝钱包客户端的服务窗账号创建自定义菜单。
 本接口只可以调用一次，菜单已存在无需再次创建，今后只需要调用更新接口。
 
@@ -652,6 +873,16 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | ------------ | -------------|
 | 协议参数 |
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.menu.add。 | 不可空 | alipay.mobile.public.menu.add |
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 |   
+
 
 表7-2 菜单创建biz_content参数说明
 
@@ -680,20 +911,34 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 ####7.2.4  同步返回样例
 
 *	正常输出：
+
+
+
 ```
 {"alipay_mobile_public_menu_add_response":{"code":200,"msg":"成功"},"sign":"gi771WtMTPpLY68/jCibUyHZ1S6wbVFzD+E2ggH2TkwrJAl6tP2a/TyJIgxWrwnoYQfT6MEY3FwzC5x1jAhvb4l31fDKXfhi9iqfs87y4WT27rXRvvszXt5ILOkFLZ7NbZ1lZcZzPvL4fUf5qZLfsGlhzfkMUlThiMD8T+6VqVw="}
+
 ```
 *	发生错误时输出：
+
+
+
 ```
 {"alipay_mobile_public_menu_add_response":{"code":11013,"msg":"菜单已经创建过"},"sign":"SFIJp0ZUTrjymCGTfLnfsGBh8objZgCEF1HsDvofpCjCZmTAnuuz/x8rRKiEEtnfipp0XHGpGRykMEzCvaJ6jt+FkAFiU0WCQAhXQFMX62tDCAqWu2RsKJVYeoJf1ApZESbIxAz0GE6WOwDFXQSHlCastLt30Lt4s9+vhiF7cHk="}
+
 ```
 ###7.3  自定义菜单更新接口
+
 ####7.3.1  请求样例
+
 注意：https请求实际方式为POST。
+
 ```
 http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay.mobile.public.menu.update&charset=GBK&app_id=2013091300001633&biz_content =“biz_content示例”
+
 ```
+
 biz_content示例（实际赋值时，需去除换行与空格）：
+
 ```
 {
     "button": [
@@ -724,6 +969,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
         }
     ]
 }
+
 ```
 以上示例是将上述创建的菜单中的“最新优惠”去掉。上述菜单格式对应在支付宝客户端菜单区域的展示如下图所示：
 ![alt text](https://i.alipayobjects.com/i/ecmng/png/201406/2mBTZccTCH.png "Title")
@@ -739,14 +985,29 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 |
 | ------------ | -------------|
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.menu.update。 | 不可空 | alipay.mobile.public.menu.update | 
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 |   
+
+
+
+
+表7-5 菜单更新biz_content参数说明
+
+| 参数 | 参数名称 | 类型（长度范围）| 参数说明 | 是否可为空 | 样例 |
+| ------------ | -------------|
 | button | 按钮	| 数组 | 按钮数组，定义菜单按钮。 | 不可空 | 参见“3.2.2请求样例” |
 | subButton | 子按钮	| 数组 | 子按钮数组，定义子菜单按钮。 | 可空 | 参见“3.2.2请求样例” |
 | actionType | 动作类型	| String | 菜单动作类型。out：点击钱包服务窗账号首页中的菜单请求支付宝服务窗平台，支付宝服务窗平台会从服务窗账号的网关中获取该菜单对应的响应；link：点击菜单直接跳转web/wap页面，不需要请求支付宝服务窗平台。 | 不可空 | out |
 | name | 按钮名称 | String | 按钮显示名称。一级菜单最多4个汉字；二级菜单最多12个汉字。| 不可空 | 立即还款 |
 | actionParam | 按钮标识	| String | 当菜单actionType=out时，actionParam是标识按钮作用的键值，用于“4  用户发送消息到”接口。当菜单actionType=link时，actionParam的值为直接跳转web/wap的链接地址。actionParam用于超链接时不能超过255个字符，不能使用特殊符号，如冒号。 | 不可空 | MENU_V01_REPAYMENT |
 | authType | 信息授权标识 | String | 当需要免登时，该参数必须取值为loginAuth。只有actionType为link时才能配置该参数。如果actionType为out，需在商户调用“5  商户回复消息”接口时，设置参数authType来标识是否免登。 | 可空 | loginAuth |
-
-表7-5 菜单更新biz_content参数说明
 
 ####7.3.3  同步返回参数
 
@@ -784,6 +1045,16 @@ http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay
 | ------------ | -------------|
 | 协议参数 |
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.menu.get。 | 不可空 | alipay.mobile.public.menu.get |
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 |   
+
 
 
 ####7.4.3  同步返回参数
@@ -853,10 +1124,16 @@ http://openapi.alipaydev.com/gateway.do?access_token=ACCESS_TOKEN&method= alipay
 请参考章节“接收时间发送”中关于菜单点击事件。
 
 ##8  商户会员号
+
+支付宝服务窗提供用于绑定商户会员与支付宝账户关系的功能(例如典型案例中中石化的” 添加加油卡”)。当用户点击入口按钮后,支付宝会向商户开发者网关投递申请请求(参见申请 商户会员绑定),商户根据此申请请求被动响应消息(参见发送被动响应消息),其中响应消息的 url 字段内容即为商户绑定会员的表单页面。
+
 ###8.1  添加绑定商户会员号
+
 ####8.1.1  概述
+
 当用户成为商户的关注用户后，可以在商户的服务窗平台中点击“添加绑定商户会员号”功能，支付宝系统收到操作请求后将该动作通知给商户（调用“4  用户发送消息到”接口，eventType（事件类型）为click，actionParam（按钮标识）为authentication），商户根据此通知调用“5  商户回复消息”接口（其中须包含Url链接地址），支付宝收到商户的回复消息中的链接地址后，自动跳转至商户平台的上商户会员绑定界面中，让用户完成账户绑定。
 当用户有效完成账户绑定后，商户调用本接口，把绑定结果数据通知给支付宝。
+
 ####8.1.2  请求样例
 
 注意：https请求实际方式为POST。
@@ -881,6 +1158,16 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | ------------ | -------------|
 | 协议参数 | 
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.account.add。| 不可空 | alipay.mobile.public.account.add | 
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 |   
+
 
 
 
@@ -920,7 +1207,9 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 {"alipay_mobile_public_account_add_response":{"code":10013,"msg":"您添加的账户已达上限"},"sign":"WTU3FQRE0Ol6IfjsBQFlvHXY0ai8stWDIvGb84WDtHiG0me7WXA1/7MF5qXOLsIZS9aGCqOvZi6YB4CW+R9UGz+hpAZIFwi2vJH8vRGpXTVy+/Px9H7mNOgqaKmpV1+L2bb8VO7zHuP7MNaetk82obgbPR2aZjOeLzYg9Hie/aE="}
 ```
 ###8.2  解除绑定商户会员号
+
 ####8.2.1  概述
+
 有以下三种情况会触发解除绑定在支付宝服务窗号的商户会员号：
 
 *	用户在支付宝客户端取消关注某服务窗号，也就是在服务窗账号列表上长按某个服务窗账号，显示出移除按钮，点击移除，此时会把该服务窗账号下所有已绑定的会员账户都解绑；
@@ -930,6 +1219,7 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 前两种是支付宝通知商户服务器调用“4  用户发送消息到商户”接口实现，第三种是商户主动请求支付宝，调用“7  解除绑定商户会员号”接口实现。其中第一种情况下，如果用户有绑定三个商户会员号，那么此时支付宝服务器会发送4次通知（无顺序），这些通知分别是取消关注通知及解除绑定每个商户会员号的通知。
 
 ####8.2.2  请求样例
+
 注意：https请求实际方式为POST。
 ```
 https://openapi.alipay.com/gateway.do?charset=GBK&biz_content=“biz_content示例”
@@ -948,6 +1238,15 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | ------------ | -------------|
 | 协议参数 |
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.account.delete | 不可空 | alipay.mobile.public.account.delete | 
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 | 
 
 
 表8-5 服务窗账号解除绑定商户会员号biz_content参数说明
@@ -956,6 +1255,9 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | ------------ | -------------|
 | agreementId | 协议号 | String(32) | 协议号是商户会员在支付宝服务窗账号中的唯一标识。 | 有一项不可空 | 20131017000001476688 |
 | bindAccountNo | 绑定账号 | String(64) | 要绑定的商户会员号。建议在商户的系统中保持唯一性。 | 有一项不可空 | 6226250032060088 | 
+| fromUserId | 支付宝用户号 | String | 要绑定的商户会员对应的支付宝用户号，以英文加字母组合的字符串。| 不可空 | aYMvrMC8+qdi3Mj1lqxRZJPUsrychFTewHXFVXq5ySDxWgIluiZN3K2r70Eebm4r01 | 
+
+
 
 ####8.2.4  同步返回参数
 表8-6 解除绑定商户会员号返回参数说明
@@ -1001,6 +1303,17 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 | ------------ | -------------|
 | 协议参数 |
 | method | 接口名称 | String | 本接口名称：alipay.mobile.public.account.query | 不可空 | alipay.mobile.public.account.query |
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8 h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 | 
+
+
 
 表8-8 服务窗账号查询绑定商户会员号biz_content参数说明
 
@@ -1075,12 +1388,94 @@ biz_content示例（实际赋值时，需去除换行与空格）：
 }
 ```
 
-##9  签名机制
-###9.1  请求签名
-####9.1.1  生成请求签名字符串
+
+
+##9 推广支持
+
+### 9.1 生成带参数的二维码
+
+为了满足用户渠道推广分析的需要,支付宝服务窗平台提供了生成带参数二维码的接 口。使用该接口可以获得多个带不同场景值的二维码,用户扫码后,商户会接收到事件推 送(参见自定义二维码扫码)。目前有两种类型二维码:临时二维码(存在过期时间,最长 时间为 1800 秒),和永久二维码。
+
+参数二维码根据请求参数的不同,支付宝钱包客户端会执行不同的   操作:    scene有值,gotoUrl无值:  支付宝钱包用户扫码后,首先关注该商户服务窗,其 次支付宝服务器会向商户开发者网关投递扫码消息(会附加自定义参数);    scene有值,gotorUrl有值:  支付宝钱包用户扫码后,首先关注该商户服务窗,其次钱包应用会自动打开 gotoUrl 链接,最后支付宝服务器会向商户开发者网关投递扫码消息(会附加自定义参数)。
+
+
+创建二维码
+
+每次创建二维码都需要提供一个开发者自行设置的参数(scene_id),下面分别接扫临时 二维码和永久二维码的创建过程。
+
+请求方式:POST  
+
+````
+ URL:   https://openapi.alipay.com/gateway.do?charset=GBK&biz_content=biz_content 示例 sign=dsu74et9OXghnarL8VfnJmt/XsgKPwktZ7SolBN2iQZTpBKivS+KYEf66c3up9YA2F9epJ2 TO0EEGZQFPfrkpdjT3PrWdcHtPgEb8LUYwXYExA6YSQpygAs8x9BEsYbm5jEQ4tMvrT3kRkNtf Abk+ttbpOw2kiKASHo8yGXnB/Y=&sign_type=RSA&app_id=APPID&method=alipay.mobil e.public.qrcode.create&timestamp=2013-10-10  10:10:10  
+````
+
+
+biz_content 示例:
+
+````
+临时二维码:  {              "codeType":  "TEMP",                 "expireSecond":  1800,                 "codeInfo":  {                  "scene":  {                            					"sceneId":  "1234"                    					},           "gotoUrl":"http://www.test.com"            			},                "showLogo":  "N"  }  永久二维码:  {              "codeType":  "PERM",                 "codeInfo":  {                  "scene":  {                            					"sceneId":  "1234"   					   },                       "gotoUrl":"http://www.test.com"            					},                "showLogo":  "N"  }  
+````
+
+表9-1 请求参数说明  
+
+| 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
+| ------------ | -------------|
+| 协议参数 |
+| method | 接口名称 | String | 本接口名称：alipay.mobile.public.account.query | 不可空 | alipay.mobile.public.account.query |
+| app_id | 服务窗账号ID | String | 服务窗账号 ID,服务窗账号唯一标 识。商户的支付宝应用号,与支付宝签约 后自动生成。 | 不可空 | 2013091300001633 |
+| sign | 签名 | String | 请求签名数据,参见签名机制 | 不可空 | SKlbQBMz7Imt uU0dvTvYybMI +jRu2hvM9RXH cs4/OoDEQmYz r6vX7X8RH70Y V4bcd8aHLF13 2GGZYteYGAdD +ntBajD4UdjaH XDJOOtz2Pt7v O6SST37NIyrlq DEzMdsY6yBH5 SCTwg7bA3oj1 kpAxYIs0iLqPk8h98PLssbpAs= |
+| sign_type | 签名方式 | String | 目前只支持 RSA | 不可空 | RSA |
+| charset | 参数编码字符集 | String | 合作伙伴系统与支付宝系统之间   交互信息时使用的编码字符集。   合作伙伴可以通过该参数指定使   用何种字符集对传递参数进行编   码。同时,支付宝系统也会使用   该字符集对返回参数或通知参数   进行编码。默认值为   GBK。   注意:  该参数必须在 queryString 中传   递, 不论使用的是 POST 还是   GET 方式 发送请求。   如:https://openapi.alipay.com/   gateway.do?charset=GBK | 不可空 | GBK |
+| timestamp | 时间戳 | String | 发送请求的时间戳 | 不可空 | 2014-04-11   10:01:39 |
+| terminalType | 终端类型 | String | 发起请求的终端类型 | 可空 |  | 
+| terminalInfo | 终端信息 | String | 发起请求的终端信息 | 可空 |  |
+| 业务参数 |
+| biz_content | 业务内容 | String | 具体参见下表说明 | 不可空 | 具体参见下表说明 | 
+
+
+表9-2 服务窗账号查询绑定商户会员号 biz_content 参数说明
+
+| 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
+| ------------ | -------------|
+| codeType | 二维码类型 | String | 二维码类型,目前只支持两种: TEMP:临时的(默认) PERM:永久的 | 不可空 | TEMP |
+| expireSecod | 临时二维码失效时间 | String | 临时码过期时间,以秒为单位,最大 不大超过 1800 秒;  永久码不需要设置 | 可空  | 1800 |
+| codeInfo | 场景信息 | String | 商户自定义信息,json 格式,参见 下面 codeInfo 说明 | 可空 | {“scene”:{“sc eneId”:”自定 义参 数”},"gotoUrl": "http://www.tes t.com"}  |
+| showLogo | 是否合并服务窗logo | String | 二维码中间是否显示服务窗 logo:   Y:显示  N:不显示 | 不可空 | Y |
+
+表9-3 codeInfo 参数说明  
+
+| 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
+| ------------ | -------------|
+| scene | 场景信息 | String | 商户自定义信息,json 格式 | 可空 | {“sceneId”:” 自定义参数”}  |
+| gotoUrl | 跳转 url  | String | 目标跳转 url,   | 可空 | http://www.test .com |
+
+表9-4 解除绑定商户会员号返回参数说明  
+
+| 参数 | 参数名称 | 类型（长度范围） | 参数说明 | 是否可为空 | 样例 |
+| ------------ | -------------|
+| alipay_mobile_public_qrcode_create_response  |
+| code_img | 二维码图 片地址 | String | 二维码图片地址 | 不可空 | https://tfsimg.al ipay.com/image s/mobilecodec/ T1rJBdXeleXXX XXXXX_500x500 |
+| expire_second | 临时二维 码失效时间 | String | 临时二维码的失效时间 | 可空 | 1800 |
+| code | 结果码 | int | 支付宝返回的处理结果代码。 处理成功:200;   处理失败:请参考“12.1 业务返回码”。 | 不可空 | 200 |
+| msg | 结果信息 | String | 支付宝返回的处理结果说明 处理成功:成功;   处理失败:请参考“12.1 业务返回码”。 | 不可空 | 成功 |
+| sign | 签名结果 | String | 支付宝返回的签名结果。目前仅支持 RSA 方式。 | 不可空 | jrYdAvS1QaMw yy0ChD/Glvm1 Ehw4yCmGPsKy 8KHbTTghutk0I YXP4hKncjLFPJ Zkes+KCqkN+6 pO/RA2evnwQ Pjq/WZ15AsdE2 hw95c/OAtU6cf JHdl5caaz0m/S caajN9IzzdDRO 0FGXaaqcXnG2 Q7+KnEUANea QTUUpnZvfCE= |
+
+
+
+
+
+
+
+
+##10  签名机制
+###10.1  请求签名
+####10.1.1  生成请求签名字符串
  1. 参与签名的参数
+ 
 在商户向支付宝发起请求的接口的请求参数列表中，除去sign参数外，其他需要使用到的参数皆是要签名的参数，包含参数sign_type。
+
  2. 生成待签名字符串
+ 
 对于如下的参数数组：
 ```
 string[] parameters={
@@ -1104,10 +1499,14 @@ appid=2013080800008888&biz_content=XXXXX&charset=gbk&method=alipay.mobile.public
 *	如果传递了charset参数，这个参数也该包含在待签名数据中；
 *	根据HTTP协议要求，传递参数的值中如果存在特殊字符（如：&、@等），那么该值需要做URL Encoding，这样请求接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原始值而不是encoding之后的值。例如：调用某接口需要对请求参数email进行数字签名，那么待签名数据应该是email=test@msn.com，而不是email=test%40msn.com。
 
-####9.1.2  签名
+####10.1.2  签名
+
 用待签名字符串和商户的RSA私钥生成签名串（sign）。
-###9.2  同步返回验签
-####9.2.1  生成同步返回验签字符串
+
+###10.2  同步返回验签
+
+####10.2.1  生成同步返回验签字符串
+
 1. XML格式
 在XML返回参数列表中，如果节点中存在sign，则此次的返回数据支持做验签，不存在则不支持验签。
 在XML返回参数列表中，在根节点下面除去sign节点（含节点名、节点值）外，其他所有数据以字符串形式作为要参与验签的字符串。
@@ -1133,11 +1532,17 @@ appid=2013080800008888&biz_content=XXXXX&charset=gbk&method=alipay.mobile.public
 ```
 包含符号，如双引号（"）、大括号（{、}）、逗号（,）、分号（:）。
 以上的各个节点需事先按照字母a到z的顺序排序。
-####9.2.2  验签
+
+####10.2.2  验签
+
 用待签名字符串和支付宝RSA公钥对签名串（sign）进行验证。通过则进行后续业务处理。
-###9.3  商户获得用户发送消息的验签
+
+###10.3  商户获得用户发送消息的验签
+
 支付宝调用“4  用户发送消息到商户”接口，把数据请求给商户时，商户需先做验签，再做业务逻辑处理。
-####9.3.1  生成验签字符串
+
+####10.3.1  生成验签字符串
+
 1. 参与验签的参数
 在用户发送消息到商户的参数列表中，除去sign参数外，凡是通知返回回来的参数皆是要签名的参数，包含参数sign_type。
 2. 生成待验签字符串
@@ -1157,11 +1562,45 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 *	如果传递了charset参数，这个参数也该包含在待签名数据中；
 *	根据HTTP协议要求，传递参数的值中如果存在特殊字符（如：&、@等），那么该值需要做URL Encoding，这样请求接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原始值而不是encoding之后的值。例如：调用某接口需要对请求参数email进行数字签名，那么待签名数据应该是email=test@msn.com，而不是email=test%40msn.com。
 
-####9.3.2  验签
+####10.3.2  验签
+
 用待签名字符串和支付宝RSA公钥对签名串（sign）进行验证。通过则进行后续业务处理。
-##10  附录
-###10.1  业务返回码
-表10-1 业务返回码
+
+
+## 接入工具包
+
+为方便开发者开发接入支付宝服务窗,支付宝提供了一整套接口调用,验签的工具包。目前支 持的语言平台包括 java(SDK   1.4 和 SDK   1.5 版)、.NET(2005 和 2010 版)、php 等三种,下载 地址如下:  ￼￼￼￼￼￼JAVA版本JDK1.5版下载: https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=JAVA JDK1.4版下载: https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=JDK14.NET版本2010版下载: https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=NET 2005版下载: https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=NET2005
+
+PHP版本: https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=PHP  以下针对 java 平台进行具体示例说明,其余平台类似。  
+###11.1    验签工具类验签方法:  AlipaySignature.checkSignAndDecrypt(Map<String,String>params,String   alipayPublicKey,String  cusPrivatekey,booleal  isCheckSign,Boolean  isDecrypt)  
+参数说明:  params:   所有需要验签的业务参数  alipayPulicKey:   支付宝公钥  cusPrivateKey:   开发者私钥  isCheckSign:   是否执行验签,请设置 true  isDecrypt:   是否执行解密,请设置 false  
+返回值:  biz_content:   验签成功后,返回支付宝 post 报文中 biz_content 的具体值   示例说明:以支付宝验证开发者网关验证请求为例:
+
+````
+// 支付宝RSA公钥String alipayPublicKey = "xxxx"; // 应用RSA私钥String appPrivateKey = "yyy";// 1.将支付宝post的所有参数转换成验签参数集合Map<String, String> params = new HashMap<String, String>(); for (Object key :httpServletRequest.getParameterMap().keySet()) { 
+String keyStr = (String) key;params.put(keyStr, httpServletRequest.getParameter(keyStr));}try {// 2.执行验签操作// 针对网关验证请求,bizContent就是支付宝发送的<xml><AppId>xxxx</AppId></xml>String bizContent = AlipaySignature.checkSignAndDecrypt(params, alipayPublicKey,￼￼￼￼进行业务处理appPrivateKey, true, false);// 3.解析bizContent字段,根据msgType,eventType,actionParam// TODO 解析&确认请求类型// 4.确认请求是网关验证开通开发者,则进行响应 // TODO 参见加签-商户响应加签} catch (AlipayApiException e) {//TODO 抛出异常,则标识验签失败,商户根据自行业务进行异常逻辑处理}  ￼￼￼
+````
+
+###11.2    加签工具类
+
+加签方法:     AlipaySignature.encryptAndSign(String   curPrivateKey,String   charset,boolean   AlipayApiException  参数说明:  bizContent:   回复支付宝的业务内容   alipayPublicKey:支付宝公钥   curPrivateKey:应用私钥  charset:   编码格式,支付宝暂只支持 GBK   isEncrypt:   是否加密,设置 false   isSign:是否加签,设置 true  返回值:  
+response:   签名成功后,向支付宝返回的报文  示例说明:以支付宝验证开发者网关验证请求为例:  
+
+````
+// 支付宝RSA公钥String alipayPublicKey = "xxxx"; // 应用RSA私钥String appPrivateKey = "yyy";// 应用RSA公钥String appPublicKey = "xxyy";// 1.将支付宝post的所有参数转换成验签参数集合Map<String, String> params = new HashMap<String, String>(); for (Object key :httpServletRequest.getParameterMap().keySet()) { String keyStr = (String) key;params.put(keyStr, httpServletRequest.getParameter(keyStr));}try {// 2.执行验签操作// 针对网关验证请求,bizContent就是支付宝发送的<xml><AppId>xxxx</AppId></xml>String bizContent = AlipaySignature.checkSignAndDecrypt(params, alipayPublicKey,￼￼￼进行业务处理appPrivateKey, true, false);// 3.解析bizContent字段,根据msgType,eventType,actionParam // TODO 解析&确认请求类型// 4.确认请求是网关验证开通开发者,则进行响应,just for example String responseBizContet = "<biz_content>" + appPublicKey+ "</biz_content><success>true</success>";String signMsg = AlipaySignature.encryptAndSign(responseBizContet, alipayPublicKey,appPrivateKey, "GBK", false, true);// 5.对支付宝网关验证请求进行响应PrintWriter writer = response.getWriter(); writer.println(signMsg);} catch (AlipayApiException e) {//TODO 抛出异常,则标识验签失败,商户根据自行业务进行异常逻辑处理}  
+````
+###11.3    业务接口类
+
+工具包内除提供验签及加签的基本工具类外,还对相关应用请求业务接口进行了封装,便于开发者功能接入。主要实现类如下:AlipayClient: 支付宝接口请求代理类,封装与支付宝对外网关的接口调用及响应,包括网络连接建立,请求数据加签及响应结果转换等。 AlipayRequest:请求支付宝接口,针对具体的业务接口有相应实现类(类名称与接口名称一致),具体参见 com.alipay.api.request 包AlipayResponse: 支付宝接口响应,针对具体的业务接口有响应实现类(类名称与接口名称一致),具体参见com.alipay.api.response 包 示例代码:以向支付宝指定用户发送消息为例:
+````
+// 支付宝对外网关地址String alipayGateWay = "https://openapi.alipay.com"; // 应用idString appId = "2014xxxxxxxx";// 应用RSA私钥String merchantPrivateKey = "yyyyyy";// 1.创建代理类实例,建议采用单一实例模式 // 此处just for demo example AlipayClient ALIPAY_CLIENT = newDefaultAlipayClient(alipayGateWay, appId, merchantPrivateKey);// 2.创建消息发送请求实例AlipayMobilePublicMessagePushRequest pushRequest = new AlipayMobilePublicMessagePushRequest();String msgContent = "<Xml>参考消息样例</Xml>"; pushRequest.setBizContent(msgContent);
+try {// 3.通过代理类请求支付宝(已包含加签等操作)AlipayMobilePublicMessagePushResponse alipayResponse = ALIPAY_CLIENT￼辑.execute(pushRequest);// TODO 开发者根据alipayResponse 内isSuccess等信息处理业务逻 } catch (AlipayApiException e) {// TODO 请求支付宝异常,开发者根据自身业务添加处理逻辑 }````
+
+
+
+##12  附录
+###12.1  业务返回码
+表12-1 业务返回码
 
 | 返回码 | 含义 |
 | ------------ | -------------| 
@@ -1208,8 +1647,8 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 | 13004 | 用户地理位置信息不存在 |
 
 
-###10.2  安全机制错误码
-表10-2 安全机制错误码
+###12.2  安全机制错误码
+表12-2 安全机制错误码
 
 
 | Code(错误代码）| (msg)错误代码描述 |	sub_code（明细错误码） | sub_msg（明细错误码描述） |
@@ -1233,11 +1672,11 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 | 20000	| Service Currently Unavailable |	aop.unknow-error | 系统繁忙 |
 | 20000	| Service Currently Unavailable	| isp.unknow-error | 系统繁忙 |
 
-###10.3  安全机制异常同步返回参数
+###12.3  安全机制异常同步返回参数
 当商户通过接口请求支付宝，支付宝同步返回参数时，如果支付宝在安全机制环节校验不通过，则返回安全机制异常参数信息，而不会返回本文档中其他章节的同步返回参数。
-####10.3.1  安全机制异常同步返回参数列表
+####12.3.1  安全机制异常同步返回参数列表
 
-表10-3 安全机制异常同步返回参数列表
+表12-3 安全机制异常同步返回参数列表
 
 | 参数 | 参数名称 |	类型（长度范围） |	参数说明 |	是否可为空 | 样例 |
 | ------------ | -------------| 
@@ -1247,11 +1686,11 @@ biz_content=XXXXXXX&charset=GBK&method=alipay.mobile.public.message.notify&sign_
 | sub_code | 明细错误码 | String | 支付宝返回的详细错误码，请参考“13.2  安全机制错误码”。 | 不可空 |	isv.invalid-app-id |
 | sub_msg |	明细错误描述 | String | 支付宝返回的详细错误描述信息，请参考“13.2  安全机制错误码”。 | 不可空 |	无效的AppID参数 |
 
-####10.3.2  同步返回参数样例
+####12.3.2  同步返回参数样例
 ```
 {"error_response":{"code":"40002","msg":"Invalid Arguments","sub_code":"isv.invalid-app-id","sub_msg":"无效的AppID参数"}}
 ```
-###10.4  服务窗账号信息设置规格
+###12.4  服务窗账号信息设置规格
 1. 服务窗账号LOGO大小
 640px*640px，200k以下，png格式。
 2. 背景图片
