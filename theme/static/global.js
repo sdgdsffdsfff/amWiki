@@ -2,19 +2,25 @@ define(function(require, exports, module) {
   var $ = require('gallery/jquery/1.8.2/jquery');
   $('.entry-content a').attr('target','_blank');
 
-    //×ó²à²Ëµ¥¶¨Î»
+    //å·¦ä¾§èœå•å®šä½
         $(function(){
-            //»ñÈ¡Òª¶¨Î»ÔªËØ¾àÀëä¯ÀÀÆ÷¶¥²¿µÄ¾àÀë
+            //èŽ·å–è¦å®šä½å…ƒç´ è·ç¦»æµè§ˆå™¨é¡¶éƒ¨çš„è·ç¦»
             var navH = $("#sidebar-wrapper").offset().top;
-            //¹ö¶¯ÌõÊÂ¼þ
+            //èŽ·å–è¦å®šä½å…ƒç´ åœ¨æœ€åº•éƒ¨æ—¶çš„offsetTop
+            var nav_maxBottom = $(".footer").offset().top - $("#sidebar-wrapper").outerHeight();
+            //æ»šåŠ¨æ¡äº‹ä»¶
             $(window).scroll(function(){
-                //»ñÈ¡¹ö¶¯ÌõµÄ»¬¶¯¾àÀë
+                //èŽ·å–æ»šåŠ¨æ¡çš„æ»‘åŠ¨è·ç¦»
                 var scroH = $(this).scrollTop();
-                //¹ö¶¯ÌõµÄ»¬¶¯¾àÀë´óÓÚµÈÓÚ¶¨Î»ÔªËØ¾àÀëä¯ÀÀÆ÷¶¥²¿µÄ¾àÀë£¬¾Í¹Ì¶¨£¬·´Ö®¾Í²»¹Ì¶¨
-                if(scroH>=navH){
-                    $("#sidebar-wrapper").css({"position":"fixed", "top":0});
-                }else if(scroH<navH){
-                    $("#sidebar-wrapper").css({"position":"fixed", "top":"130px"});
+                //æ»šåŠ¨æ¡çš„æ»‘åŠ¨è·ç¦»å¤§äºŽç­‰äºŽå®šä½å…ƒç´ è·ç¦»æµè§ˆå™¨é¡¶éƒ¨çš„è·ç¦»ï¼Œå°±å›ºå®šï¼Œåä¹‹å°±ä¸å›ºå®š
+                if(scroH < navH){
+                    $("#sidebar-wrapper").removeClass('sidebar-fixed-top').removeAttr('style');
+                }
+                else if(scroH >= navH && scroH < nav_maxBottom){
+                    $("#sidebar-wrapper").removeAttr('style').addClass('sidebar-fixed-top');
+                }
+                else{
+                    $("#sidebar-wrapper").removeClass('sidebar-fixed-top').offset({top: nav_maxBottom});
                 }
             })
         })

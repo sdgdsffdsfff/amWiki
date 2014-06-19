@@ -363,7 +363,9 @@ hr {
     -webkit-transform: translate3d(0,0,0);
     visibility: visible;
 }
-
+.nav > li:last-child ul{
+    right: 0;
+}
 .nav-sub >li {
     text-align: center;
     padding: .2em 1em;
@@ -580,11 +582,6 @@ hr {
 .mar{
     margin-top: 30px;
 }
-@media only screen and (max-width: 767px) {
-    .header, .sub-nav {
-        text-align: center;
-    }
-}
 
 #sidebar-fixed-nav dl{
     margin: 0 0;
@@ -594,15 +591,15 @@ hr {
     border-top: solid 1px #dddddd;
 }
 #sidebar-fixed-nav .active{
-    background: none;
+    background: #fff;
 }
 #sidebar-fixed-nav dt a{
     padding-left:16px;
     font-size:16px;
 }
 #sidebar-wrapper{
-    position:fixed;
-    width:19%;
+    position: relative;
+    width: 100%;
     max-width:280px;
     min-width:163px;
     /*padding:10px 0;*/
@@ -612,7 +609,15 @@ hr {
     text-shadow:none;
     /*z-index: -1;*/
 }
+.sidebar-fixed-top{
+    position: fixed !important;
+    top: 0 !important;
+    width: 26.05% !important;
+}
 @media (max-width: 640px){
+    .header, .sub-nav {
+        text-align: center;
+    }
     .row .threecol{
         width: 100%;
     }
@@ -623,6 +628,7 @@ hr {
         position:relative !important;
         width:100% !important;
         max-width: none !important;
+        top: auto !important;
         text-shadow:none;
     }
 }
