@@ -12,9 +12,9 @@ define(function(require, exports, module) {
                 var scroH = $(this).scrollTop();
                 //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
                 if(scroH>=navH){
-                    $("#sidebar-wrapper").css({"position":"fixed","top":0});
+                    $("#sidebar-wrapper").css({"position":"fixed", "top":0});
                 }else if(scroH<navH){
-                    $("#sidebar-wrapper").css({"position":"fixed","width":"19%","top":"21%"});
+                    $("#sidebar-wrapper").css({"position":"fixed", "top":"130px"});
                 }
             })
         })

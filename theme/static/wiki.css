@@ -244,10 +244,10 @@ hr {
     z-index: 9999;
 }
 
-.row-n {
+.row-n{
     width: 100%;
     max-width: 1140px;
-    min-width: 755px;
+    /*min-width: 755px;*/       /*宽度自适应*/
     margin: 0 auto;
 }
 
@@ -604,6 +604,7 @@ hr {
     position:fixed;
     width:19%;
     max-width:280px;
+    min-width:163px;
     /*padding:10px 0;*/
     /*border:1px solid #eee;*/
     /*border-radius:5px;*/
@@ -612,6 +613,12 @@ hr {
     /*z-index: -1;*/
 }
 @media (max-width: 640px){
+    .row .threecol{
+        width: 100%;
+    }
+    .row .ninecol{
+        margin-left: 15%;
+    }
     #sidebar-wrapper{
         position:relative !important;
         width:100% !important;
@@ -792,7 +799,7 @@ hr {
 }
 
 .grid-990 {
-    width: 990px;
+    /*width: 990px;  */    /*宽度自适应*/
     margin: 0 auto;
 }
 
