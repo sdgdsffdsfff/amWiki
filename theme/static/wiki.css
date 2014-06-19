@@ -340,12 +340,14 @@ hr {
     margin: 0;
     min-width: 130px;
     -webkit-transform: translate3d(0,-30px,0);
+    visibility: hidden;
 }
 
 .nav > li:hover .nav-sub {
     z-index: 99;
     opacity: 1;
     -webkit-transform: translate3d(0,0,0);
+    visibility: visible;
 }
 
 .nav-sub >li {
@@ -594,6 +596,14 @@ hr {
     /*background-color:#eee;*/
     text-shadow:none;
     /*z-index: -1;*/
+}
+@media (max-width: 640px){
+    #sidebar-wrapper{
+        position:relative !important;
+        width:100% !important;
+        max-width: none !important;
+        text-shadow:none;
+    }
 }
 #sidebar-fixed-nav{
     border-bottom: solid 1px #bdbdbd;
