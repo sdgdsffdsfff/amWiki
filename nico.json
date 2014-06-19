@@ -119,6 +119,7 @@
 		}
 	],
 	"writers": [
+		"nico.PostWriter",
 		"nico.DirectoryWriter",
 		"nico.ArchiveWriter",
 		"nico.FileWriter",
