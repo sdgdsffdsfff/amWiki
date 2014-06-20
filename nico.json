@@ -18,7 +18,7 @@
 			"sub_nav": [
 				{
 					"id": "about",
-					"title": "移动开发规范",
+					"title": "移动开发指南",
 					"link": "amguild/dev-guild.html"
 				},
 				{
@@ -41,7 +41,7 @@
 				{
 					"id": "api",
 					"title": "API文档",
-					"link": "amui/api.html"
+					"link": "amui/amui-doc.html"
 				}
 			]
 		},
@@ -75,7 +75,7 @@
 				{
 					"id": "doc",
 					"title": "接口文档",
-					"link": "amw/api.html"
+					"link": "amw/aw-doc.html"
 				}
 			]
 		},
@@ -95,8 +95,8 @@
 					"link": "h5container/ab-doc.html"
 				},
 				{
-					"id": "public_home_api",
-					"title": "开发者API文档",
+					"id": "contain_api",
+					"title": "容器API文档",
 					"link": "h5container/public-home-api.html"
 				}
 			]

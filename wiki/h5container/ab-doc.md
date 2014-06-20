@@ -1,4 +1,5 @@
 # ab alipay container bridge
+- pubdate: 2014-06-19
 
 支持支付宝容器的bridge接口控件
 
