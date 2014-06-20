@@ -225,7 +225,7 @@
 
 	android4.4之后，对于viewport中如果设置了width=device-width参数，click事件将不会再有300ms的延迟，对于之前，有对应的解决方案，参见[fastclick](https://github.com/ftlabs/fastclick)
 *   事件绑定，对于大量重复性的事件绑定到父节点，不推荐将所有事件都绑定到根节点
-*   避免对于DOM的`短时间``大量``频繁`操作，适度使用throttle、debounce机制，这三种机制可参考如下[文档](http://blog.csdn.net/dyllove98/article/details/9281507)
+*   避免对于DOM的`短时间 大量 频繁`操作，适度使用throttle、debounce机制，这三种机制可参考如下[文档](http://blog.csdn.net/dyllove98/article/details/9281507)
 
 ## 兼容性指南
 ###   设备兼容性
