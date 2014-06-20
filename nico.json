@@ -1,7 +1,7 @@
 {
 	"sitename": "AM PORT",
 	"source": "wiki",
-	"output": "_site",
+	"output": "am-team.github.io",
 	"theme": "theme",
 	"archive_title": "all",
 	"perpage": 100,
@@ -81,7 +81,7 @@
 		},
 		{
 			"id": "H5Container",
-			"title": "AMBridge",
+			"title": "AM Bridge",
 			"link": "h5container/about.html",
 			"sub_nav": [
 				{
@@ -91,7 +91,7 @@
 				},
 				{
 					"id": "ab",
-					"title": "AMBridge组件",
+					"title": "AM Bridge组件",
 					"link": "h5container/ab-doc.html"
 				},
 				{
@@ -104,7 +104,6 @@
 		{
 			"id": "wiki",
 			"title": "知识库",
-			"link": "https://github.com/am-team/amWiki/wiki",
 			"sub_nav": [
 				{
 					"id": "bookmarks",
