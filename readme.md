@@ -7,9 +7,7 @@
 ## 如何添加创作？
 1. Clone仓库 到本地；确保你的电脑安装了nodejs和nico；
 2. 在/wiki/找到合适的分类，新建文章，按照下面的规范编写后，完成编写后提交；
-3. 根目录执行`make publish`
-4. 发现你的文章已经发布到[http://site.alipay.im/AMWD](http://site.alipay.im/AMWD);
-5. 什么？为什么这么快？它就是那么快！
+3. 根目录执行`git commit git push`
 
 ## 文章的书写规范？
 一篇文章由以下部分组成，书写规范请参考nico：
