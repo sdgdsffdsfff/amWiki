@@ -805,7 +805,7 @@ hr {
 }
 
 .grid-990 {
-    /*width: 990px;  */    /*宽度自适应*/
+    max-width: 990px;      /*宽度自适应*/
     margin: 0 auto;
 }
 
