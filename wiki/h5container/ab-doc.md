@@ -1,13 +1,12 @@
-# ab alipay container bridge
+# ab - alipay container bridge kit
 - pubdate: 2014-06-19
 
+----
 支持支付宝容器的bridge接口控件
 
-----
-## ab
-ab提供了针对AliBridge的通用调用接口和全局绑定事件
+提供了针对AliBridge的通用调用接口和全局绑定事件，调用方无需关注接口实现细节，
 
-### 接口列表
+## 接口列表
 
 ```
 	/**
@@ -25,8 +24,8 @@ ab提供了针对AliBridge的通用调用接口和全局绑定事件
 
 ```
 
-### 示例代码
+## 示例代码
 
 ```
-	AliBridge.on("toast",fn);
+	AB.call("toast",fn);
 ```

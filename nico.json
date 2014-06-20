@@ -13,18 +13,18 @@
 			"link": "about/about.html"
 		},
 		{
-			"id": "amguild",
+			"id": "amg",
 			"title": "移动开发指南",
 			"sub_nav": [
 				{
 					"id": "about",
 					"title": "移动开发指南",
-					"link": "amguild/dev-guild.html"
+					"link": "amg/dev-guild.html"
 				},
 				{
 					"id": "think",
 					"title": "移动建站指南",
-					"link": "amguild/website-guild.html"
+					"link": "amg/website-guild.html"
 				}
 			]
 		},
@@ -102,27 +102,23 @@
 			]
 		},
 		{
-			"id": "sample",
-			"title": "Demo库",
-			"link": "sample/index.html"
-		},
-		{
 			"id": "wiki",
 			"title": "知识库",
 			"link": "https://github.com/am-team/amWiki/wiki",
 			"sub_nav": [
 				{
 					"id": "bookmarks",
-					"title": "收藏阁"
+					"title": "收藏阁",
+					"link": "wiki/bookmark.html"
 				}
 			]
 		}
 	],
 	"writers": [
 		"nico.PostWriter",
-		"nico.DirectoryWriter",
 		"nico.ArchiveWriter",
 		"nico.FileWriter",
-		"nico.StaticWriter"
+		"nico.StaticWriter",
+		"nico.DirectoryWriter"
 	]
 }
