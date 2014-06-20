@@ -5,7 +5,7 @@ define(function(require, exports, module) {
     //左侧菜单定位
         $(function(){
             //获取要定位元素距离浏览器顶部的距离
-            var navH = $("#sidebar-wrapper").offset().top;
+            var navH = $(".header-nav").offset().top;
             //获取要定位元素在最底部时的offsetTop
             var nav_maxBottom = $(".footer").offset().top - $("#sidebar-wrapper").outerHeight();
             //滚动条事件
@@ -14,17 +14,20 @@ define(function(require, exports, module) {
                 var scroH = $(this).scrollTop();
                 //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
                 if(scroH < navH){
-                    $("#sidebar-wrapper").removeClass('sidebar-fixed-top').removeAttr('style');
+                    $("#sidebar-wrapper").removeClass('sidebar-fixed-top').css({top: 'auto'});
+                    $(".header-nav").removeClass('header-nav-fixed');
                 }
                 else if(scroH >= navH && scroH < nav_maxBottom){
-                    $("#sidebar-wrapper").removeAttr('style').addClass('sidebar-fixed-top');
+                    $("#sidebar-wrapper").css({top: 'auto'}).addClass('sidebar-fixed-top');
+                    $(".header-nav").addClass('header-nav-fixed');
                 }
                 else{
                     $("#sidebar-wrapper").removeClass('sidebar-fixed-top').offset({top: nav_maxBottom});
+                    $(".header-nav").addClass('header-nav-fixed');
                 }
             })
         })
-
+    
   // var autoc = require('arale/autocomplete/1.2.3/autocomplete');
   // console.log(autoc);
   var contentNode=$('.document .entry-content');
@@ -76,9 +79,5 @@ define(function(require, exports, module) {
                     return false;
                 }
             });
-
         }
-
-
-
 });
