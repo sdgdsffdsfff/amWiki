@@ -1,10 +1,21 @@
-# AMJ alipay mobile javascript kit
+# AJ alipay mobile javascript kit
 
 - pubdate: 2014-06-19
 
 ----
 ## date
 date提供了获取当前时间戳和格式化指定日期的方法
+
+
+### 示例代码
+js
+```
+	var date = AJ.date;
+	var d = new Date();
+	var ds = date.format(d,'yy-MM-dd'); //2014-05-03
+	var dnow = date.now(); //返回当前时间戳，如：1403104207894
+```
+
 
 ### 接口列表
 
@@ -44,17 +55,18 @@ date提供了获取当前时间戳和格式化指定日期的方法
 	now: function ()
 
 ```
-
-### 示例代码
-
-```
-	var date = AJ.date;
-	var d = new Date();
-	var ds = date.format(d,'yy-MM-dd'); //2014-05-03
-	var dnow = date.now(); //返回当前时间戳，如：1403104207894
-```
 ## image
 image提供了将图片文件转为base64编码的方法
+
+
+### 示例代码
+js
+```
+	AJ.image.toBase64("abc.png",function(base64Data){
+		//返回值base64Data即为结果，如"data:image/png;base64....."
+	})
+```
+
 
 ### 接口列表
 
@@ -79,17 +91,20 @@ image提供了将图片文件转为base64编码的方法
 
 ```
 
-### 示例代码
-
-```
-	AJ.image.toBase64("abc.png",function(base64Data){
-		//返回值base64Data即为结果，如"data:image/png;base64....."
-	})
-```
-
-
 ## storage
 storage提供了页面的数据存储的模式，采用了localstorage的机制进行数据存储
+
+
+### 示例代码
+js
+```
+	var storage = AJ.storage;
+	storage.set("key1","value1");
+	storage.get("key1"); //返回value1
+	storage.clear();	//清空所有键值
+	storage.getExpiredDate("key1")		//获取key1键值的过期时间
+```
+
 
 ### 接口列表
 
@@ -141,17 +156,17 @@ storage提供了页面的数据存储的模式，采用了localstorage的机制�
 
 ```
 
-### 示例代码
-
-```
-	var storage = AJ.storage;
-	storage.set("key1","value1");
-	storage.get("key1"); //返回value1
-```
-
-
 ## string
-string提供了计算字符串长度的方法
+string提供了计算字符串长度的方法，中文算两个，英文算一个
+
+
+### 示例代码
+js
+```	
+	var str = "alipay";
+	var length = AJ.string.getFullLen(str); //返回字符串str的长度
+```
+
 
 ### 接口列表
 
@@ -173,15 +188,18 @@ string提供了计算字符串长度的方法
 
 ```
 
-### 示例代码
-
-```	
-	var string = AJ.string;
-	var length = string.getFullLen(str); //返回字符串str的长度
-```
-
 ## uri
 uri提供了对url进行对象化以及提供了便捷的方法，更加容易对url进行queryString的操作
+
+
+### 示例代码
+js
+```
+	var uri = AJ.uri;
+	var url = uri.parse(location.href); //返回一个uri对象
+	uri.setParam(location.href,"name","value"); //返回当前的url并且在queryString上加上name=value的值
+```
+
 
 ### 接口列表
 
@@ -239,12 +257,4 @@ uri提供了对url进行对象化以及提供了便捷的方法，更加容易�
 	 * */
 	removeParam: function (url, name)
 
-```
-
-### 示例代码
-
-```
-	var uri = AJ.uri;
-	var url = uri.parse(location.href); //返回一个uri对象
-	uri.setParam(location.href,"name","value"); //返回当前的url并且在queryString上加上name=value的值
 ```
