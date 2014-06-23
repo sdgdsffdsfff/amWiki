@@ -34,11 +34,6 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 ```html
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.css" media="all">
 ```
-### 老版本amui
->如发现您的amui是老版本，不在anima/dpl下属目录，那么您使用的是老版本，请酌情考虑升级。</br>
-anima版本amui和老版本amui不互相兼容，且老版本amui后续不再更新新功能，但会保证原有功能可以使用。</br>
-
-[点此查看](old.html "点此查看")老版本文档
 
 ### 无线端html模板
 
