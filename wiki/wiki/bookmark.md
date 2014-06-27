@@ -24,4 +24,8 @@
 *   [underscore](http://underscorejs.org/)
 *   [angularjs](https://angularjs.org/)
 *   [mustache模板](http://mustache.github.io/)
-*
+
+## 性能类
+*   [移动WEB性能](http://www.webperformancetoday.com/tag/mobile-web-performance/)
+*   [优化WEB缓存](https://developers.google.com/speed/docs/best-practices/caching)
+*   [优化浏览器渲染](https://developers.google.com/speed/docs/best-practices/rendering)
