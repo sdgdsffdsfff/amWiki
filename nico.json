@@ -23,6 +23,11 @@
 					"link": "amg/dev-guild.html"
 				},
 				{
+					"id": "mobilePlatformGrade",
+					"title": "移动Web平台分级标准",
+					"link": "amg/mobile-platform-grade.html"
+				},
+				{
 					"id": "devExp",
 					"title": "移动开发经验谈",
 					"link": "amg/dev-exp-doc.html"
