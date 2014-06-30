@@ -4,21 +4,26 @@
 ----
 支持支付宝容器的bridge接口控件
 
-提供了针对AliBridge的通用调用接口和全局绑定事件，调用方无需关注接口实现细节，
+提供了针对Alipay JSAPI的通用调用接口和全局绑定事件，调用方无需关注接口实现细节
 
 ## 接口列表
 
 ```
 	/**
+	 *
 	 * 通用接口，调用方式等同AlipayJSBridge.call
 	 * 无需考虑接口的执行上下文，必定调用成功
+	 * @param {String} name 接口名
+	 * @param {object} param 接口参数
+	 * @fn {function} fn 回调函数
 	 */
-	AliBridge.call = function ()
+	AliBridge.call = function (name,param,fn)
 
 	/**
-	 * 绑定全局事件
+	 * 监听H5容器事件
 	 * @param {string} event 事件名称
-	 * @param {function} [fn] 回调函数
+	 * @param {function} fn 回调函数
+	 *
 	 */
 	AliBridge.on = function (event, fn)
 
@@ -27,5 +32,5 @@
 ## 示例代码
 
 ```
-	AB.call("toast",fn);
+	AB.call("toast",{content:"简易提示"},function(){});
 ```
