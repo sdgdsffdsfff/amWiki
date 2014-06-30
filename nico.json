@@ -14,15 +14,21 @@
 		},
 		{
 			"id": "amg",
-			"title": "移动开发指南",
+			"title": "开发指南",
+			"link":"amg/dev-guild.html",
 			"sub_nav": [
 				{
 					"id": "about",
-					"title": "移动开发指南",
+					"title": "移动开发规范指南",
 					"link": "amg/dev-guild.html"
 				},
 				{
-					"id": "think",
+					"id": "devExp",
+					"title": "移动开发经验谈",
+					"link": "amg/dev-exp-doc.html"
+				},
+				{
+					"id": "buildGuide",
 					"title": "移动建站指南",
 					"link": "amg/website-guild.html"
 				}
@@ -98,6 +104,23 @@
 					"id": "contain_api",
 					"title": "容器API文档",
 					"link": "h5container/public-home-api.html"
+				}
+			]
+		},
+		{
+			"id": "H5APP",
+			"title": "H5APP",
+			"link": "h5app/about.html",
+			"sub_nav": [
+				{
+					"id": "about",
+					"title": "关于H5App",
+					"link": "h5app/about.html"
+				},
+				{
+					"id": "ak47",
+					"title": "ak47",
+					"link": "h5app/ak47-doc.html"
 				}
 			]
 		},

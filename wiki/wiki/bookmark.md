@@ -8,4 +8,4 @@
 *   [can is use](http://caniuse.com) - web浏览器兼容性查询
 
 ## 功能类
-*   [image2Base64](http://tool.css-js.com/base64.html) - 现在图片转base64
+*   [image2Base64](http://tool.css-js.com/base64.html) - 在线图片转base64
