@@ -1,11 +1,10 @@
-# AJ alipay mobile javascript kit
+# AMJ alipay mobile javascript kit
 
 - pubdate: 2014-06-19
 
 ----
 ## date
 date提供了获取当前时间戳和格式化指定日期的方法
-
 
 ### 示例代码
 js
@@ -16,7 +15,6 @@ js
 	var dnow = date.now(); //返回当前时间戳，如：1403104207894
 ```
 
-
 ### 接口列表
 
 ```
@@ -26,7 +24,7 @@ js
 	 *
 	 * @memberof AJ.date
 	 * @param {!Date} date - 日期对象
-	 * @param {?String} formatter - 指定格式化格式
+	 * @param {?String} formatter - 指定格式化格式 格式说明 y代表年份，M代表月份，d代表天数，h代表时，m代表分，s代表秒
 	 *
 	 * @returns {String}
 	 *
@@ -58,15 +56,13 @@ js
 ## image
 image提供了将图片文件转为base64编码的方法
 
-
 ### 示例代码
 js
 ```
-	AJ.image.toBase64("abc.png",function(base64Data){
-		//返回值base64Data即为结果，如"data:image/png;base64....."
+	AJ.image.toBase64("abc.png",function(base64Data,error){
+		//返回值base64Data即为结果，如"data:image/png;base64....."，
 	})
 ```
-
 
 ### 接口列表
 
@@ -76,21 +72,22 @@ js
 	 *
 	 * @memberof AJ.toBase64
 	 * @param {!path} path - 图片地址（需要同域,项目目录）
-	 * @param {!function} callback - 返回数据
+	 * @param {!function} callback - 返回数据 callback有两个参数，如除非异常，error为具体的Exception对象，如果非异常的情况，为undefined
 	 *
-	 * @returns {string}
-	 *
-	 * @desc image转换base64编码方法
+	 * @desc 图片转换base64编码
 	 *
 	 * @example
-	 * AJ.image.toBase64("abc.png",function(base64Data){
-		 *  //data:image/png;base64.....
-		 * })
+	 * AJ.image.toBase64("abc.png",function(base64Data,error){
+     *  //data:image/png;base64.....
+	 * })
 	 */
 	 image.toBase64 = function (path, callback)
 
 ```
 
+### 规则说明
+1. 不支持跨域图片的base64编码
+2、不支持file形式的图片base64编码
 ## storage
 storage提供了页面的数据存储的模式，采用了localstorage的机制进行数据存储
 
@@ -124,7 +121,7 @@ js
 	/**
 	 * 设置储存内容
 	 * @param {string} key 存储的key值，区分大小写
-	 * @param {*} val 设置的存储数值
+	 * @param {*} val 设置的存储数值，除了object对象会做JSON.stringify处理，其他皆会转成string类型
 	 * @param {?number|date} expire 过期时间,如果是date类型，则是过期日期，如果是number则是过几秒后过期 单位：秒
 	 *
 	 * @returns {undefined|object} 成功返回undefined，不成功，返回一个异常对象
@@ -156,9 +153,13 @@ js
 
 ```
 
+### 规则说明
+1.  该storage设置的key值和原生的通用，不过要使用过期功能，则必须使用该组件。建议在代码中不要把该组件和原生混用，以便出现不符预期的情况
+2.  原生storage如果传入的value为object的时，会转成[object Object]，该组件会对object进行JSON.stringify处理，其他类型皆和原生storage处理一致
+3.  该组件的输出value为string，不会强制做JSON.parse，需要使用方根据事情情况，自行处理
+4.  该组件对于异常，键值不存在，storage不支持等情况，api的返回皆为undefined
 ## string
 string提供了计算字符串长度的方法，中文算两个，英文算一个
-
 
 ### 示例代码
 js
@@ -167,23 +168,22 @@ js
 	var length = AJ.string.getFullLen(str); //返回字符串str的长度
 ```
 
-
 ### 接口列表
 
 ```
-	/**
-	 * 计算字符串长度的方法，中文算两个，英文算一个，特殊字符不算
-	 *
-	 * @memberof AJ.string
-	 * @param {!str} str - 需要计算长度的字符串
-	 *
-	 * @returns {int}
-	 *
-	 * @desc 计算字符串长度的方法
-	 *
-	 * @example
-	 * AJ.string.getStrLen($(this).val())
-	 */
+    /**
+     * 计算字符串长度的方法，中文算两个，英文算一个，特殊字符不算
+     *
+     * @memberof AJ.string
+     * @param {!str} str - 需要计算长度的字符串
+     *
+     * @returns {int|undefined} 如果传入的不是string字符串，一律返回undefined
+     *
+     * @desc 计算字符串长度的方法
+     *
+     * @example
+     * AJ.string.getFullLen($(this).val())
+     */
 	string.getFullLen = function (str)
 
 ```
@@ -258,3 +258,6 @@ js
 	removeParam: function (url, name)
 
 ```
+
+### 规则说明
+1.
