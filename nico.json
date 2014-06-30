@@ -1,5 +1,5 @@
 {
-	"sitename": "AM - 无线前端Web开放解决方案",
+	"sitename": "AM - 移动Web开放解决方案",
 	"source": "wiki",
 	"output": "am-team.github.io",
 	"theme": "theme",
@@ -24,7 +24,7 @@
 				},
 				{
 					"id": "mobilePlatformGrade",
-					"title": "移动Web平台分级标准",
+					"title": "移动Web分级标准",
 					"link": "amg/mobile-platform-grade.html"
 				},
 				{
