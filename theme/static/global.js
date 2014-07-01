@@ -82,4 +82,12 @@ define(function(require, exports, module) {
                 }
             });
         }
+        $(".navbar-toggle").toggle(             //显示隐藏菜单
+            function () {
+                $(".header-nav").animate({height: "677px"})
+            },
+            function () {
+                $(".header-nav").animate({height: "0"})
+            }
+        );
 });

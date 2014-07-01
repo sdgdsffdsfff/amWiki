@@ -225,19 +225,15 @@ hr {
 /* wiki theme */
 
 .wrap {
-    margin-top: 10px;
-    /*margin: 0 20px;*/
 }
 
 .header {
-    /*margin-bottom: 30px;*/
 }
 
 .header-nav {
     width: 100%;
 	height: 57px;
     background: #fd7300;
-    margin-top: 15px;
     filter: alpha(opacity=90);
     -moz-opacity: .9;
     -khtml-opacity: .9;
@@ -285,7 +281,6 @@ hr {
 .slogan {
     color: #999;
     font-size: 22px;
-    margin-top: 15px;
 }
 
 .slogan-logo {
@@ -293,6 +288,7 @@ hr {
     padding-right: 15px;
     vertical-align: middle;
     margin-bottom: 2px;
+    margin: 15px 0;
 }
 
 .slogan span {
@@ -301,7 +297,6 @@ hr {
 }
 
 .navigation {
-    margin-top: 10px;
     background: #fd7300;
     /*border-bottom: 2px solid #fd7300;*/
 }
@@ -631,11 +626,49 @@ hr {
     width: 26.05% !important;
 }
 @media (max-width: 640px){
+    body{
+        font: 14px/20px "Georgia", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", "SimSun", sans-serif;
+    }
     .header, .sub-nav {
         text-align: center;
     }
+    .navbar-toggle{
+        display: block !important;
+    }
+    .slogan{
+        text-align: left;
+        text-indent: 8px;
+        margin: 0;
+        border-bottom: 2px solid #aaa;
+    }
+    .slogan-logo{
+        width: 3em;
+        padding-right: 7px;
+    }
+    .slogan span{
+        font-size: 16px;
+        margin-left: 4px;
+    }
     .header-nav{
-        height: auto;
+        height: 0;
+        overflow: hidden;
+    }
+    .nav > li{
+        padding: 0.5em 0;
+    }
+    .nav-sub{
+        position: relative;
+        top: auto;
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: none;
+        overflow: hidden;
+    }
+    .nav-sub > li{
+        display: block;
+        float: left;
+        padding: 0;
+        width: 50%;
     }
     .header-nav-fixed > .navigation{
         position: relative;
@@ -875,4 +908,28 @@ hr {
     font-weight: normal;
     display: block;
     margin-top: 10px;
+}
+/*************************小屏下展示菜单*************************/
+.navbar-toggle{
+    position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #fd7300;
+    display: none;
+}
+.navbar-toggle .icon-bar{
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    margin: 4px 0 0 0;
+    background-color: #fff;
+}
+.navbar-toggle .icon-bar:first-child{
+    margin: 0;
 }
