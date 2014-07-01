@@ -4,6 +4,16 @@ define(function(require, exports, module) {
 
     //左侧菜单定位
         $(function(){
+            if($(".content").hasClass("ninecol")){
+                var elH = $(".entry-content ul:last").outerHeight(true) + $(".entry-content ul:last").prev().outerHeight(true);
+                var ftH = $(".footer").outerHeight(true);
+                var hdH = $(".header-nav").outerHeight(true);
+                var wdH = $(window).height();
+                var whiteSpace = wdH - hdH - ftH - elH;
+
+                $(".content").css({marginBottom: whiteSpace + "px"});       //底栏补白                
+            }
+
             //获取要定位元素距离浏览器顶部的距离
             var navH = $(".header-nav").offset().top;
             //获取要定位元素与边栏的相对距离
@@ -82,12 +92,14 @@ define(function(require, exports, module) {
                 }
             });
         }
-        $(".navbar-toggle").toggle(             //显示隐藏菜单
-            function () {
-                $(".header-nav").animate({height: "677px"})
-            },
-            function () {
-                $(".header-nav").animate({height: "0"})
-            }
-        );
+        $(".navbar-toggle").click(function () {             //显示隐藏菜单
+            $(".header-nav").slideToggle(800);
+        });
+        $(".goTop").click(function () {                     //滚动到顶
+            $("body").animate({scrollTop: '0px'}, 800);
+        });
+        $("#sidebar-fixed-nav a").click(function () {       //动画滚动到指定项
+            $("body").animate({scrollTop: $($(this).attr("href")).offset().top - 57}, 800);
+            return false;
+        })
 });

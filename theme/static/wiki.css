@@ -650,11 +650,15 @@ hr {
         margin-left: 4px;
     }
     .header-nav{
-        height: 0;
+        height: auto;
         overflow: hidden;
     }
     .nav > li{
-        padding: 0.5em 0;
+        border-top: 1px solid #A05F36;
+        border-bottom: 1px solid #E2C8A6;
+    }
+    .nav > li:first-child{
+        border-top: none;
     }
     .nav-sub{
         position: relative;
@@ -917,7 +921,7 @@ hr {
     padding: 9px 10px;
     margin-top: 8px;
     margin-bottom: 8px;
-    border: 1px solid transparent;
+    border: 1px solid #C55A1E;
     border-radius: 4px;
     background-color: #fd7300;
     display: none;
@@ -932,4 +936,16 @@ hr {
 }
 .navbar-toggle .icon-bar:first-child{
     margin: 0;
+}
+.goTop{
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    border: 2px solid #fd7300;
+    border-radius: 7px;
+    padding: 5px 20px;
+    background-color: #fff;
+    cursor: pointer;
+    opacity: 1;
+    font-weight: bold;
 }
