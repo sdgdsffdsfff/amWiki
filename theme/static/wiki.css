@@ -168,6 +168,7 @@ td {
 table {
     margin: 10px 0 15px 0;
     border-collapse: collapse;
+    color: #000;
 }
 thead{
     background: #E8E7E7;
@@ -175,6 +176,7 @@ thead{
 td,th {
     border: 1px solid #ddd;
     padding: 3px 10px;
+    font-size: 0.8em;
 }
 th {
     padding: 5px 10px;
