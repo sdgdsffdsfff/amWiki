@@ -3,7 +3,7 @@ define(function(require, exports, module) {
   $('.entry-content a').attr('target','_blank');
     function whiteBtm () {
         if($(".content").hasClass("ninecol") && $(window).width() > 640){
-            var elH = $(".entry-content ul:last").outerHeight(true) + $(".entry-content ul:last").prev().outerHeight(true);
+            var elH = $(".entry-content > ul:last-child").outerHeight(true) + $(".entry-content > ul:last-child").prev().outerHeight(true);
             var ftH = $(".footer").outerHeight(true);
             var hdH = $(".header-nav").outerHeight(true);
             var wdH = $(window).height();
@@ -15,6 +15,7 @@ define(function(require, exports, module) {
             $(".content").css({marginBottom: "30px"});       //底栏补白
         }
     }
+    
     //左侧菜单定位
         $(function(){
             whiteBtm();
