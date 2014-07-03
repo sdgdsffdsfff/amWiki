@@ -107,7 +107,7 @@
 				},
 				{
 					"id": "contain_api",
-					"title": "容器API文档",
+					"title": "JS API文档",
 					"link": "h5container/jsapi-doc.html"
 				}
 			]

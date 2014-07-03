@@ -143,7 +143,7 @@
 *	使用css3来绘图，减少使用图片
 
 ### 推荐样式库
-*	[amui](http://aliceui.org/mobile/openapi.html) 移动端ui样式库
+*	[amui](../amui/amui-doc.html) 移动端ui样式库
 
 ## Javascript指南
 ### 无线web开发脚本的特点
