@@ -155,14 +155,12 @@
     seajs.use("$", function ($) {
 //            console.log($);
         $('.nav a').on("click", function (e) {
-            e.preventDefault();
+//            e.preventDefault();
             var link = $(this).attr("href");
-            console.log(link);
+//            console.log(link);
             if (link.indexOf("http") == 0) {
                 $(this).attr("target", "_blank");
-                location.href = link.replace("../", "");
-            } else {
-                location.href = link;
+                $(this).attr("href",link.replace("../", ""));
             }
         });
     });

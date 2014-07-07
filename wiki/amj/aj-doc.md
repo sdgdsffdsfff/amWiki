@@ -3,6 +3,10 @@
 - pubdate: 2014-06-19
 
 ----
+## 源代码
+https://github.com/am-team/amJS/tree/master/dist
+
+
 ## date
 date提供了获取当前时间戳和格式化指定日期的方法
 
@@ -53,6 +57,12 @@ js
 	now: function ()
 
 ```
+
+### Demo
+[Demo地址](../examples/date.html)
+
+二维码地址
+
 ## image
 image提供了将图片文件转为base64编码的方法
 
