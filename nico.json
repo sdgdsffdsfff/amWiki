@@ -36,6 +36,11 @@
 					"id": "buildGuide",
 					"title": "移动建站指南",
 					"link": "amg/website-guild.html"
+				},
+				{
+					"id":"Github_Doc",
+					"title":"Github",
+					"link":"https://github.com/am-team/amDoc"
 				}
 			]
 		},
@@ -51,8 +56,13 @@
 				},
 				{
 					"id": "api",
-					"title": "API文档",
+					"title": "接口文档",
 					"link": "amui/amui-doc.html"
+				},
+				{
+					"id":"Github_AMUI",
+					"title":"Github",
+					"link":"https://github.com/am-team/amUI"
 				}
 			]
 		},
@@ -70,6 +80,11 @@
 					"id": "doc",
 					"title": "接口文档",
 					"link": "amj/aj-doc.html"
+				},
+				{
+					"id":"Github_AMJ",
+					"title":"Github",
+					"link":"https://github.com/am-team/amJS"
 				}
 			]
 		},
@@ -87,6 +102,11 @@
 					"id": "doc",
 					"title": "接口文档",
 					"link": "amw/aw-doc.html"
+				},
+				{
+					"id":"Github_AMW",
+					"title":"Github",
+					"link":"https://github.com/am-team/amWidget"
 				}
 			]
 		},
@@ -107,7 +127,7 @@
 				},
 				{
 					"id": "contain_api",
-					"title": "JS API文档",
+					"title": "JSAPI 接口文档",
 					"link": "h5container/jsapi-doc.html"
 				}
 			]
