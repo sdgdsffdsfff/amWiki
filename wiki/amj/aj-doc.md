@@ -3,6 +3,11 @@
 - pubdate: 2014-06-19
 
 ----
+<style>
+.content img {
+    width:200px;
+}
+</style>
 ## 源代码
 https://github.com/am-team/amJS/tree/master/dist
 
@@ -59,9 +64,13 @@ js
 ```
 
 ### Demo
-[Demo地址](../examples/date.html)
+**二维码地址**
 
-二维码地址
+![date demo 二维码](https://i.alipayobjects.com/i/localhost/png/201407/2zkAtpcKS7.png)
+
+`手机观看效果更好`
+
+查看[Demo](../examples/date.html)
 
 ## image
 image提供了将图片文件转为base64编码的方法
