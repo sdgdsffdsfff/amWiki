@@ -7,3 +7,6 @@
 *   增加goTop的功能	[完成]
 *   在手机上显示的时候，nav挤在一起	[完成]
 *   网页上有些ID重复，如dev-guild.html#通用指南，有两个
+*   将amwiki中amj、amw、amui的about的内容同步到对应github上的REAMME的文档中 高
+*   手机版的default页面中中间部分进行居中处理 中
+*   修改example中的js链接地址
