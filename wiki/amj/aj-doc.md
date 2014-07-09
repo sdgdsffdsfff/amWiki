@@ -17,13 +17,13 @@ date提供了获取当前时间戳和格式化指定日期的方法
 
 ### 示例代码
 js
+
 ```javascript
 	var date = AJ.date;
 	var d = new Date();
 	var ds = date.format(d,'yy-MM-dd'); //2014-05-03
 	var dnow = date.now(); //返回当前时间戳，如：1403104207894
 ```
-
 
 ### 接口列表
 
@@ -61,7 +61,6 @@ js
 	 * var nowStamp= AJ.date.now();
 	 */
 	now: function ()
-
 ```
 
 ### Demo
@@ -78,7 +77,7 @@ image提供了将图片文件转为base64编码的方法
 
 ### 示例代码
 js
-```
+```javascript
 	AJ.image.toBase64("abc.png",function(base64Data,error){
 		//返回值base64Data即为结果，如"data:image/png;base64....."，
 	})
@@ -86,7 +85,7 @@ js
 
 ### 接口列表
 
-```
+```javascript
 	/**
 	 * image转换base64编码方法
 	 *
@@ -105,6 +104,16 @@ js
 
 ```
 
+### Demo
+**二维码地址**
+
+![图片转码测试 demo 二维码](https://i.alipayobjects.com/i/ecmng/png/201407/30Lzw1F4Q3.png)
+
+`手机观看效果更好`
+
+查看[Demo](../examples/image.html)
+
+
 ### 规则说明
 1. 不支持跨域图片的base64编码
 2、不支持file形式的图片base64编码
@@ -114,7 +123,7 @@ storage提供了页面的数据存储的模式，采用了localstorage的机制�
 
 ### 示例代码
 js
-```
+```javascript
 	var storage = AJ.storage;
 	storage.set("key1","value1");
 	storage.get("key1"); //返回value1
@@ -125,7 +134,7 @@ js
 
 ### 接口列表
 
-```
+```javascript
 	/**
 	 *
 	 * 获取储存内容
@@ -173,6 +182,16 @@ js
 
 ```
 
+### Demo
+**二维码地址**
+
+![storage demo 二维码](https://i.alipayobjects.com/i/ecmng/png/201407/30M1hg3eRT.png)
+
+`手机观看效果更好`
+
+查看[Demo](../examples/storage.html)
+
+
 ### 规则说明
 1.  该storage设置的key值和原生的通用，不过要使用过期功能，则必须使用该组件。建议在代码中不要把该组件和原生混用，以便出现不符预期的情况
 2.  原生storage如果传入的value为object的时，会转成[object Object]，该组件会对object进行JSON.stringify处理，其他类型皆和原生storage处理一致
@@ -183,14 +202,14 @@ string提供了计算字符串长度的方法，中文算两个，英文算一�
 
 ### 示例代码
 js
-```	
+```javascript
 	var str = "alipay";
 	var length = AJ.string.getFullLen(str); //返回字符串str的长度
 ```
 
 ### 接口列表
 
-```
+```javascript
     /**
      * 计算字符串长度的方法，中文算两个，英文算一个，特殊字符不算
      *
@@ -208,13 +227,23 @@ js
 
 ```
 
+### Demo
+**二维码地址**
+
+![string demo 二维码](https://i.alipayobjects.com/i/ecmng/png/201407/30M3qmQJZf.png)
+
+`手机观看效果更好`
+
+查看[Demo](../examples/string.html)
+
+
 ## uri
 uri提供了对url进行对象化以及提供了便捷的方法，更加容易对url进行queryString的操作
 
 
 ### 示例代码
 js
-```
+```javascript
 	var uri = AJ.uri;
 	var url = uri.parse(location.href); //返回一个uri对象
 	uri.setParam(location.href,"name","value"); //返回当前的url并且在queryString上加上name=value的值
@@ -233,7 +262,7 @@ js
  * hast：hash数值
  * path：路径
 
-```
+```javascript
 	/**
 	 * 解析url，将url解析成uri对象
 	 * @param {string} url url字符串,如果传入的是对象，这不做任何处理，返回
@@ -288,3 +317,12 @@ js
 	removeParam: function (url, name)
 
 ```
+
+### Demo
+**二维码地址**
+
+![uri demo 二维码](https://i.alipayobjects.com/i/ecmng/png/201407/30M4zmFqUZ.png)
+
+`手机观看效果更好`
+
+查看[Demo](../examples/uri.html)

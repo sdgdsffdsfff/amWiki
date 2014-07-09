@@ -10,3 +10,4 @@
 *   将amwiki中amj、amw、amui的about的内容同步到对应github上的README的文档中 高
 *   手机版的default页面中中间部分进行居中处理 中	[完成]
 *   修改example中的js链接地址
+*   AMW的控件文档重新整一下，里面接口和使用方法有部分更改 高
