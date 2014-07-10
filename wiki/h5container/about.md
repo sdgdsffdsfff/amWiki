@@ -1,6 +1,5 @@
 # 关于H5Container
 - pubdate: 2014-03-06
-- tags: 关于
 - author: 左契
 
 --------
@@ -15,13 +14,13 @@ H5Container在针对Web这层提供了JSAPI的接口，这些接口主要以下�
 3. 扩展类
 4. 业务类
 
-## 权限
+## 接口权限
 H5Container提供的JSAPI接口有权限检测，对于第三方网站使用的话，需要申请权限，在开发者平台的后台进行权限申请。
 
 对于支付宝内部的Web应用，无需申请，接口开放。
 
-## 如何使用
-H5Container的使用相当简单，使用AM Bridge组件，可以马上使用，AM Bridge的具体文档，参见此 [AM Bridge](ab-doc.html)
+## JSAPI接口文档
+H5容器对外提供了一系列JSAPI接口，具体JSAPI文档可以参见 [Ali Bridge接口文档](ab-doc.html)
 
-## 文档
-具体文档可以参见 [AM Bridge接口文档](jsapi-doc.html)
+## 如何使用
+H5Container的使用相当简单，使用Ali Bridge组件，可以马上使用，Ali Bridge的具体文档，参见此 [Ali Bridge](ab-doc.html)

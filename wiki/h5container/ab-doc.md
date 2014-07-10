@@ -1,11 +1,11 @@
-# ab - alipay container bridge kit
+# AliBridge - alipay container bridge kit
 
 - pubdate: 2014-06-19
 
 ----
 为支付宝容器的JSAPI上进行封装的AliBridge控件，主要为用户提供了便利的接口调用和异常处理等，而无需关注JSAPI内部的实现逻辑
 
-## ab
+## AliBridge
 提供了针对Alipay JSAPI的通用调用接口和全局绑定事件，调用方无需关注接口实现细节
 
 
@@ -19,8 +19,8 @@ js
 	});
 
     //返回当当前页面时唤起的事件
-	AB.on("resume",function(){
-	    AB.call("toast",{
+	AliBridge.on("resume",function(){
+	    AliBridge.call("toast",{
 	        content:"重新唤起此页面"
 	        });
 	});
