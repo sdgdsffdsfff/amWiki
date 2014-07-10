@@ -9,7 +9,7 @@
 - 示例
 
 <pre>
-AliBridge.call('checkJSAPI', {
+AlipayJSBridge.call('checkJSAPI', {
 	 api: 'toast'
 }, function (result) {
 	 console.log(result.available);
@@ -51,7 +51,7 @@ AliBridge.call('checkJSAPI', {
 - 示例
 
 <pre>
-AliBridge.call('checkApp', {
+AlipayJSBridge.call('checkApp', {
 
 	 appId: '20000042'
 }, function (result) {
@@ -105,7 +105,7 @@ AliBridge.call('checkApp', {
 - 示例
 
 <pre>
-AliBridge.call('isInstalledApp', {
+AlipayJSBridge.call('isInstalledApp', {
 
 	 scheme: 'alipays://',
 	 packagename: 'com.demo.app'
@@ -161,7 +161,7 @@ AliBridge.call('isInstalledApp', {
 {
 
 	 error:1,
-	 errorMessage:'参数出错'
+	 errorMessage:'接口不存在'
 }
 </pre>
 
@@ -197,18 +197,18 @@ AliBridge.call('isInstalledApp', {
 
 <pre>
 // 显示标题栏
-AliBridge.call("showTitlebar");
+AlipayJSBridge.call("showTitlebar");
 // 隐藏标题栏
-AliBridge.call("hideTitlebar");
+AlipayJSBridge.call("hideTitlebar");
 
 // 显示右按钮
-AliBridge.call("showOptionMenu");
+AlipayJSBridge.call("showOptionMenu");
 
 // 隐藏右按钮
-AliBridge.call("hideOptionMenu");
+AlipayJSBridge.call("hideOptionMenu");
 
 // 设置标题
-AliBridge.call("setTitle", {
+AlipayJSBridge.call("setTitle", {
 
 	title: 'Hello',
 	subtitle: '杭州'  //8.2
@@ -242,7 +242,7 @@ AliBridge.call("setTitle", {
 
 <pre>
 // 设置右按钮属性
-AliBridge.call('setOptionMenu', {
+AlipayJSBridge.call('setOptionMenu', {
 
 	 title : '按钮',  // 与icon二选一
 	 icon : 'http://pic.alipayobjects.com/e/201212/1ntOVeWwtg.png',
@@ -281,10 +281,10 @@ AliBridge.call('setOptionMenu', {
 
 <pre>
 // 显示工具栏
-AliBridge.call("showToolbar");
+AlipayJSBridge.call("showToolbar");
 
 // 隐藏工具栏
-AliBridge.call("hideToolbar");
+AlipayJSBridge.call("hideToolbar");
 </pre>
 
 ###  toast (弱提示)
@@ -292,7 +292,7 @@ AliBridge.call("hideToolbar");
 
 <pre>
 // 显示
-AliBridge.call('toast', {
+AlipayJSBridge.call('toast', {
 
 	 content: 'Toast测试',
 	 type: 'success',
@@ -344,7 +344,7 @@ AliBridge.call('toast', {
 - 示例
 
 <pre>
-AliBridge.call('setToolbarMenu',{
+AlipayJSBridge.call('setToolbarMenu',{
 
 	   menus:[
 	{name:"字体",tag:"xx", action:"H5MenuActionOfFont"},  //调整字体功能（特殊）
@@ -396,7 +396,7 @@ AliBridge.call('setToolbarMenu',{
 - 示例
 
 <pre>
-AliBridge.call('alert', {
+AlipayJSBridge.call('alert', {
 
 	 title: '亲',
 	 message: '你好',
@@ -444,7 +444,7 @@ AliBridge.call('alert', {
 - 示例
 
 <pre>
-AliBridge.call('confirm', {
+AlipayJSBridge.call('confirm', {
 	 title: '亲',
 	 message: '确定要这么干吧',
 	 okButton: '确定',
@@ -511,14 +511,14 @@ AliBridge.call('confirm', {
 
 <pre>
 // 显示
-AliBridge.call('showLoading', {
+AlipayJSBridge.call('showLoading', {
 
 	 text: '加载中',
 	 delay: 1000
 });
 
 // 隐藏
-AliBridge.call('hideLoading');
+AlipayJSBridge.call('hideLoading');
 </pre>
 
 - 参数 (since 8.1)
@@ -563,20 +563,20 @@ AliBridge.call('hideLoading');
 
 <pre>
 // popWindow示例
-AliBridge.call('popWindow', {
+AlipayJSBridge.call('popWindow', {
 
 	 data: {hello: 1}
 });
 
 // popTo示例
-AliBridge.call('popTo', {
+AlipayJSBridge.call('popTo', {
 
 	 index: -1,
 	 data: {hello: 1}
 });
 
 // 目标页代码
-AliBridge.on('resume', function (event) {
+document.addEventListener('resume', function (event) {
 	 console.log(event.data);
 	 console.log(event.resumeParams);
 });
@@ -606,9 +606,9 @@ AliBridge.on('resume', function (event) {
 如果在事件的处理函数中调用了event.preventDefault()，容器将忽略backBehaviour，js需要负责回退或做其他操作
 
 <pre>
-AliBridge.on('back', function (e) {
+document.addEventListener('back', function (e) {
 	 e.preventDefault();
-	 AliBridge.call('popTo', {index: 0});
+	 AlipayJSBridge.call('popTo', {index: 0});
 }, false);
 </pre>
 
@@ -618,7 +618,7 @@ AliBridge.on('back', function (e) {
 导航条右上角按钮被点击时触发
 
 <pre>
-AliBridge.on('optionMenu', function () {
+document.addEventListener('optionMenu', function () {
 	 // ... do something
 }, false);
 </pre>
@@ -629,7 +629,7 @@ AliBridge.on('optionMenu', function () {
 在8.2及其以上的版本，如果添加了自定义的菜单，当用户点击按钮会触发回调，回调会返回当前点击按钮在初始化的时候传入的name和tag属性。从而做一些业务上的处理
 
 <pre>
-AliBridge.on('toolbarMenuClick', function (e) {
+document.addEventListener('toolbarMenuClick', function (e) {
 	//得到name属性值
 	console.log(e.data.name);
 	//得到tag属性值
@@ -644,7 +644,7 @@ AliBridge.on('toolbarMenuClick', function (e) {
 - 事件描述：点击标题触发回调
 
 <pre>
-AliBridge.on('titleClick', function () {
+document.addEventListener('titleClick', function () {
 }, false);
 </pre>
 
@@ -658,7 +658,7 @@ subtitleClick事件回调会触发titleClick回调，建议titleClick 和 subtit
 - 事件描述：点击子标题触发回调
 
 <pre>
-AliBridge.on('subtitleClick', function () {
+document.addEventListener('subtitleClick', function () {
 }, false);
 </pre>
 
@@ -671,7 +671,7 @@ AliBridge.on('subtitleClick', function () {
 
 <pre>
 // 按index跳转
-AliBridge.call('popTo', {
+AlipayJSBridge.call('popTo', {
 
 	 index: -2,
 }, function (result) {
@@ -681,7 +681,7 @@ AliBridge.call('popTo', {
 	 }
 });
 // 按url跳转
-AliBridge.call('popTo', {
+AlipayJSBridge.call('popTo', {
 
 	 url: 'http://d.alilpay.com/step2.html'
 }, function (result) {
@@ -691,7 +691,7 @@ AliBridge.call('popTo', {
 	 }
 });
 // 按urlPattern跳转
-AliBridge.call('popTo', {
+AlipayJSBridge.call('popTo', {
 
 	 urlPattern: 'step2.html'
 });
@@ -760,7 +760,7 @@ AliBridge.call('popTo', {
 - 例子
 
 <pre>
-AliBridge.call('exitApp');
+AlipayJSBridge.call('exitApp');
 </pre>
 
 - 参数
@@ -774,7 +774,7 @@ AliBridge.call('exitApp');
 - 示例
 
 <pre>
-AliBridge.call('openInBrowser', {
+AlipayJSBridge.call('openInBrowser', {
 	 url: 'http://m.baidu.com/'
 });
 </pre>
@@ -803,7 +803,7 @@ AliBridge.call('openInBrowser', {
 
 <pre>
 // 开新窗口
-AliBridge.call('pushWindow', {
+AlipayJSBridge.call('pushWindow', {
 
 	 url: 'http://www.baidu.com/',
 	 param: {
@@ -815,14 +815,14 @@ AliBridge.call('pushWindow', {
 });
 
 // 关闭窗口，可传递参数
-AliBridge.call('popWindow',{
+AlipayJSBridge.call('popWindow',{
 
 	data: {
 	}
 });
 
 // 关闭窗口（别名）
-AliBridge.call('closeWebview');
+AlipayJSBridge.call('closeWebview');
 </pre>
 
 - 参数
@@ -860,7 +860,7 @@ AliBridge.call('closeWebview');
 - 示例
 
 <pre>
-AliBridge.call('getNetworkType', function (result) {
+AlipayJSBridge.call('getNetworkType', function (result) {
 
 	 console.log(result.networkType);
 });
@@ -900,7 +900,7 @@ AliBridge.call('getNetworkType', function (result) {
 
 
 <pre>
-AliBridge.call("sendSMS",{
+AlipayJSBridge.call("sendSMS",{
 	mobile: '15088640308',
 	content: 'Hello'
 } function(result) {
@@ -956,7 +956,7 @@ AliBridge.call("sendSMS",{
 
 
 <pre>
-AliBridge.call("contact", function(result) {
+AlipayJSBridge.call("contact", function(result) {
 
 	 console.log(result.name, result.mobile);
 });
@@ -1004,7 +1004,7 @@ AliBridge.call("contact", function(result) {
 
 
 <pre>
-AliBridge.call('photo', {
+AlipayJSBridge.call('photo', {
 
 	 dataType: 'dataURL',
 	 imageFormat: 'jpg',
@@ -1113,7 +1113,7 @@ AliBridge.call('photo', {
 - 示例
 
 <pre>
-AliBridge.call('scan', {
+AlipayJSBridge.call('scan', {
 
 	 type: 'bar'
 }, function (result) {
@@ -1191,7 +1191,7 @@ AliBridge.call('scan', {
 - 示例
 
 <pre>
-AliBridge.call('share', {
+AlipayJSBridge.call('share', {
 
 	 'channels': [{
 	   name: 'Weibo', //新浪微博
@@ -1293,7 +1293,7 @@ AliBridge.call('share', {
 - 示例
 
 <pre>
-AliBridge.call('getCities', {
+AlipayJSBridge.call('getCities', {
 
 	 currentCity: '杭州市',
 	 adcode:'310100'
@@ -1311,7 +1311,7 @@ AliBridge.call('getCities', {
 - 示例
 
 <pre>
-AliBridge.call('vibrate');
+AlipayJSBridge.call('vibrate');
 </pre>
 
 - 最低支持版本：8.2+
@@ -1322,7 +1322,7 @@ AliBridge.call('vibrate');
 - 示例
 
 <pre>
-AliBridge.call('watchShake', function(){
+AlipayJSBridge.call('watchShake', function(){
 
 	 //摇到啦
 });
@@ -1336,7 +1336,7 @@ AliBridge.call('watchShake', function(){
 - 示例
 
 <pre>
-AliBridge.call("alipayContact", {
+AlipayJSBridge.call("alipayContact", {
 
 	 showMobileContacts: true
 }, function(result) {
@@ -1411,7 +1411,7 @@ AliBridge.call("alipayContact", {
 - 示例
 
 <pre>
-AliBridge.call('getClientInfo', function (result) {
+AlipayJSBridge.call('getClientInfo', function (result) {
 
 
 });
