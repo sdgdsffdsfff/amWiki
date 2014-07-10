@@ -10,7 +10,7 @@
 
 <pre>
 AliBridge.call('checkJSAPI', {
-	 api: 'tradePay'
+	 api: 'toast'
 }, function (result) {
 	 console.log(result.available);
 });
@@ -108,7 +108,7 @@ AliBridge.call('checkApp', {
 AliBridge.call('isInstalledApp', {
 
 	 scheme: 'alipays://',
-	 packagename: 'com.eg.android.AlipayGphone'
+	 packagename: 'com.demo.app'
 }, function (result) {
 
 	 console.log(result.installed);
