@@ -1,17 +1,19 @@
-# AB - alipay container bridge kit
+# ab - alipay container bridge kit
+
 - pubdate: 2014-06-19
 
 ----
-支持支付宝容器的bridge接口控件
+为支付宝容器的JSAPI上进行封装的AliBridge控件，主要为用户提供了便利的接口调用和异常处理等，而无需关注JSAPI内部的实现逻辑
 
+## ab
 提供了针对Alipay JSAPI的通用调用接口和全局绑定事件，调用方无需关注接口实现细节
 
 
-## 示例代码
+### 示例代码
 js
-```
+```javascript
     //唤起弱提示
-	AB.call("toast",{
+	AliBridge.call("toast",{
 	    content:"这是弱提示"
 	},function(){
 	});
@@ -26,9 +28,9 @@ js
 ```
 
 
-## 接口列表
+### 接口列表
 
-```
+```javascript
 	/**
 	 *
 	 * 通用接口，调用方式等同AlipayJSBridge.call
@@ -37,16 +39,13 @@ js
 	 * @param {object} param 接口参数
 	 * @fn {function} fn 回调函数
 	 */
-	AB.call = function (name,param,fn)
+	AliBridge.call = function (name,param,fn)
 
 	/**
      * 绑定全局事件
      * @param {string} event 事件名称
      * @param {function} [fn] 回调函数
      */
-    AB.on = function (event, fn)
+    AliBridge.on = function (event, fn)
 
 ```
-
-## JS API接口文档
-对于具体的JS API接口可参考 [JS API](jsapi-doc.html)

@@ -112,7 +112,7 @@
 		},
 		{
 			"id": "H5Container",
-			"title": "AM Bridge",
+			"title": "Ali Bridge",
 			"link": "h5container/about.html",
 			"sub_nav": [
 				{
@@ -122,7 +122,7 @@
 				},
 				{
 					"id": "ab",
-					"title": "AM Bridge组件",
+					"title": "Ali Bridge组件",
 					"link": "h5container/ab-doc.html"
 				},
 				{
