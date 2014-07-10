@@ -28,7 +28,7 @@ AM主要提供了移动Web开发的样式，脚本、控件以及WebApp开发等
 * __AMJ__ 用于提高和加快日常JS业务逻辑代码的开发进度和代码质量、运行效率，避免某些坑而提供个JS工具集。
 * __AMW__ 无线Web上的控件集，其中包括各类拟态弹窗、日历等类natie控件，让用户在使用这些控件上达到一个良好的用户体验。
 * __AK47__ WebApp开发上AK47，提供了H5App开发的一套工具组件，能大幅提升H5App的开发效率。
-* __AMBridge__ 为支付宝钱包内的webview容器JSAPI接口上，进行了分装，使得页面能够更加便捷调用容器接口，而不需关注其具体内部实现和版本之间的区别。
+* __AliBridge__ 为支付宝钱包内的webview容器JSAPI接口上，进行了分装，使得页面能够更加便捷调用容器接口，而不需关注其具体内部实现和版本之间的区别。
 
 ## 结构图
-![AM结构组织图图](https://i.alipayobjects.com/i/localhost/jpg/201407/2y0OYu374R.jpg)
+![AM结构组织图图](https://i.alipayobjects.com/i/localhost/jpg/201407/30qIpXPIaN.jpg)
