@@ -879,17 +879,25 @@ hr {
 .highlight{
     position: relative;
 }
+.highlight:hover .clipbord{
+    display: block;
+}
 .clipbord{
     display: none;
     position: absolute;
     right: 10px;
     top: 10px;
     font-size: 12px;
-    padding: 3px;
+    padding: 5px;
     border: 1px solid #aaa;
-    color: #333;
+    color: #555;
     background-color: #ccc;
     cursor: pointer;
+    border-radius: 7px;
+    box-shadow: 0 0 2px #ccc;
+}
+.show{
+    display: block;
 }
 @media (max-width: 640px){
     body{

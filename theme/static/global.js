@@ -1,11 +1,10 @@
 define(function(require, exports, module) {
     var $ = require('gallery/jquery/1.8.2/jquery');
-    require("gallery/zeroclipboard/1.3.5/zeroclipboard");
     $('.entry-content a').attr('target','_blank');
     //左侧菜单定位
     $(function(){
         //加入复制到剪贴版功能
-        $(".highlight").append("<span class=\"clipbord\" data-clipboard-text=\"Copy Me!\">复制到剪贴版</span>");
+        $(".highlight").append("<span class=\"clipbord\">复制到剪贴版</span>");
         //输入锚点自动定位
         $("#sidebar-fixed-nav a[href=" + window.location.hash + "]").click();
         //获取要定位元素距离浏览器顶部的距离
@@ -37,15 +36,22 @@ define(function(require, exports, module) {
                 $(".navigation").addClass('navigation-fix navigation-btm').offset({top: nav_maxBottom});
             }
         });
-        var clip = new ZeroClipboard($(".clipbord"), {
-            moviePath: "/ZeroClipboard.swf"
-        });
-
-        clip.on( "load", function(client) {
-            //alert( "movie is loaded" );
-            client.on( "complete", function(client, args) {
-                this.style.display = "none";
-                alert("Copied text to clipboard: " + args.text );
+        seajs.use(['gallery/zeroclipboard/1.2.2/zeroclipboard'], function(ZeroClipboard) {
+            var client = new ZeroClipboard($(".clipbord"), {
+                moviePath: "http://static.alipayobjects.com/gallery/zeroclipboard/1.2.2/ZeroClipboard.swf",
+                hoverClass: "show",
+                trustedDomains: ['*']
+            });
+            client.on('load', function(client) {
+                client.on('datarequested', function(client) {
+                    client.setText($(this).prev().text());
+                });
+                client.on('complete', function(client, args) {
+                    // console.log("Copied text to clipboard: " + args.text);
+                });
+            });
+            client.on('wrongflash noflash', function() {
+                ZeroClipboard.destroy();
             });
         });
     })
