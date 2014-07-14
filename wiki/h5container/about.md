@@ -20,7 +20,4 @@ H5Container提供的JSAPI接口有权限检测，对于第三方网站使用的�
 对于支付宝内部的Web应用，无需申请，接口开放。
 
 ## JSAPI接口文档
-H5容器对外提供了一系列JSAPI接口，具体JSAPI文档可以参见 [Ali Bridge接口文档](ab-doc.html)
-
-## 如何使用
-H5Container的使用相当简单，使用Ali Bridge组件，可以马上使用，Ali Bridge的具体文档，参见此 [Ali Bridge](ab-doc.html)
+H5容器对外提供了一系列JSAPI接口，具体JSAPI文档可以参见 [JSAPI接口文档](jsapi-doc.html)

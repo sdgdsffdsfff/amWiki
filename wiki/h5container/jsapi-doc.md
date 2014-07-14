@@ -4,17 +4,178 @@
 
 ----
 
+##  接口异常信息  ##
+- JSApi的回调函数的参数是一个PlainObject, 里面可能包含一个特殊的字段error，作为api调用的错误码
+- 示例
+
+```javascript
+{
+
+	 error:1,
+	 errorMessage:'接口不存在'
+}
+```
+
+- 小于10为通用错误码，具体api不应使用。定义以下通用错误码:
+<table>
+<thead>
+<th>error</th>
+<th>含义</th>
+</thead>
+<tr>
+<td>1</td>
+<td>接口不存在</td>
+</tr>
+<tr>
+<td>2</td>
+<td>参数无效</td>
+</tr>
+<tr>
+<td>3</td>
+<td>发生未知错误</td>
+</tr>
+<tr>
+<td>4</td>
+<td>接口无权限</td>
+</tr></table>
+
+- 最低支持版本：8.2+
+
+##  事件类  ##
+
+### AlipayJSBridgeReady
+window.onload以后，容器会初始化，产生一个全局变量AlipayJSBridge, 然后触发此事件
+
+```javascript
+document.addEventListener('AlipayJSBridgeReady', function () {
+  console.log(typeof AlipayJSBridge);
+}, false);
+```
+
+- 最低支持版本：8.0+
+
+###  resume  ###
+当一个webview界面重新回到栈顶时，会触发此事件. 如果这个界面是通过popWindow/popTo到达，且传递了data参数，此页可以收到
+如果在界面的resume之前先发生了app的resume, 则event还会有一个resumeParams, 包含app resume时接收到的参数
+
+- 注：
+由于ios自身限制，正在进行过场动画的时候不能关闭webview，如果要在resume事件中关闭webview的话需要延时处理。
+
+```javascript
+// popWindow示例
+AlipayJSBridge.call('popWindow', {
+
+	 data: {hello: 1}
+});
+
+// popTo示例
+AlipayJSBridge.call('popTo', {
+
+	 index: -1,
+	 data: {hello: 1}
+});
+
+// 目标页代码
+AlipayJSBridge.on('resume', function (event) {
+	 console.log(event.data);
+	 console.log(event.resumeParams);
+});
+```
+
+- 参数
+<table>
+<thead>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+<th>可选</th>
+<th>默认值</th>
+</thead>
+<tr>
+<td>data</td>
+<td>any</td>
+<td>需要回传给上一页/目标页的数据。此数据将作为resume时的event.data</td>
+<td>Y</td>
+<td>null</td>
+</tr></table>
+
+- 最低支持版本：8.0+
+
+###  back(后退)  ###
+用户点击导航栏左上角返回按钮或者Android的物理返回键，页面将会收到此事件
+如果在事件的处理函数中调用了event.preventDefault()，容器将忽略backBehaviour，js需要负责回退或做其他操作
+
+```javascript
+AlipayJSBridge.on('back', function (e) {
+	 e.preventDefault();
+	 AlipayJSBridge.call('popTo', {index: 0});
+}, false);
+```
+
+- 最低支持版本：8.0+
+
+###  optionMenu  ###
+导航条右上角按钮被点击时触发
+
+```javascript
+AlipayJSBridge.on('optionMenu', function () {
+	 // ... do something
+}, false);
+```
+
+- 最低支持版本：8.0+
+
+### toolbarMenuClick  ###
+在8.2及其以上的版本，如果添加了自定义的菜单，当用户点击按钮会触发回调，回调会返回当前点击按钮在初始化的时候传入的name和tag属性。从而做一些业务上的处理
+
+```javascript
+AlipayJSBridge.on('toolbarMenuClick', function (e) {
+	//得到name属性值
+	console.log(e.data.name);
+	//得到tag属性值
+	console.log(e.data.tag)
+}, false);
+```
+
+- 最低支持版本：8.2+
+
+###  titleClick  ###
+- version:8.2
+- 事件描述：点击标题触发回调
+
+```javascript
+AlipayJSBridge.on('titleClick', function () {
+}, false);
+```
+
+- 最低支持版本：8.2+
+
+###  subtitleClick  ###
+- 注：
+subtitleClick事件回调会触发titleClick回调，建议titleClick 和 subtitleClick只使用其中一个
+
+- version:8.2
+- 事件描述：点击子标题触发回调
+
+```javascript
+AlipayJSBridge.on('subtitleClick', function () {
+}, false);
+```
+
+- 最低支持版本：8.2+
+
+
 ##  通用类  ##
 ###  checkJSAPI (JSApi可用性判断)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('checkJSAPI', {
 	 api: 'toast'
 }, function (result) {
 	 console.log(result.available);
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -50,7 +211,7 @@ AlipayJSBridge.call('checkJSAPI', {
 ###  checkApp (钱包内App可用性判断)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('checkApp', {
 
 	 appId: '20000042'
@@ -58,7 +219,7 @@ AlipayJSBridge.call('checkApp', {
 
 	 console.log(result.status);
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -104,7 +265,7 @@ AlipayJSBridge.call('checkApp', {
 ###  isInstalledApp (外部应用存在性判断)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('isInstalledApp', {
 
 	 scheme: 'alipays://',
@@ -113,7 +274,7 @@ AlipayJSBridge.call('isInstalledApp', {
 
 	 console.log(result.installed);
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -153,49 +314,14 @@ AlipayJSBridge.call('isInstalledApp', {
 
 - 最低支持版本：8.1+
 
-##  错误处理约定  ##
-- JSApi的回调函数的参数是一个dictionary, 里面可能包含一个特殊的字段error，作为api调用的错误码
-- 示例
 
-<pre>
-{
-
-	 error:1,
-	 errorMessage:'接口不存在'
-}
-</pre>
-
-- 小于10为通用错误码，具体api不应使用。定义以下通用错误码:
-<table>
-<thead>
-<th>error</th>
-<th>含义</th>
-</thead>
-<tr>
-<td>1</td>
-<td>接口不存在</td>
-</tr>
-<tr>
-<td>2</td>
-<td>参数无效</td>
-</tr>
-<tr>
-<td>3</td>
-<td>发生未知错误</td>
-</tr>
-<tr>
-<td>4</td>
-<td>接口无权限</td>
-</tr></table>
-
-- 最低支持版本：8.2+
 
 ##  界面类  ##
 
 ###  titlebar (控制标题栏)  ###
 - 示例
 
-<pre>
+```javascript
 // 显示标题栏
 AlipayJSBridge.call("showTitlebar");
 // 隐藏标题栏
@@ -213,7 +339,7 @@ AlipayJSBridge.call("setTitle", {
 	title: 'Hello',
 	subtitle: '杭州'  //8.2
 });
-</pre>
+```
 
 
 - 参数
@@ -240,14 +366,14 @@ AlipayJSBridge.call("setTitle", {
 <td></td>
 </tr></table>
 
-<pre>
+```javascript
 // 设置右按钮属性
 AlipayJSBridge.call('setOptionMenu', {
 
 	 title : '按钮',  // 与icon二选一
 	 icon : 'http://pic.alipayobjects.com/e/201212/1ntOVeWwtg.png',
 });
-</pre>
+```
 
 
 - 参数
@@ -279,18 +405,18 @@ AlipayJSBridge.call('setOptionMenu', {
 ###  toolbar (设置工具栏)
 - 示例
 
-<pre>
+```javascript
 // 显示工具栏
 AlipayJSBridge.call("showToolbar");
 
 // 隐藏工具栏
 AlipayJSBridge.call("hideToolbar");
-</pre>
+```
 
 ###  toast (弱提示)
 - 示例
 
-<pre>
+```javascript
 // 显示
 AlipayJSBridge.call('toast', {
 
@@ -301,7 +427,7 @@ AlipayJSBridge.call('toast', {
 
 	 alert("toast消失后执行");
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -343,7 +469,7 @@ AlipayJSBridge.call('toast', {
 ###  setToolbarMenu (设置菜单项)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('setToolbarMenu',{
 
 	   menus:[
@@ -355,7 +481,7 @@ AlipayJSBridge.call('setToolbarMenu',{
 
 
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -395,7 +521,7 @@ AlipayJSBridge.call('setToolbarMenu',{
 ###  Alert (对话框) ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('alert', {
 
 	 title: '亲',
@@ -405,7 +531,7 @@ AlipayJSBridge.call('alert', {
 
 	 console.log('alert dismissed');
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -443,7 +569,7 @@ AlipayJSBridge.call('alert', {
 ###  Confirm (选择对话框)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('confirm', {
 	 title: '亲',
 	 message: '确定要这么干吧',
@@ -452,7 +578,7 @@ AlipayJSBridge.call('confirm', {
 }, function (result) {
 	 console.log(result.ok);
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -509,7 +635,7 @@ AlipayJSBridge.call('confirm', {
 ###  loading(加载中提示)  ###
 - 示例
 
-<pre>
+```javascript
 // 显示
 AlipayJSBridge.call('showLoading', {
 
@@ -519,7 +645,7 @@ AlipayJSBridge.call('showLoading', {
 
 // 隐藏
 AlipayJSBridge.call('hideLoading');
-</pre>
+```
 
 - 参数 (since 8.1)
 <table>
@@ -552,124 +678,12 @@ AlipayJSBridge.call('hideLoading');
 - 最低支持版本：8.0+
 
 
-##  事件类  ##
-
-###  resume  ###
-当一个webview界面重新回到栈顶时，会触发此事件. 如果这个界面是通过popWindow/popTo到达，且传递了data参数，此页可以收到
-如果在界面的resume之前先发生了app的resume, 则event还会有一个resumeParams, 包含app resume时接收到的参数
-
-- 注：
-由于ios自身限制，正在进行过场动画的时候不能关闭webview，如果要在resume事件中关闭webview的话需要延时处理。
-
-<pre>
-// popWindow示例
-AlipayJSBridge.call('popWindow', {
-
-	 data: {hello: 1}
-});
-
-// popTo示例
-AlipayJSBridge.call('popTo', {
-
-	 index: -1,
-	 data: {hello: 1}
-});
-
-// 目标页代码
-AlipayJSBridge.on('resume', function (event) {
-	 console.log(event.data);
-	 console.log(event.resumeParams);
-});
-</pre>
-
-- 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>data</td>
-<td>any</td>
-<td>需要回传给上一页/目标页的数据。此数据将作为resume时的event.data</td>
-<td>Y</td>
-<td>null</td>
-</tr></table>
-
-- 最低支持版本：8.0+
-
-###  back(后退)  ###
-用户点击导航栏左上角返回按钮或者Android的物理返回键，页面将会收到此事件
-如果在事件的处理函数中调用了event.preventDefault()，容器将忽略backBehaviour，js需要负责回退或做其他操作
-
-<pre>
-AlipayJSBridge.on('back', function (e) {
-	 e.preventDefault();
-	 AlipayJSBridge.call('popTo', {index: 0});
-}, false);
-</pre>
-
-- 最低支持版本：8.0+
-
-###  optionMenu  ###
-导航条右上角按钮被点击时触发
-
-<pre>
-AlipayJSBridge.on('optionMenu', function () {
-	 // ... do something
-}, false);
-</pre>
-
-- 最低支持版本：8.0+
-
-### toolbarMenuClick  ###
-在8.2及其以上的版本，如果添加了自定义的菜单，当用户点击按钮会触发回调，回调会返回当前点击按钮在初始化的时候传入的name和tag属性。从而做一些业务上的处理
-
-<pre>
-AlipayJSBridge.on('toolbarMenuClick', function (e) {
-	//得到name属性值
-	console.log(e.data.name);
-	//得到tag属性值
-	console.log(e.data.tag)
-}, false);
-</pre>
-
-- 最低支持版本：8.2+
-
-###  titleClick  ###
-- version:8.2
-- 事件描述：点击标题触发回调
-
-<pre>
-AlipayJSBridge.on('titleClick', function () {
-}, false);
-</pre>
-
-- 最低支持版本：8.2+
-
-###  subtitleClick  ###
-- 注：
-subtitleClick事件回调会触发titleClick回调，建议titleClick 和 subtitleClick只使用其中一个
-
-- version:8.2
-- 事件描述：点击子标题触发回调
-
-<pre>
-AlipayJSBridge.on('subtitleClick', function () {
-}, false);
-</pre>
-
-- 最低支持版本：8.2+
-
 ##  上下文类  ##
 
 ###  popTo (退回指定界面)  ###
 - 示例
 
-<pre>
+```javascript
 // 按index跳转
 AlipayJSBridge.call('popTo', {
 
@@ -695,7 +709,7 @@ AlipayJSBridge.call('popTo', {
 
 	 urlPattern: 'step2.html'
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -759,9 +773,9 @@ AlipayJSBridge.call('popTo', {
 ###  exitApp (退出当前H5应用)  ###
 - 例子
 
-<pre>
+```javascript
 AlipayJSBridge.call('exitApp');
-</pre>
+```
 
 - 参数
 
@@ -773,11 +787,11 @@ AlipayJSBridge.call('exitApp');
 
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('openInBrowser', {
 	 url: 'http://m.baidu.com/'
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -801,7 +815,7 @@ AlipayJSBridge.call('openInBrowser', {
 ###  窗口控制  ###
 - 示例
 
-<pre>
+```javascript
 // 开新窗口
 AlipayJSBridge.call('pushWindow', {
 
@@ -823,7 +837,7 @@ AlipayJSBridge.call('popWindow',{
 
 // 关闭窗口（别名）
 AlipayJSBridge.call('closeWebview');
-</pre>
+```
 
 - 参数
 <table>
@@ -859,12 +873,12 @@ AlipayJSBridge.call('closeWebview');
 ###  getNetworkType (获取网络状态)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('getNetworkType', function (result) {
 
 	 console.log(result.networkType);
 });
-</pre>
+```
 
 - 结果
 <table>
@@ -899,7 +913,7 @@ AlipayJSBridge.call('getNetworkType', function (result) {
 - 示例
 
 
-<pre>
+```javascript
 AlipayJSBridge.call("sendSMS",{
 	mobile: '15088640308',
 	content: 'Hello'
@@ -907,7 +921,7 @@ AlipayJSBridge.call("sendSMS",{
 
 	console.log(result.status);
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -955,12 +969,12 @@ AlipayJSBridge.call("sendSMS",{
 - 示例
 
 
-<pre>
+```javascript
 AlipayJSBridge.call("contact", function(result) {
 
 	 console.log(result.name, result.mobile);
 });
-</pre>
+```
 
 - 结果
 
@@ -1003,7 +1017,7 @@ AlipayJSBridge.call("contact", function(result) {
 - 示例
 
 
-<pre>
+```javascript
 AlipayJSBridge.call('photo', {
 
 	 dataType: 'dataURL',
@@ -1017,7 +1031,7 @@ AlipayJSBridge.call('photo', {
 	 image = document.getElementById('myImage');
 	 image.src = "data:image/jpeg;base64," + result.dataURL;
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -1112,7 +1126,7 @@ AlipayJSBridge.call('photo', {
 ###  scan (扫码/扫卡)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('scan', {
 
 	 type: 'bar'
@@ -1120,7 +1134,7 @@ AlipayJSBridge.call('scan', {
 
 
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -1190,7 +1204,7 @@ AlipayJSBridge.call('scan', {
 
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('share', {
 
 	 'channels': [{
@@ -1227,7 +1241,7 @@ AlipayJSBridge.call('share', {
 	   }]
 },function(result){
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -1292,7 +1306,7 @@ AlipayJSBridge.call('share', {
 - 城市选择
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('getCities', {
 
 	 currentCity: '杭州市',
@@ -1302,7 +1316,7 @@ AlipayJSBridge.call('getCities', {
 	 // 返回用户选择的城市名
 	 //  {'city': '北京市','adcode':'110100'}
 });
-</pre>
+```
 
 - 最低支持版本：8.1+
 
@@ -1310,9 +1324,9 @@ AlipayJSBridge.call('getCities', {
 ###  vibrate (调用震动)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('vibrate');
-</pre>
+```
 
 - 最低支持版本：8.2+
 
@@ -1321,12 +1335,12 @@ AlipayJSBridge.call('vibrate');
 - 摇一摇
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('watchShake', function(){
 
 	 //摇到啦
 });
-</pre>
+```
 
 - 最低支持版本：8.2+
 
@@ -1335,7 +1349,7 @@ AlipayJSBridge.call('watchShake', function(){
 ### alipayContact (支付宝联系人)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call("alipayContact", {
 
 	 showMobileContacts: true
@@ -1343,7 +1357,7 @@ AlipayJSBridge.call("alipayContact", {
 
 	 console.log(result.name, result.account);
 });
-</pre>
+```
 
 - 参数
 <table>
@@ -1410,12 +1424,12 @@ AlipayJSBridge.call("alipayContact", {
 ###  getClientInfo (获取客户端信息)  ###
 - 示例
 
-<pre>
+```javascript
 AlipayJSBridge.call('getClientInfo', function (result) {
 
 
 });
-</pre>
+```
 
 - 参数
 - 结果
