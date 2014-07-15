@@ -112,7 +112,7 @@
 		},
 		{
 			"id": "H5Container",
-			"title": "Ali Bridge",
+			"title": "H5Container",
 			"link": "h5container/about.html",
 			"sub_nav": [
 				{
@@ -159,6 +159,11 @@
 					"link": "wiki/bookmark.html"
 				}
 			]
+		},
+		{
+			"id": "issue",
+			"title": "提建议",
+			"link": "https://github.com/am-team/amWiki/issues/new"
 		}
 	],
 	"writers": [
