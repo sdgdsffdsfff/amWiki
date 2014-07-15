@@ -36,9 +36,9 @@ define(function(require, exports, module) {
                 $(".navigation").addClass('navigation-fix navigation-btm').offset({top: nav_maxBottom});
             }
         });
-        seajs.use(['gallery/zeroclipboard/1.2.2/zeroclipboard'], function(ZeroClipboard) {
+        seajs.use(['gallery/zeroclipboard/1.3.5/zeroclipboard'], function(ZeroClipboard) {
             var client = new ZeroClipboard($(".clipbord"), {
-                moviePath: "http://static.alipayobjects.com/gallery/zeroclipboard/1.2.2/ZeroClipboard.swf",
+                moviePath: "http://static.alipayobjects.com/gallery/zeroclipboard/1.3.5/ZeroClipboard.swf",
                 hoverClass: "show",
                 trustedDomains: ['*']
             });
@@ -47,7 +47,12 @@ define(function(require, exports, module) {
                     client.setText($(this).prev().text());
                 });
                 client.on('complete', function(client, args) {
-                    // console.log("Copied text to clipboard: " + args.text);
+                    var t = $(this);
+                    $(this).html("复制成功");
+                    setTimeout(function () {
+                        console.log("test");
+                        t.html("复制到剪贴版");
+                    }, 3000);
                 });
             });
             client.on('wrongflash noflash', function() {
