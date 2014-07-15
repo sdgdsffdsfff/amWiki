@@ -50,7 +50,6 @@ define(function(require, exports, module) {
                     var t = $(this);
                     $(this).html("复制成功");
                     setTimeout(function () {
-                        console.log("test");
                         t.html("复制到剪贴版");
                     }, 3000);
                 });
