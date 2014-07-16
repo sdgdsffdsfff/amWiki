@@ -5,7 +5,7 @@
 ---
 
 AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、场景解决方案等。</br>
-当前版本： **_AMUI 1.1.0_**
+当前版本： **_AnimaUI 1.2.2_**
 >支持iOS4.2+、Android2.2+版本
 
 ---
@@ -14,17 +14,17 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 #content .nico-insert-code h2{margin:0;padding:0;border-bottom:0;}
 </style>
 
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/amui-doc.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/amui-doc.css" media="all">
 <link rel="stylesheet" type="text/css" href="./docs.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/city-select.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/timeline.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/article.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/agreement.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/dialog.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/simple-password.css" media="all">
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/util/iconfont.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/city-select.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/timeline.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/article.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/agreement.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/widget/dialog.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/widget/simple-password.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/util/iconfont.css" media="all">
 <script type="text/javascript" src="./docs.js"></script>
-<script type="text/javascript" src="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.js"></script>
+<script type="text/javascript" src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 
 ##使用方法
 
@@ -32,8 +32,13 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 >注意最新目录为anima/dpl下属目录。
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.css" media="all">
 ```
+### 老版本amui
+>如发现您的amui是老版本，不在anima/dpl下属目录，那么您使用的是老版本，请酌情考虑升级。</br>
+anima版本amui和老版本amui不互相兼容，且老版本amui后续不再更新新功能，但会保证原有功能可以使用。</br>
+
+[点此查看](old.html "点此查看")老版本文档
 
 ### 无线端html模板
 
@@ -51,7 +56,7 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
     <meta name="format-detection" content="email=no"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
-    <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.css" media="all">
 </head>
 <body ontouchstart="">
     <!--你的html页面代码-->
@@ -63,7 +68,7 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 >目前还未上线，即将发布，敬请期待，不影响现有使用
 
 ```html
-<script src="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.js"></script>
+<script src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 ```
 
 ###combo文件合并服务
@@ -71,7 +76,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >例：amui.css和city-select两个文件，使用 **_,_**进行文件分隔， **_??_**让文件名与域名隔离。
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/anima.css,anima/dpl/1.1.0/view/city-select.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/anima.css,anima/dpl/1.2.2/view/city-select.css" media="all">
 ```
 
 ## 布局
@@ -142,43 +147,6 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 </div>
 ````
 
-
-###浮动栅格布局
-浮动布局是传统布局已经应用非常灵活的布局机制，无线端再加上一些宽度百分比的自适应实现，也能较灵活使用。可以使用 **_am-grid_**结合 **_am-grid-item_**来搭建。
-
-````html
-<!--div.am-example为样例所用，实际使用不需要-->
-<div class="am-example">
-    <div class="am-grid">
-        <div class="am-grid-item am-grid-item-50">50%</div>
-        <div class="am-grid-item am-grid-item-50">50%</div>
-    </div>
-    <div class="am-grid">
-        <div class="am-grid-item am-grid-item-25">25%</div>
-        <div class="am-grid-item am-grid-item-75">75%</div>
-    </div>
-    <div class="am-grid">
-        <div class="am-grid-item am-grid-item-25">25%</div>
-        <div class="am-grid-item am-grid-item-50">50%</div>
-        <div class="am-grid-item am-grid-item-25">25%</div>
-    </div>
-    <div class="am-grid">
-        <div class="am-grid-item am-grid-item-25">25%</div>
-        <div class="am-grid-item am-grid-item-25">25%</div>
-        <div class="am-grid-item am-grid-item-25">25%</div>
-        <div class="am-grid-item am-grid-item-25">25%</div>
-    </div>
-    <div class="am-grid">
-        <div class="am-grid-item am-grid-item-33">33%</div>
-        <div class="am-grid-item am-grid-item-33">33%</div>
-        <div class="am-grid-item am-grid-item-33">33%</div>
-    </div>
-    <div class="am-grid">
-        <div class="am-grid-item am-grid-item-33">33%</div>
-        <div class="am-grid-item am-grid-item-66">66%</div>
-    </div>
-</div>
-````
 ## 常用基础类
 
 ###浮动
@@ -380,11 +348,14 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 <button type="button" class="am-button am-button-black">黑色按钮</button>
 ````
 ### 按钮尺寸调整
-按钮有2种尺寸可选，默认大尺寸，附加class类： **_am-button-sm_**即为小尺寸。
+按钮有3种尺寸可选，默认大尺寸，附加class类： **_am-button-sm_**即为小尺寸 ,  **_am-button-md_**即为中尺寸。
 
 ````html
 <button type="button" class="am-button am-button-sm">蓝色小按钮</button>
+<button type="button" class="am-button am-button-md am-button-red">红色中按钮</button>
 ````
+
+
 ### 按钮可用性调整
 按钮有2种可用性状态可选，默认可用，附加 **_disabled="disabled"_**属性，即为不可用。
 >不可用按钮颜色均为灰色按钮
@@ -406,27 +377,51 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
     </div>
 </div>
 ````
+### 按钮风格调整
+按钮有轻量样式，附加class类： **_am-button-light_**即为轻量按钮。
+
+````html
+<div class="am-flexbox am-flexbox-average">
+    <div class="am-flexbox-item">
+        <button type="button" class="am-button am-button-sm am-button-blue am-button-light">轻量小按钮</button>
+    </div>
+    <div class="am-flexbox-item">
+        <button type="button" class="am-button am-button-sm am-button-white am-button-light">轻量小按钮</button>
+    </div>
+</div>
+<br/>
+<div class="am-flexbox am-flexbox-average">
+    <div class="am-flexbox-item">
+        <button type="button" class="am-button am-button-md am-button-blue am-button-light">轻量中按钮</button>
+    </div>
+    <div class="am-flexbox-item">
+        <button type="button" class="am-button am-button-md am-button-white am-button-light">轻量中按钮</button>
+    </div>
+</div>
+````
 
 ##列表展示
 >列表容器基础class为 **_am-list_**，每项单位为 **_am-list-item_**。
 
-### 基础列表
+### 基础列表（8.2默认使用扁平化列表）
 
 ````html
 <div class="am-content">
-    <div class="am-list-header">圆角列表纯内容</div>
-    <div class="am-list">
-        <div class="am-list-item">
-            <div class="am-list-content">文本内容 文本内容</div>
-        </div>
+    <div class="am-list-header">列表纯内容</div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item">
+        <div class="am-list-content">文本内容 文本内容</div>
     </div>
+</div>
+<div class="am-content">
     <div class="am-list-header">链接引导</div>
-    <div class="am-list">
-        <a href="#" class="am-list-item">
-            <div class="am-list-content">链接内容</div>
-            <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
-        </a>
-    </div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <a href="#" class="am-list-item">
+        <div class="am-list-content">链接内容</div>
+        <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
+    </a>
 </div>
 ````
 
@@ -434,113 +429,8 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 ````html
 <div class="am-content">
     <div class="am-list-header">列表组合头部</div>
-    <div class="am-list">
-        <div class="am-list-item">
-            <div class="am-list-content">文本内容 文本内容</div>
-        </div>
-        <a href="#" class="am-list-item">
-            <div class="am-list-content">链接内容</div>
-            <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
-        </a>
-    </div>
-    <div class="am-list-footer">列表底部额外信息备注</div>
 </div>
-````
-
-### 列表信息多元化
-````html
-<div class="am-content">
-    <div class="am-list-header">图标搭配文字</div>
-    <div class="am-list">
-        <div class="am-list-item">
-            <div class="am-list-thumb">
-                <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
-            </div>
-            <div class="am-list-content">图标左，内容右</div>
-        </div>
-        <div class="am-list-item">
-            <div class="am-list-content am-ft-ellipsis">内容左，图标右（同时内容超长截断）</div>
-            <div class="am-list-thumb">
-                <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
-            </div>
-        </div>
-        <div class="am-list-item">
-            <div class="am-list-thumb">
-                <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
-            </div>
-            <div class="am-list-content">
-                <div class="am-list-title">右侧有附加信息</div>
-            </div>
-            <div class="am-list-extra">8.80元</div>
-        </div>
-        <a href="#" class="am-list-item">
-            <div class="am-list-thumb">
-                <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
-            </div>
-            <div class="am-list-content">
-                <div class="am-list-title am-ft-ellipsis">详细信息链接引导</div>
-            </div>
-            <div class="am-list-extra am-ft-ellipsis">8.80元</div>
-            <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
-        </a>
-        <a href="#" class="am-list-item">
-            <div class="am-list-thumb">
-                <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
-            </div>
-            <div class="am-list-content">
-                <div class="am-list-title am-ft-ellipsis">重要信息链接引导</div>
-            </div>
-            <div class="am-list-extra am-list-key am-ft-ellipsis">重要信息展示</div>
-            <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
-        </a>
-        <div class="am-list-item">
-            <div class="am-list-thumb am-list-thumb-radius">
-                <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="46" height="46" alt=""/>
-            </div>
-            <div class="am-list-content">
-                <div class="am-list-title am-ft-ellipsis">主信息（图标自定义大小）</div>
-                <div class="am-list-brief am-ft-ellipsis">辅助信息</div>
-            </div>
-        </div>
-    </div>
-</div>
-````
-
-### 自带表头表尾
-
-````html
-<div class="am-content">
-    <div class="am-list-header">列表题头</div>
-    <div class="am-list">
-        <div class="am-list-item am-list-item-top">
-            <div class="am-list-content">
-                这是头
-            </div>
-        </div>
-        <div class="am-list-item">
-            <div class="am-list-content">
-                带头尾的列表
-            </div>
-        </div>
-        <div class="am-list-item am-list-item-bottom">
-            <div class="am-list-content">
-                这是尾
-            </div>
-        </div>
-    </div>
-    <div class="am-list-footer">列表补充</div>
-</div>
-````
-
-### 扁平化列表
->扁平化列表相对圆角列表，在容器上附加class **_am-list-flat_**，其余一致
-
-````html
-<div class="am-list-header">列表组合头部</div>
-<div class="am-list am-list-flat">
-    <div class="am-list-item am-list-top">
-        <div class="am-list-content">扁平化置顶列表</div>
-    </div>
+<div class="am-list am-list-flat am-list-flat-chip">
     <div class="am-list-item">
         <div class="am-list-content">文本内容 文本内容</div>
     </div>
@@ -549,8 +439,70 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
         <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
     </a>
 </div>
-<div class="am-list-footer">列表底部额外信息备注</div>
+<div class="am-content">
+    <div class="am-list-footer">列表底部额外信息备注</div>
+</div>
 ````
+
+### 列表信息多元化
+````html
+<div class="am-content">
+    <div class="am-list-header">图标搭配文字</div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item">
+        <div class="am-list-thumb">
+            <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
+        </div>
+        <div class="am-list-content">图标左，内容右</div>
+    </div>
+    <div class="am-list-item">
+        <div class="am-list-content am-ft-ellipsis">内容左，图标右（同时内容超长截断）</div>
+        <div class="am-list-thumb">
+            <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
+        </div>
+    </div>
+    <div class="am-list-item">
+        <div class="am-list-thumb">
+            <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
+        </div>
+        <div class="am-list-content">
+            <div class="am-list-title">右侧有附加信息</div>
+        </div>
+        <div class="am-list-extra">8.80元</div>
+    </div>
+    <a href="#" class="am-list-item">
+        <div class="am-list-thumb">
+            <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
+        </div>
+        <div class="am-list-content">
+            <div class="am-list-title am-ft-ellipsis">详细信息链接引导</div>
+        </div>
+        <div class="am-list-extra am-ft-ellipsis">8.80元</div>
+        <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
+    </a>
+    <a href="#" class="am-list-item">
+        <div class="am-list-thumb">
+            <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="32" height="32" alt=""/>
+        </div>
+        <div class="am-list-content">
+            <div class="am-list-title am-ft-ellipsis">重要信息链接引导</div>
+        </div>
+        <div class="am-list-extra am-list-key am-ft-ellipsis">重要信息展示</div>
+        <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
+    </a>
+    <div class="am-list-item">
+        <div class="am-list-thumb am-list-thumb-radius">
+            <img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="46" height="46" alt=""/>
+        </div>
+        <div class="am-list-content">
+            <div class="am-list-title am-ft-ellipsis">主信息（图标自定义大小）</div>
+            <div class="am-list-brief am-ft-ellipsis">辅助信息</div>
+        </div>
+    </div>
+</div>
+````
+
 
 ### 扁平化带缺口列表
 >扁平化带缺口列表相对扁平化列表，在容器上附加class **_am-list-flat-chip_**，其余一致
@@ -572,148 +524,174 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 <div class="am-list-footer">列表底部额外信息备注</div>
 ````
 
+### 圆角列表
+
+````html
+<div class="am-list-header">列表组合头部</div>
+<div class="am-list">
+    <div class="am-list-item am-list-top">
+        <div class="am-list-content">扁平化置顶列表</div>
+    </div>
+    <div class="am-list-item">
+        <div class="am-list-content">文本内容 文本内容</div>
+    </div>
+    <a href="#" class="am-list-item">
+        <div class="am-list-content">链接内容</div>
+        <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
+    </a>
+</div>
+<div class="am-list-footer">列表底部额外信息备注</div>
+````
+
+
 ##表单输入
 
 ###输入框相关
+
 ####单行单例
 
 ````html
 <div class="am-content">
-
     <div class="am-list-header">组合</div>
-    <div class="am-list">
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="暗提示暗提示" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="暗提示暗提示" value="">
         </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="暗提示暗提示" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-            <div class="am-list-thumb"><i class="am-icon-camera"></i></div>
-        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
     </div>
-
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="暗提示暗提示" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+        <div class="am-list-thumb"><i class="am-icon-camera"></i></div>
+    </div>
+</div>
+<div class="am-content">
     <div class="am-list-header">输入错误的情况</div>
-
-    <div class="am-list">
-        <div class="am-list-item am-list-item-form am-list-item-error am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="暗提示暗提示" value="333">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-list-item-error am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="暗提示暗提示" value="333">
         </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
     </div>
-
+</div>
+<div class="am-content">
     <div class="am-list-header">多行输入错误的情况</div>
-
-    <div class="am-list">
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="暗提示暗提示" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="暗提示暗提示" value="">
         </div>
-        <div class="am-list-item am-list-item-form am-list-item-error am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="暗提示暗提示" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-        </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="暗提示暗提示" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
     </div>
-
+    <div class="am-list-item am-list-item-form am-list-item-error am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="暗提示暗提示" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="暗提示暗提示" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+</div>
+<div class="am-content">
     <div class="am-list-header">全新登录</div>
-
-    <div class="am-list">
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="手机号/会员名" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="手机号/会员名" value="">
         </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-control">
-                <input type="text" placeholder="淘宝登录密码" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
     </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-control">
+            <input type="text" placeholder="淘宝登录密码" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+</div>
+<div class="am-content">
     <div class="am-list-footer am-ft-right"><a href="#">忘记密码？</a></div>
-
+</div>
+<div class="am-content">
     <div class="am-list-header">有历史登录过非手机登录域账户</div>
-
-    <div class="am-list">
-        <div class="am-list-item am-input-autoclear">
-            <div class="am-list-thumb"><i class="am-icon-lock"></i></div>
-            <div class="am-list-control">
-                <input type="text" placeholder="请输入登录密码" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-input-autoclear">
+        <div class="am-list-thumb"><i class="am-icon-lock"></i></div>
+        <div class="am-list-control">
+            <input type="text" placeholder="请输入登录密码" value="">
         </div>
-        <div class="am-list-item am-list-item-form">
-            <div class="am-list-control">
-                我是文字我是文字我是文字我是文字我是文字我是文字我是我是文字我是字我是文字我是文字我是文字我是文字
-            </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+    <div class="am-list-item am-list-item-form">
+        <div class="am-list-control">
+            我是文字我是文字我是文字我是文字我是文字我是文字我是我是文字我是字我是文字我是文字我是文字我是文字
         </div>
     </div>
+</div>
 
+<div class="am-content">
     <div class="am-list-header">非常规表单（label固定宽度不对齐）</div>
+</div>
 
-    <div class="am-list">
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-label">优惠券名称:</div>
-            <div class="am-list-control">
-                <input type="text" placeholder="最多5个字" value="">
-                <input type="hidden" placeholder="" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">优惠券名称:</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="最多5个字" value="">
+            <input type="hidden" placeholder="" value="">
         </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-label">优惠券密码:</div>
-            <div class="am-list-control">
-                <input type="text" placeholder="" value="">
-                <input type="hidden" placeholder="" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-        </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-label">优惠券有效期:</div>
-            <div class="am-list-control">永久可用</div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
     </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">优惠券密码:</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="" value="">
+            <input type="hidden" placeholder="" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">优惠券有效期:</div>
+        <div class="am-list-control">永久可用</div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+</div>
+<div class="am-content">
     <div class="am-list-header">非常规表单（label固定宽度对齐）</div>
-    <div class="am-list am-list-6lb">
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-label">优惠券名称:</div>
-            <div class="am-list-control">
-                <input type="text" placeholder="" value="">
-                <input type="hidden" placeholder="" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+</div>
+<div class="am-list  am-list-flat am-list-flat-chip am-list-6lb">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">优惠券名称:</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="" value="">
+            <input type="hidden" placeholder="" value="">
         </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-label">优惠券密码:</div>
-            <div class="am-list-control">
-                <input type="text" placeholder="" value="">
-                <input type="hidden" placeholder="" value="">
-            </div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">优惠券密码:</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="" value="">
+            <input type="hidden" placeholder="" value="">
         </div>
-        <div class="am-list-item am-list-item-form am-input-autoclear">
-            <div class="am-list-label">优惠券有效期:</div>
-            <div class="am-list-control">永久可用</div>
-            <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">优惠券有效期:</div>
+        <div class="am-list-control">永久可用</div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
     </div>
 </div>
 ````
@@ -723,63 +701,45 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 2. 同时需要附加class **_am-input-autoclear_**来激活
 
 ```html
-<script src="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.js"></script>
+<script src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 ```
 
 ####验证码
 
 ````html
-<div class="am-content">
-    <div class="am-list-header">验证码</div>
-    <div class="am-captcha">
-        <div class="am-flexbox">
-            <div class="am-flexbox-item">
-                <div class="am-list">
-                    <div class="am-list-item am-list-item-form am-input-autoclear">
-                        <div class="am-list-control">
-                            <input type="tel" placeholder="短信校验码" value="">
-                        </div>
-                        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="am-flexbox-item am-captcha-button">
-                <button type="button" class="am-button am-button-white">发送校验码</button>
-            </div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">校验码</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="输入短信校验码" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+        <div class="am-list-button">
+            <button type="button">发送校验码</button>
         </div>
     </div>
-    <div class="am-captcha">
-        <div class="am-flexbox">
-            <div class="am-flexbox-item">
-                <div class="am-list">
-                    <div class="am-list-item am-list-item-form am-input-autoclear">
-                        <div class="am-list-control">
-                            <input type="tel" placeholder="短信校验码" value="">
-                        </div>
-                        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="am-flexbox-item am-captcha-button">
-                <button type="button" class="am-button am-button-white" disabled="disabled">53秒后重发</button>
-            </div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">校验码</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="输入短信校验码" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+        <div class="am-list-button">
+            <button type="button" disabled="disabled">58秒后重发</button>
         </div>
     </div>
-    <div class="am-captcha">
-        <div class="am-flexbox">
-            <div class="am-flexbox-item">
-                <div class="am-list">
-                    <div class="am-list-item am-list-item-form am-input-autoclear">
-                        <div class="am-list-control">
-                            <input type="tel" placeholder="短信校验码" value="">
-                        </div>
-                        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="am-flexbox-item am-captcha-button">
-                <button type="button" class="am-button am-button-white">重发验证码</button>
-            </div>
+</div>
+<div class="am-list am-list-flat am-list-flat-chip">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">校验码</div>
+        <div class="am-list-control">
+            <input type="text" placeholder="输入短信校验码" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear"></i></div>
+        <div class="am-list-button">
+            <button type="button">重发验证码</button>
         </div>
     </div>
 </div>
@@ -791,7 +751,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 2. 同时需要附加class **_am-input-autoclear_**来激活
 
 ```html
-<script src="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.js"></script>
+<script src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 ```
 
 ### 开关与单复选框
@@ -799,8 +759,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 #### 开关
 
 ````html
-<div class="am-content">
-    <div class="am-list">
+    <div class="am-list am-list-flat am-list-flat-chip">
         <div class="am-list-item">
             <div class="am-list-content">开关选中状态</div>
             <div class="am-switch">
@@ -822,7 +781,6 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
             </div>
         </div>
     </div>
-</div>
 ````
 
 #### 列表复选框
@@ -830,41 +788,39 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 单选框注意需要定义 **_name_**才能使其成为同一组
 
 ````html
-<div class="am-content">
-    <div class="am-list">
+    <div class="am-list am-list-flat am-list-flat-chip">
         <div class="am-list-item am-list-check">
             <div class="am-list-content">表单项复选框——默认选中1</div>
-            <div class="am-checkbox">
+            <div class="am-checkbox am-checkbox-tiny">
                 <input type="checkbox" name="x1" checked="checked"/>
                 <span class="am-icon icon-check"></span>
             </div>
         </div>
         <div class="am-list-item am-list-check">
             <div class="am-list-content">表单项复选框——默认未选中</div>
-            <div class="am-checkbox">
+            <div class="am-checkbox am-checkbox-tiny">
                 <input type="checkbox" name="x1"/>
                 <span class="am-icon icon-check"></span>
             </div>
         </div>
         <div class="am-list-item am-list-check">
             <div class="am-list-content">表单项复选框——默认选中不可改</div>
-            <div class="am-checkbox">
+            <div class="am-checkbox am-checkbox-tiny">
                 <input type="checkbox" name="x1" disabled="disabled" checked="checked"/>
                 <span class="am-icon icon-check"></span>
             </div>
         </div>
     </div>
-    <div class="am-list">
+    <div class="am-list am-list-flat am-list-flat-chip">
         <div class="am-list-item am-list-check">
             <div class="am-list-content">带说明复选框</div>
             <div class="am-list-extra am-ft-ellipsis">附加说明</div>
-            <div class="am-checkbox">
+            <div class="am-checkbox am-checkbox-tiny">
                 <input type="checkbox" name="x2"/>
                 <span class="am-icon icon-check"></span>
             </div>
         </div>
     </div>
-</div>
 ````
 
 #### 协议复选框
@@ -873,15 +829,15 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 <div class="am-content">
     <div class="am-list-header">选中</div>
     <div class="am-protocol-check">
-        <span class="am-checkbox am-checkbox-mini fn-left"><input id="agree" type="checkbox" checked="checked"><span class="am-icon icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></label>
+        <span class="am-checkbox am-checkbox-mini am-radio fn-left"><input id="agree" type="checkbox" checked="checked"><span class="am-icon icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></label>
     </div>
     <div class="am-list-header">未选中</div>
     <div class="am-protocol-check">
-        <span class="am-checkbox am-checkbox-mini fn-left"><input type="checkbox"><span class="am-icon icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></label>
+        <span class="am-checkbox am-checkbox-mini am-radio fn-left"><input type="checkbox"><span class="am-icon icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></label>
     </div>
     <div class="am-list-header">选中不可改</div>
     <div class="am-protocol-check">
-        <span class="am-checkbox am-checkbox-mini fn-left"><input type="checkbox" disabled="disabled" checked="checked"><span class="am-icon icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></label>
+        <span class="am-checkbox am-checkbox-mini am-radio fn-left"><input type="checkbox" disabled="disabled" checked="checked"><span class="am-icon icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></label>
     </div>
 </div>
 ````
@@ -892,18 +848,8 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 <div class="am-header">
     <h1>顶部导航 icon</h1>
 </div>
-<div class="am-header">
-    <h1>顶部导航 按钮</h1>
-    <a href="#" class="am-header-reverse am-header-reverse-btn">左按钮</a>
-    <a href="#" class="am-header-operate am-header-operate-btn">右按钮</a>
-</div>
 <div class="am-header am-header-grey">
     <h1>灰色导航 icon</h1>
-</div>
-<div class="am-header am-header-grey">
-    <h1>灰色导航 按钮</h1>
-    <a href="#" class="am-header-reverse am-header-reverse-btn">左按钮</a>
-    <a href="#" class="am-header-operate am-header-operate-btn">右按钮</a>
 </div>
 ````
 ##搜索
@@ -944,7 +890,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 1. 可选引入amui.js，注意引入一次即可<br/>
 
 ```html
-<script src="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.js"></script>
+<script src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 ```
 
 可选js配置-输入清除功能
@@ -953,7 +899,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 2. 同时需要附加class **_am-input-autoclear_**来激活
 
 ```html
-<script src="https://a.alipayobjects.com/anima/dpl/1.1.0/amui.js"></script>
+<script src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 ```
 
 ##页面范例
@@ -974,46 +920,47 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >同时，需要引入扩展css
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/agreement.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/agreement.css" media="all">
 ```
 >注意：多个文件可以使用支付宝提供的combo服务，多个文件一次请求。[点此查看](#combo文件合并服务 "点此查看")combo的介绍
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/amui.css,anima/dpl/1.1.0/view/agreement.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/view/agreement.css" media="all">
 ```
 
 ###文章范文页面
 
 ````html
-<div class="am-content">
-    <div class="am-article">
-        <h2>加油卡办卡章程</h2>
-        <time>2013-11-23 12:20:00</time>
-        <dl>
-            <dt>1、文章小标题</dt>
-            <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
-        </dl>
-        <dl>
-            <dt>2、文章小标题</dt>
-            <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
-        </dl>
-        <dl>
-            <dt>3、文章小标题</dt>
-            <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
-        </dl>
-    </div>
+<div class="am-article">
+    <h2>中石化加油卡办卡章程</h2>
+    <time>2013-11-23 12:20:00</time>
+    <p><img src="http://lorempixel.com/290/200/nature/2/" width="290" height="200"/></p>
+    <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+    <dl>
+        <dt>1、文章小标题</dt>
+        <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
+    </dl>
+    <dl>
+        <dt>2、文章小标题</dt>
+        <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
+    </dl>
+    <dl>
+        <dt>3、文章小标题</dt>
+        <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
+    </dl>
+    <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
 </div>
 ````
 
 >同时，需要引入扩展css
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/article.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/article.css" media="all">
 ```
 >注意：多个文件可以使用支付宝提供的combo服务，多个文件一次请求。[点此查看](#combo文件合并服务 "点此查看")combo的介绍
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/amui.css,anima/dpl/1.1.0/view/article.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/view/article.css" media="all">
 ```
 
 ### 时间线页面
@@ -1054,12 +1001,12 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >同时，需要引入扩展css
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/timeline.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/timeline.css" media="all">
 ```
 >注意：多个文件可以使用支付宝提供的combo服务，多个文件一次请求。[点此查看](#combo文件合并服务 "点此查看")combo的介绍
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/amui.css,anima/dpl/1.1.0/view/timeline.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/view/timeline.css" media="all">
 ```
 
 ### 城市选择
@@ -1096,12 +1043,12 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >同时，需要引入扩展css
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/city-select.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/city-select.css" media="all">
 ```
 >注意：多个文件可以使用支付宝提供的combo服务，多个文件一次请求。[点此查看](#combo文件合并服务 "点此查看")combo的介绍
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/amui.css,anima/dpl/1.1.0/view/city-select.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/view/city-select.css" media="all">
 ```
 
 ### toast
@@ -1130,12 +1077,12 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >同时，需要引入扩展css
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/widget/toast.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/widget/toast.css" media="all">
 ```
 >注意：多个文件可以使用支付宝提供的combo服务，多个文件一次请求。[点此查看](#combo文件合并服务 "点此查看")combo的介绍
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/amui.css,anima/dpl/1.1.0/widget/toast.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/widget/toast.css" media="all">
 ```
 
 ### 空白、插画、提示
@@ -1148,7 +1095,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
     <div class="am-page-result">
         <div class="am-page-result-wrap">
             <div class="am-page-result-pic">
-                <img src="https://i.alipayobjects.com/e/201403/2EZdOv7AEn.png" width="120" height="120"/>
+                <img src="https://i.alipayobjects.com/i/ecmng/png/201407/30NvQVuHAd.png" width="140" height="140"/>
             </div>
             <div class="am-page-result-title">我是空白页</div>
             <div class="am-page-result-brief">页面没有内容时候会成为空白页</div>
@@ -1166,7 +1113,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
     <div class="am-page-result">
         <div class="am-page-result-wrap">
             <div class="am-page-result-pic">
-                <img src="https://i.alipayobjects.com/i/ecmng/png/201405/2aj0yUKY2p.png" width="160" height="160"/>
+                <img src="https://i.alipayobjects.com/i/ecmng/png/201407/30NvQ6bZHj.png" width="140" height="140"/>
             </div>
             <div class="am-page-result-title">暂时无法访问</div>
             <div class="am-page-result-button">
@@ -1190,14 +1137,14 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 <!--div.am-example4为样例所用，实际使用不需要-->
 <div class="am-example" style="height:480px;">
     <div class="am-page-result">
-        <div class="am-page-result-wrap">
-            <div class="am-page-result-pic">
-                <img src="http://dummyimage.com/320x320/e36de3/fff" width="160" height="160"/>
-            </div>
-            <div class="am-page-result-title">我是插画页</div>
-            <div class="am-page-result-button"><button class="am-button am-button-white">按钮</button></div>
-        </div>
-    </div>
+         <div class="am-page-result-wrap">
+             <div class="am-page-result-pic">
+                 <img src="http://dummyimage.com/280x280/e36de3/fff" width="140" height="140"/>
+             </div>
+             <div class="am-page-result-title">我是插画页</div>
+             <div class="am-page-result-button"><button class="am-button am-button-white">按钮</button></div>
+         </div>
+     </div>
 </div>
 ````
 
@@ -1209,7 +1156,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
     <div class="am-page-result am-page-result-status">
         <div class="am-page-result-wrap">
             <div class="am-page-result-pic">
-                <img src="http://dummyimage.com/200x200/e36de3/fff" width="100" height="100"/>
+                <img src="http://dummyimage.com/280x280/e36de3/fff" width="140" height="140"/>
             </div>
             <div class="am-page-result-title">无记录</div>
         </div>
@@ -1221,10 +1168,10 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >同时，需要引入扩展css
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.1.0/view/page-result.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/page-result.css" media="all">
 ```
 >注意：多个文件可以使用支付宝提供的combo服务，多个文件一次请求。[点此查看](#combo文件合并服务 "点此查看")combo的介绍
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.1.0/amui.css,anima/dpl/1.1.0/view/page-result.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/view/page-result.css" media="all">
 ```
