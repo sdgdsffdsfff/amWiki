@@ -15,3 +15,4 @@
 *   nico之后，将default页面同步到index页面（导航内容的问题） - 低
 *   gulp watch的功能开发 - 低
 *   GoTop在页首页的时候消失 - 低
+*   api接口右边demo截图演示机制 - 中
