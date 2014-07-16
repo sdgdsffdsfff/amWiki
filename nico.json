@@ -19,12 +19,12 @@
 			"sub_nav": [
 				{
 					"id": "about",
-					"title": "移动开发规范指南",
+					"title": "移动开发规范",
 					"link": "amg/dev-guild.html"
 				},
 				{
 					"id": "mobilePlatformGrade",
-					"title": "移动Web分级标准",
+					"title": "移动分级标准",
 					"link": "amg/mobile-platform-grade.html"
 				},
 				{

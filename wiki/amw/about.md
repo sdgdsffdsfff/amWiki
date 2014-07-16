@@ -8,7 +8,7 @@ AMW的全程为alipay mobile widget，主要提供了移动端的widget库，为
 ## 控件特点
 *   AMW控件采用轻量级打包方式，使用方只要引入一个js文件，即可使用
 *   提供html属性标签来实现控件的使用，使用者无需关注js api
-*   采用体验降低的方式，会依次采用native>javascript>browser的方式
+*   采用体验降级的方式，会依次采用native>javascript>browser的方式
 
 ## 现有控件
 *   按钮 - 实现标准移动按钮的标准
