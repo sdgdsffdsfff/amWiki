@@ -1,4 +1,4 @@
-# AliBridge - alipay container bridge kit
+# AliBridge - alipay container bridge kit （内测中）
 
 - pubdate: 2014-06-19
 
