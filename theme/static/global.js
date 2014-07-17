@@ -34,10 +34,8 @@ define(function(require, exports, module) {
     }
     function defaultHack () {       //对首页nico模板的JS处理
         if (window.location.pathname == "/default.html") {  //首页名一定要同步
-            var dom = $(".default-content, .pages").clone(true);
+            $(".entry-content").children("div").appendTo($(".main")).show();    //隐藏再显示，防闪白
             $(".row.mar").remove();
-            $(".main").append(dom);
-            $(".default-content, .pages").show();       //隐藏再显示，防闪白
         };
     }
     $(function (){
