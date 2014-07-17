@@ -9,7 +9,8 @@
 ## 第一步 新建页面
 
 新建一个文件，把后缀名改成html结尾，用任意一款编辑器打开此html页面，粘贴以下代码
-```
+
+```html
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -36,7 +37,7 @@
 
 光秃秃的页面非常不好看，为此我们设计了一个完整的UI，提供了各类丰富的组件，只要简单地引入一个CSS链接即可.在viewport标签下引入一个CSS地址，参考代码如下
 
-```
+```html
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -58,7 +59,8 @@
 引入该css之后，就可以开始进行布局和设计各种控件类型了，具体内容可以参考如下[文档地址](http://aliceui.org/mobile/openapi.html)
 
 登陆页面需要一个用户名和密码的输入列表，我们在amui中找到相应的控件，将其html贴入页面中，示例代码如下
-```
+
+```html
 	<!DOCTYPE html>
 	<html>
 	<head>

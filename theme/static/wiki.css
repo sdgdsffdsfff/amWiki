@@ -864,6 +864,7 @@ hr {
     margin: 0;
 }
 .goTop{
+    display: none;
     position: fixed;
     right: 50px;
     bottom: 20px;
@@ -886,9 +887,9 @@ hr {
     display: none;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 6px;
     font-size: 12px;
-    padding: 5px;
+    padding: 0px 5px;
     border: 1px solid #aaa;
     color: #555;
     background-color: #ccc;
