@@ -133,23 +133,6 @@
 			]
 		},
 		{
-			"id": "H5APP",
-			"title": "H5APP",
-			"link": "h5app/about.html",
-			"sub_nav": [
-				{
-					"id": "about",
-					"title": "关于H5App",
-					"link": "h5app/about.html"
-				},
-				{
-					"id": "ak47",
-					"title": "ak47",
-					"link": "h5app/ak47-doc.html"
-				}
-			]
-		},
-		{
 			"id": "wiki",
 			"title": "知识库",
 			"sub_nav": [
