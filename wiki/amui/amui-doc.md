@@ -29,7 +29,7 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 ##使用方法
 
 ### 引入amui.css
->注意最新目录为anima/dpl下属目录。
+>注意最新目录为anima/dpl下属目录。 
 
 ```html
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.css" media="all">
@@ -74,7 +74,7 @@ combo是支付宝提供的文件合并服务，可以将多个文件合并成一
 >例：amui.css和city-select两个文件，使用 **_,_**进行文件分隔， **_??_**让文件名与域名隔离。
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/anima.css,anima/dpl/1.2.2/view/city-select.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/??anima/dpl/1.2.2/amui.css,anima/dpl/1.2.2/view/city-select.css" media="all">
 ```
 
 ## 布局
