@@ -621,7 +621,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
 
-###被点击元素的外观变化，可以使用样式来设定：
+###当前点击元素样式：
 
 	-webkit-tap-highlight-color: 颜色
 
@@ -642,7 +642,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	　　header('Location: http://yoursite.com/iphone');
 	　　exit();
 	}
-###阻止旋转屏幕时自动调整字体大小
+###阻止屏幕旋转时字体自动调整
 
 	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
 
@@ -737,11 +737,11 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
 
 
-###Android上当viewport的width大于device-width时出现文字无故折行的解决办法
+###viewport导致文字无故折行
 
 <http://www.iunbug.com/archives/2013/04/23/798.html>
 
-###如何实现打开已安装的app，若未安装则引导用户安装?
+###引导用户安装并打开app
 
 来自 <http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile
 通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页） 、etao://scan（一淘扫描）);
@@ -865,7 +865,7 @@ ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这�
 
 	input:-ms-clear{display:none;}
 
-###关于ios与os端字体的优化(横竖屏会出现字体加粗不一致等)
+###关于ios与os端字体的优化
 [mac下网页中文字体优化](http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
 
 [UIWebView font is thinner in portrait than landscape](http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
@@ -1071,7 +1071,7 @@ Android Web 视图,至少在 HTC EVO 和三星的 Galaxy Nexus 中，文本输�
 	/* iPhone 5 or iPod Touch 5th generation */
 
 	}
-###使用媒体查询，提供不同的启动图片：
+###媒体查询，响应不同启动图片
 
 	<link href="startup-568h.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
 	<link href="startup.png" rel="apple-touch-startup-image" sizes="640x920" media="(device-height: 480px)">
@@ -1462,7 +1462,7 @@ iscroll的闪动问题也与渲染有关系，可以参考
 
 <http://stackoverflow.com/questions/12090899/android-webview-jellybean-should-not-happen-no-rect-based-test-nodes-found>
 
-###拿联系人的时候报 ContactFindOptions is not defined
+###ContactFindOptions is not defined
 
 出现这个问题可能是因为 Navigator 取 contacts 时绑定的 window.onload
 

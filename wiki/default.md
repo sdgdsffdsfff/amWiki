@@ -3,6 +3,7 @@
 - pubdate: 2014-06-2
 
 -----
+
 <div class="default-content" style="display: none;">
     <div class="archive">
         <div class="entry-list">
@@ -62,4 +63,15 @@
         </li>
     </ul>
 </div>
+<script type="text/javascript">
+	function _el (className) {
+		return document.getElementsByClassName(className)[0];
+	}
+	_el("main").appendChild(_el("default-content"));
+	_el("main").appendChild(_el("pages"));
+	_el("main").removeChild(_el("mar"));
+	_el("pages").style.display = "block";
+	_el("default-content").style.display = "block";
+</script>
+
 -----

@@ -32,16 +32,9 @@ define(function(require, exports, module) {
             $(".goTop").fadeOut(200);
         }
     }
-    function defaultHack () {       //对首页nico模板的JS处理
-        if (window.location.pathname == "/default.html") {  //首页名一定要同步
-            $(".entry-content").children("div").appendTo($(".main")).show();    //隐藏再显示，防闪白
-            $(".row.mar").remove();
-        };
-    }
     $(function (){
-        defaultHack();       //对首页nico模板的JS处理
         //控制滚动条高度
-        $("#sidebar-wrapper").css({maxHeight: $(window).height() - 87});
+        $("#sidebar-wrapper").css({maxHeight: $(window).height() - 100});
         var scrollTop = $(window).scrollTop();
         titleActive();
         elFixed(scrollTop);
@@ -52,6 +45,7 @@ define(function(require, exports, module) {
             var client = new ZeroClipboard($(".clipbord"), {
                 moviePath: "http://static.alipayobjects.com/gallery/zeroclipboard/1.3.5/ZeroClipboard.swf",
                 hoverClass: "show",
+                forceHandCursor: true,
                 trustedDomains: ['*']
             });
             client.on('load', function(client) {
@@ -141,4 +135,13 @@ define(function(require, exports, module) {
             $(this).next().toggle();
         }
     });
+    $(".highlight pre").mousedown(function () {     //选择文本
+        $(this).siblings(".clipbord").addClass("hide");
+    })
+    $(document).mouseup(function () {
+        if (jQuery.trim(document.getSelection().toString()) == "") {
+            $(".clipbord").removeClass("hide");
+        };
+    })
 });
+
