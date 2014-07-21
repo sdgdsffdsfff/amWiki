@@ -15,7 +15,6 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 </style>
 
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/amui-doc.css" media="all">
-<link rel="stylesheet" type="text/css" href="./docs.css" media="all">
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/city-select.css" media="all">
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/timeline.css" media="all">
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/view/article.css" media="all">
@@ -23,7 +22,6 @@ AMUI是支付宝无线端快速建站的解决方案，包含通用样式库、�
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/widget/dialog.css" media="all">
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/widget/simple-password.css" media="all">
 <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/anima/dpl/1.2.2/util/iconfont.css" media="all">
-<script type="text/javascript" src="./docs.js"></script>
 <script type="text/javascript" src="https://a.alipayobjects.com/anima/dpl/1.2.2/amui.js"></script>
 
 ##使用方法
