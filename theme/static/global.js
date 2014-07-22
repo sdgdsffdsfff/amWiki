@@ -19,7 +19,6 @@ define(function(require, exports, module) {
 
     $(window).scroll(function(){
         if($(window).width() > 640){
-            _sidebarInit();
             initScroll();
         }
     });
@@ -32,7 +31,7 @@ define(function(require, exports, module) {
     $(".goTop").click(function () {                     //滚动到顶
         $("body").animate({scrollTop: '0'}, 400);
     });
-    $("#sidebar-fixed-nav a").click(function () {       //动画滚动到指定锚点
+    $(".threecol.meta").on("click", "a", function () {       //动画滚动到指定锚点
         history.pushState && event.preventDefault();    //不支持historyAPI则退化为默认方法
         var t = $(this), url;
         $("body").animate({scrollTop: $(t.attr("href")).offset().top - 57}, 800);
