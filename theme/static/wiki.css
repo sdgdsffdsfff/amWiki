@@ -623,7 +623,7 @@ hr {
 }
 #sidebar-wrapper.sidebar-fixed-top{
     position: fixed;
-    top: 87px;
+    top: 87px !important;
     width: 26.05%;
 }
 #sidebar-fixed-nav{

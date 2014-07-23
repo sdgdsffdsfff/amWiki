@@ -17,27 +17,15 @@
 ```
 
 - 小于10为通用错误码，具体api不应使用。定义以下通用错误码:
-<table>
-<thead>
-<th>error</th>
-<th>含义</th>
-</thead>
-<tr>
-<td>1</td>
-<td>接口不存在</td>
-</tr>
-<tr>
-<td>2</td>
-<td>参数无效</td>
-</tr>
-<tr>
-<td>3</td>
-<td>发生未知错误</td>
-</tr>
-<tr>
-<td>4</td>
-<td>接口无权限</td>
-</tr></table>
+
+|error|含义|
+|---|---|
+|1|接口不存在|
+|2|参数无效|
+|3|发生未知错误|
+|4|接口无权限|
+
+
 
 - 最低支持版本：8.2+
 
@@ -83,21 +71,12 @@ AlipayJSBridge.on('resume', function (event) {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>data</td>
-<td>any</td>
-<td>需要回传给上一页/目标页的数据。此数据将作为resume时的event.data</td>
-<td>Y</td>
-<td>null</td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|data|any|需要回传给上一页/目标页的数据。此数据将作为resume时的event.data|Y|null|
+
+
 
 - 最低支持版本：8.0+
 
@@ -178,33 +157,19 @@ AlipayJSBridge.call('checkJSAPI', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>api</td>
-<td>string</td>
-<td>api名称</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|api|string|api名称|N|&nbsp;|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result.available</td>
-<td>bool</td>
-<td>JsApi是否可用</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+|result.available|bool|JsApi是否可用|
+
+
 
 - 最低支持版本：8.1+
 
@@ -222,43 +187,21 @@ AlipayJSBridge.call('checkApp', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>appId</td>
-<td>string</td>
-<td>应用ID</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|appId|string|应用ID|N|&nbsp;|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result.exist</td>
-<td>bool</td>
-<td>应用是否存在</td>
-</tr>
-<tr>
-<td>result.status</td>
-<td>string</td>
-<td>应用的状态。由开放平台定义</td>
-</tr>
-<tr>
-<td>result.version</td>
-<td>string</td>
-<td>目标应用的版本。如果应用不存在，则此值为undefined</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+|result.exist|bool|应用是否存在|
+|result.status|string|应用的状态。由开放平台定义|
+|result.version|string|目标应用的版本。如果应用不存在，则此值为undefined|
+
+
 
 - 最低支持版本：8.1+
 
@@ -277,40 +220,20 @@ AlipayJSBridge.call('isInstalledApp', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>scheme</td>
-<td>string</td>
-<td>目标应用的url scheme。ios平台使用</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>package</td>
-<td>string</td>
-<td>目标应用的包名。android平台使用</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|scheme|string|目标应用的url scheme。ios平台使用|N|&nbsp;|
+|package|string|目标应用的包名。android平台使用|N|&nbsp;|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result.installed</td>
-<td>bool</td>
-<td>目标应用是否已在用户设备上安装</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+|result.installed|bool|目标应用是否已在用户设备上安装|
+
+
 
 - 最低支持版本：8.1+
 
@@ -343,28 +266,13 @@ AlipayJSBridge.call("setTitle", {
 
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>title</td>
-<td>string</td>
-<td>主标题文案</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>subtitle</td>
-<td>string</td>
-<td>副标题文案</td>
-<td>Y</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|title|string|主标题文案|N|&nbsp;|
+|subtitle|string|副标题文案|Y|&nbsp;|
+
+
 
 ```javascript
 // 设置右按钮属性
@@ -377,28 +285,13 @@ AlipayJSBridge.call('setOptionMenu', {
 
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>title</td>
-<td>string</td>
-<td>右按钮文字。调用setOptionMenu时，title与icon必选一个</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>icon</td>
-<td>string</td>
-<td>右按钮图标url。建议图片尺寸40x40</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|title|string|右按钮文字。调用setOptionMenu时，title与icon必选一个|N|&nbsp;|
+|icon|string|右按钮图标url。建议图片尺寸40x40|N|&nbsp;|
+
+
 
 - 最低支持版本：8.0+
 
@@ -430,39 +323,14 @@ AlipayJSBridge.call('toast', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-<th>版本</th>
-</thead>
-<tr>
-<td>content</td>
-<td>string</td>
-<td>文字内容</td>
-<td>N</td>
-<td>""</td>
-<td>8.0</td>
-</tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>none / success / fail。 icon类型</td>
-<td>Y</td>
-<td>none</td>
-<td>8.1</td>
-</tr>
-<tr>
-<td>duration</td>
-<td>int</td>
-<td>显示时长，单位为毫秒。android实际只支持2000/3000两种，小于2500的相当于2000, 大于2500的相当于3000</td>
-<td>Y</td>
-<td>2000</td>
-<td>8.1</td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|版本|
+|---|---|---|---|---|---|
+|content|string|文字内容|N|""|8.0|
+|type|string|none / success / fail。 icon类型|Y|none|8.1|
+|duration|int|显示时长，单位为毫秒。android实际只支持2000/3000两种，小于2500的相当于2000, 大于2500的相当于3000|Y|2000|8.1|
+
+
 
 - 最低支持版本：8.0+
 
@@ -484,36 +352,22 @@ AlipayJSBridge.call('setToolbarMenu',{
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>menus</td>
-<td>array</td>
-<td>菜单列表</td>
-一个包含菜单项的列表，<br/>name用来表示菜单项的名称必须填写，tag表示其他的信息可选。<br/>当菜单被点击后，传入的值都会被返回。
-<td>N</td>
-<td></td>
-</tr>
-</table>
+
+一个包含菜单项的列表，name用来表示菜单项的名称必须填写，tag表示其他的信息可选。当菜单被点击后，传入的值都会被返回。
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|menus|array|菜单列表|N|&nbsp;|
+
+
 - 结果
 
-<table>
-<thead>
-<th> </th>
-<th>类型</th>
-<th>说明</th>
-</thead>
-<tr>
-<td>result.status</td>
-<td>string</td>
-<td>"Success":添加菜单项成功</td>
-</tr></table>
+
+| |类型|说明|
+|---|---|---|
+|result.status|string|"Success":添加菜单项成功|
+
+
 
 - 错误
 - 最低支持版本：8.2+
@@ -534,35 +388,14 @@ AlipayJSBridge.call('alert', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>title</td>
-<td>string</td>
-<td>alert框标题</td>
-<td>Y</td>
-<td>""</td>
-</tr>
-<tr>
-<td>message</td>
-<td>string</td>
-<td>alert框文本</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>button</td>
-<td>string</td>
-<td>按钮文字</td>
-<td>Y</td>
-<td>"确定"</td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|title|string|alert框标题|Y|""|
+|message|string|alert框文本|N|&nbsp;|
+|button|string|按钮文字|Y|"确定"|
+
+
 
 - 最低支持版本：8.1+
 
@@ -581,54 +414,21 @@ AlipayJSBridge.call('confirm', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>title</td>
-<td>string</td>
-<td>alert框标题</td>
-<td>Y</td>
-<td>""</td>
-</tr>
-<tr>
-<td>message</td>
-<td>string</td>
-<td>alert框文本</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>okButton</td>
-<td>string</td>
-<td>"确定"按钮文字</td>
-<td>Y</td>
-<td>"确定"</td>
-</tr>
-<tr>
-<td>cancelButton</td>
-<td>string</td>
-<td>"取消"按钮文字</td>
-<td>Y</td>
-<td>"取消"</td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|title|string|alert框标题|Y|""|
+|message|string|alert框文本|N|&nbsp;|
+|okButton|string|"确定"按钮文字|Y|"确定"|
+|cancelButton|string|"取消"按钮文字|Y|"取消"|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-<thead>
-<tr>
-<td>result.ok</td>
-<td>bool</td>
-<td>用户点击确定</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+
+
 
 - 最低支持版本：8.1+
 
@@ -648,28 +448,13 @@ AlipayJSBridge.call('hideLoading');
 ```
 
 - 参数 (since 8.1)
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>text</td>
-<td>string</td>
-<td>文本内容；若不指定，则显示为中间大菊花；如果指定，显示为小菊花右侧带文字</td>
-<td>Y</td>
-<td>""</td>
-</tr>
-<tr>
-<td>delay</td>
-<td>int</td>
-<td>延迟多少毫秒后显示；如果在此时间之前调用了hideLoading, 则不会再显示</td>
-<td>Y</td>
-<td>0</td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|text|string|文本内容；若不指定，则显示为中间大菊花；如果指定，显示为小菊花右侧带文字|Y|""|
+|delay|int|延迟多少毫秒后显示；如果在此时间之前调用了hideLoading, 则不会再显示|Y|0|
+
+
 
 - 备注
 	- 显示loading后，只有标题栏、工具栏可以操作
@@ -712,61 +497,33 @@ AlipayJSBridge.call('popTo', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>index</td>
-<td>int</td>
-<td>目标界面在会话界面栈中的索引；如果小于零，则将与当前界面的index相加</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>url</td>
-<td>string</td>
-<td>目标界面的URL</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>urlPattern</td>
-<td>string</td>
-<td>目标界面的URL匹配表达式（URL如果包含urlPattern，匹配成功）</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|index|int|目标界面在会话界面栈中的索引；如果小于零，则将与当前界面的index相加|N|&nbsp;|
+|url|string|目标界面的URL|N|&nbsp;|
+|urlPattern|string|目标界面的URL匹配表达式（URL如果包含urlPattern，匹配成功）|N|&nbsp;|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result</td>
-<td>undefined</td>
-<td>操作成功时，回调可能不被调用；result不应被使用</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+|result|undefined|操作成功时，回调可能不被调用；result不应被使用|
+
+
 
 - 错误
-<table>
-<thead>
-<th>error</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>10</td>
-<td>未配置参数； </td>
+
 无效的index;
 未匹配url;
 未匹配urlPattern;
-</tr></table>
+
+|error|描述|
+|---|---|
+|10|未配置参数； |
+
+
 
 - 最低支持版本：8.1+
 
@@ -794,21 +551,12 @@ AlipayJSBridge.call('openInBrowser', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>url	</td>
-<td>string</td>
-<td>要打开的URL</td>
-<td>Y</td>
-<td>当前页面URL</td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|url	|string|要打开的URL|Y|当前页面URL|
+
+
 
 - 最低支持版本：8.1+
 
@@ -840,32 +588,15 @@ AlipayJSBridge.call('closeWebview');
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-<th>版本</th>
-</thead>
-<tr>
-<td>url</td>
-<td>string</td>
-<td>要打开的url</td>
-<td>N</td>
-<td></td>
-<td>8.0: 支持绝对url<br>8.1: 支持绝对/相对url</td>
-</tr>
-<tr>
-<td>param</td>
-<td>dictionary</td>
-<td>新开窗口的属性配置<br>支持的key/value参见启动参数列表(其中的"YES"/"NO"需要使用true/false代替)</td>
-<td>Y</td>
-<td>{}</td>
-<td>8.0: <br></td>
+
 8.1: 没有指定的属性将从当前窗口继承
-</tr></table>
+
+|名称|类型|描述|可选|默认值|版本|
+|---|---|---|---|---|---|
+|url|string|要打开的url|N|&nbsp;|8.0: 支持绝对url8.1: 支持绝对/相对url|
+|param|dictionary|新开窗口的属性配置支持的key/value参见启动参数列表(其中的"YES"/"NO"需要使用true/false代替)|Y|{}|8.0: |
+
+
 
 - 最低支持版本：8.0+
 
@@ -881,31 +612,14 @@ AlipayJSBridge.call('getNetworkType', function (result) {
 ```
 
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-<th>版本</th>
-</thead>
-<tr>
-<td>result.err_msg(兼容微信)</td>
-<td>string</td>
-<td>网络类型<br>'network_type:fail': 无网络, 或网络断开<br>'network_type:wifi': wifi网络<br> 'network_type:wwan': 非wifi</td>
-<td>8.0</td>
-</tr>
-<tr>
-<td>result.networkType</td>
-<td>string</td>
-<td>网络类型<br>'fail': 无网络，或网络断开<br>'wifi': wifi网络<br>'wwan': 非wifi</td>
-<td>8.2</td>
-</tr>
-<tr>
-<td>result.networkAvailable</td>
-<td>bool</td>
-<td>网络是否连网可用</td>
-<td>8.2</td>
-</tr></table>
+
+||类型|描述|版本|
+|---|---|---|---|
+|result.err_msg(兼容微信)|string|网络类型'network_type:fail': 无网络, 或网络断开'network_type:wifi': wifi网络 'network_type:wwan': 非wifi|8.0|
+|result.networkType|string|网络类型'fail': 无网络，或网络断开'wifi': wifi网络'wwan': 非wifi|8.2|
+|result.networkAvailable|bool|网络是否连网可用|8.2|
+
+
 
 - 最低支持版本：8.0+
 
@@ -924,43 +638,22 @@ AlipayJSBridge.call("sendSMS",{
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>mobile</td>
-<td>string</td>
-<td>预填入的目标手机号</td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>content</td>
-<td>string</td>
-<td>预填入的短信内容</td>
-<td>Y</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|mobile|string|预填入的目标手机号|Y|&nbsp;|
+|content|string|预填入的短信内容|Y|&nbsp;|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result.status</td>
-<td>string</td>
-<td>短信发送结果<br/>'Success': 发送成功<br/>'Failed': 发送失败，比如网络问题<br/>
+
+||类型|描述|
+|---|---|---|
+|result.status|string|短信发送结果'Success': 发送成功'Failed': 发送失败，比如网络问题
 'Canceled': 用户取消发送
-</td>
-</tr>
-</table>
+|
+
+
 
 - 最低支持版本：8.0+
 
@@ -978,37 +671,22 @@ AlipayJSBridge.call("contact", function(result) {
 
 - 结果
 
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result.name</td>
-<td>string</td>
-<td>选中的联系人姓名</td>
-</tr>
-<tr>
-<td>result.mobile</td>
-<td>string</td>
-<td>选中的联系人手机号</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+|result.name|string|选中的联系人姓名|
+|result.mobile|string|选中的联系人手机号|
+
+
 
 - 错误
-<table>
-<thead>
-<th>error</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>10</td>
-<td>没有权限</td>
-</tr>
-<tr>
-<td>11</td>
-<td>用户取消操作</td>
-</tr></table>
+
+|error|描述|
+|---|---|
+|10|没有权限|
+|11|用户取消操作|
+
+
 
 - 最低支持版本：8.0+
 
@@ -1034,91 +712,36 @@ AlipayJSBridge.call('photo', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>dataType</td>
-<td>string</td>
-<td>结果数据格式:<br>dataURL: base64编码的图片数据<br>fileURL: 图片在文件系统中的url<br>图片存放于临时目录中，钱包退出时被清除</td>
-<td>Y</td>
-<td>dataURL</td>
-</tr>
-<tr>
-<td>imageFormat</td>
-<td>string</td>
-<td>jpg / png</td>
-<td>Y</td>
-<td>jpg</td>
-</tr>
-<tr>
-<td>quality</td>
-<td>int</td>
-<td>jpg的图片质量, 取值1到100</td>
-<td>Y</td>
-<td>75</td>
-</tr>
-<tr>
-<td>maxWidth</td>
-<td>int</td>
-<td>图片的最大宽度. 过大将被等比缩小</td>
-<td>Y</td>
-<td>不限</td>
-</tr>
-<tr>
-<td>maxHeight</td>
-<td>int</td>
-<td>图片的最大高度. 过大将被等比缩小</td>
-<td>Y</td>
-<td>不限</td>
-</tr>
-<tr>
-<td>allowEdit</td>
-<td>bool</td>
-<td>是否允许编辑(框选). 为true时，拍照时会有一个方形的选框</td>
-<td>Y</td>
-<td>false</td>
-</tr>
-</table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|dataType|string|结果数据格式:dataURL: base64编码的图片数据fileURL: 图片在文件系统中的url图片存放于临时目录中，钱包退出时被清除|Y|dataURL|
+|imageFormat|string|jpg / png|Y|jpg|
+|quality|int|jpg的图片质量, 取值1到100|Y|75|
+|maxWidth|int|图片的最大宽度. 过大将被等比缩小|Y|不限|
+|maxHeight|int|图片的最大高度. 过大将被等比缩小|Y|不限|
+|allowEdit|bool|是否允许编辑(框选). 为true时，拍照时会有一个方形的选框|Y|false|
+
+
 
 - 结果
 
-<table>
-<thead>
-<th> </th>
-<th>类型</th>
-<th>说明</th>
-</thead>
-<tr>
-<td>result.dataURL</td>
-<td>string</td>
-<td>base64编码的图片数据</td>
-</tr>
-<tr>
-<td>result.fileURL</td>
-<td>string</td>
-<td>图片文件URL</td>
-</tr></table>
+
+| |类型|说明|
+|---|---|---|
+|result.dataURL|string|base64编码的图片数据|
+|result.fileURL|string|图片文件URL|
+
+
 
 - 错误
-<table>
-<thead>
-<th>error</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>10</td>
-<td>用户取消</td>
-</tr>
-<tr>
-<td>11</td>
-<td>操作失败（权限不够）</td>
-</tr></table>
+
+|error|描述|
+|---|---|
+|10|用户取消|
+|11|操作失败（权限不够）|
+
+
 
 - 最低支持版本：8.1+
 
@@ -1137,60 +760,31 @@ AlipayJSBridge.call('scan', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>扫描目标类型，qr / bar / card</td>
-<td>N</td>
-<td></td>
-</tr>
-</table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|type|string|扫描目标类型，qr / bar / card|N|&nbsp;|
+
+
 - 结果
 
-<table>
-<thead>
-<th> </th>
-<th>类型</th>
-<th>说明</th>
-</thead>
-<tr>
-<td>result.barCode</td>
-<td>string</td>
-<td>扫描所得条码数据</td>
-</tr>
-<tr>
-<td>result.qrCode</td>
-<td>string</td>
-<td>扫描所得二维码数据</td>
-</tr>
-<tr>
-<td>result.cardNumber</td>
-<td>string</td>
-<td>扫描所得银行卡号</td>
-</tr></table>
+
+| |类型|说明|
+|---|---|---|
+|result.barCode|string|扫描所得条码数据|
+|result.qrCode|string|扫描所得二维码数据|
+|result.cardNumber|string|扫描所得银行卡号|
+
+
 
 - 错误
-<table>
-<thead>
-<th>error</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>10</td>
-<td>用户取消</td>
-</tr>
-<tr>
-<td>11</td>
-<td>操作失败</td>
-</tr></table>
+
+|error|描述|
+|---|---|
+|10|用户取消|
+|11|操作失败|
+
+
 
 - 最低支持版本：8.1+
 
@@ -1244,60 +838,31 @@ AlipayJSBridge.call('share', {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>channels</td>
-<td>array</td>
-<td>分享渠道列表，至少包含一个channel；如果只channel多于一个，会跳出渠道选择框</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>渠道名称。支持以下几种：Weibo/LaiwangContacts/LaiwangTimeline/Weixin/WeixinTimeLine/SMS/CopyLink</td>
-<td>N</td>
-<td></td>
-</tr>
-<tr>
-<td>param</td>
-<td>dictionary</td>
-<td>指定渠道的参数，支持以下字段：<br>title: string, 分享标题<br> content : string, 分享内容<br> imageUrl : string, 图片url<br> captureScreen : bool, 默认为false, 是否截屏分享<br> url : string, 分享链接</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|channels|array|分享渠道列表，至少包含一个channel；如果只channel多于一个，会跳出渠道选择框|N|&nbsp;|
+|name|string|渠道名称。支持以下几种：Weibo/LaiwangContacts/LaiwangTimeline/Weixin/WeixinTimeLine/SMS/CopyLink|N|&nbsp;|
+|param|dictionary|指定渠道的参数，支持以下字段：title: string, 分享标题 content : string, 分享内容 imageUrl : string, 图片url captureScreen : bool, 默认为false, 是否截屏分享 url : string, 分享链接|N|&nbsp;|
+
+
 
 - 结果
 
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-<thead>
-<th>result</th>
-<th>dictionary</th>
-<th>android 无回调</th>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+
+
 
 - 错误
 
-<table>
-<thead>
-<th>error</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>10</td>
-<td>分享失败或取消</td>
-</tr></table>
+
+|error|描述|
+|---|---|
+|10|分享失败或取消|
+
+
 
 - 最低支持版本：8.1+
 
@@ -1360,63 +925,31 @@ AlipayJSBridge.call("alipayContact", {
 ```
 
 - 参数
-<table>
-<thead>
-<th>名称</th>
-<th>类型</th>
-<th>描述</th>
-<th>可选</th>
-<th>默认值</th>
-</thead>
-<tr>
-<td>showMobileContacts</td>
-<td>bool</td>
-<td>是否可从手机联系人中选择</td>
-<td>N</td>
-<td></td>
-</tr></table>
+
+|名称|类型|描述|可选|默认值|
+|---|---|---|---|---|
+|showMobileContacts|bool|是否可从手机联系人中选择|N|&nbsp;|
+
+
 - 结果
-<table>
-<thead>
-<th></th>
-<th>类型</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>result.type</td>
-<td>string</td>
-<td>'local' / 'alipay' 选中的是手机联系人还是支付宝联系人</td>
-</tr>
-<tr>
-<td>result.name</td>
-<td>string</td>
-<td>联系人姓名。result.type=='alipay'时为真实姓名</td>
-</tr>
-<tr>
-<td>result.mobile</td>
-<td>string</td>
-<td>选中的联系人手机号；仅当result.type='local'时有效</td>
-</tr>
-<tr>
-<td>result.account</td>
-<td>string</td>
-<td>选中的支付宝联系人账号；仅当result.type=='alipay'时有效</td>
-</tr></table>
+
+||类型|描述|
+|---|---|---|
+|result.type|string|'local' / 'alipay' 选中的是手机联系人还是支付宝联系人|
+|result.name|string|联系人姓名。result.type=='alipay'时为真实姓名|
+|result.mobile|string|选中的联系人手机号；仅当result.type='local'时有效|
+|result.account|string|选中的支付宝联系人账号；仅当result.type=='alipay'时有效|
+
+
 
 - 错误
-<table>
-<thead>
-<th>error</th>
-<th>描述</th>
-</thead>
-<tr>
-<td>10</td>
-<td>没有权限</td>
-</tr>
-<tr>
-<td>11</td>
-<td>用户取消操作</td>
-</tr></table>
+
+|error|描述|
+|---|---|
+|10|没有权限|
+|11|用户取消操作|
+
+
 
 - 最低支持版本：8.1+
 
@@ -1433,16 +966,7 @@ AlipayJSBridge.call('getClientInfo', function (result) {
 
 - 参数
 - 结果
-<table>
-<thead>
-<th> </th>
-<th>类型</th>
-<th>说明</th>
-</thead>
-<tr>
-<td>result</td>
-<td>dictionary</td>
-<td></td>
+
 可以用以下key得到相关的信息
 client.uid 用户id
 client.version 钱包版本
@@ -1450,7 +974,12 @@ os.name 客户端系统名称
 os.version 客户端系统版本
 device.id 客户端IMEI号
 形如:{"client.uid":"2088xxxxx"}
-</tr></table>
+
+| |类型|说明|
+|---|---|---|
+|result|dictionary|&nbsp;|
+
+
 
 - 错误
 - 最低支持版本：8.2+
