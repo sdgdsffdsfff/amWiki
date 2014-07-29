@@ -9,7 +9,7 @@
 }
 </style>
 ## 源代码
-https://github.com/am-team/amJS/tree/master/dist
+[amj源代码](https://github.com/am-team/amJS/tree/master/dist)
 
 
 ## date
