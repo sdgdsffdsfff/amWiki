@@ -567,7 +567,7 @@ AlipayJSBridge.call('openInBrowser', {
 // 开新窗口
 AlipayJSBridge.call('pushWindow', {
 
-	 url: 'http://www.baidu.com/',
+	 url: 'http://www.alipay.com/',
 	 param: {
 	   readTitle: true,
 	   defaultTitle: true,
@@ -808,7 +808,7 @@ AlipayJSBridge.call('share', {
 	     content: '分享的内容，不能超过140',
 	     imageUrl: '分享的图片地址',
 	     captureScreen: true, //分享当前屏幕截图(和imageUrl同时存在时，优先imageUrl)
-	     url: 'http://baidu.com' //分享跳转的url，当添加此参数时，分享的图片大小不能超过32K
+	     url: 'http://alipay.com' //分享跳转的url，当添加此参数时，分享的图片大小不能超过32K
 	   }
 	 }, {
 	   name: 'LaiwangContacts', //来往好友
@@ -817,7 +817,7 @@ AlipayJSBridge.call('share', {
 	     content: '分享的内容',
 	     imageUrl: '分享的图片地址',
 	     captureScreen: true,
-	     url: 'http://baidu.com'
+	     url: 'http://alipay.com'
 	   }
 	 }, {
 	       name: 'SMS', //短信
