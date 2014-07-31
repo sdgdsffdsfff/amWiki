@@ -118,16 +118,7 @@ AlipayJSBridge.on('toolbarMenuClick', function (e) {
 
 - 最低支持版本：8.2+
 
-###  titleClick  ###
-- version:8.2
-- 事件描述：点击标题触发回调
 
-```javascript
-AlipayJSBridge.on('titleClick', function () {
-}, false);
-```
-
-- 最低支持版本：8.2+
 
 ###  subtitleClick  ###
 - 注：
