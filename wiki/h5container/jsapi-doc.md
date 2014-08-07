@@ -121,8 +121,6 @@ AlipayJSBridge.on('toolbarMenuClick', function (e) {
 
 
 ###  subtitleClick  ###
-- 注：
-subtitleClick事件回调会触发titleClick回调，建议titleClick 和 subtitleClick只使用其中一个
 
 - version:8.2
 - 事件描述：点击子标题触发回调
