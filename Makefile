@@ -10,6 +10,7 @@ git:
 	@git push origin master
 
 build:
+	@gulp prebuild
 	@nico build
 	@cp ${wikifile}/default.html $(wikifile)/index.html
 
