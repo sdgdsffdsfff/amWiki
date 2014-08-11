@@ -141,6 +141,11 @@ hr{
     text-align: center;
 }
 
+.sitelink .ui-link {
+    display: inline-block;
+    margin: 0;
+}
+
 .sitelink .ui-link-bottom{
     padding-top: 8px;
 }
@@ -149,7 +154,11 @@ hr{
     display: inline-block;
     padding: 0 8px;
     border-right: 1px solid #ccc;
-    margin: 5px 0 5px -3px;
+    margin: 5px 0 5px -4px;
+}
+
+.sitelink .ui-link-item-last{
+    border-right: 0;
 }
 
 .sitelink .ui-link-item a{
@@ -158,10 +167,6 @@ hr{
 
 .sitelink .ui-link-item a:hover{
     text-decoration: underline;
-}
-
-.ui-link-item-last{
-    border-right: 0;
 }
 
 .document .nico-insert-code {
@@ -283,6 +288,7 @@ hr{
     z-index: 9999;
     opacity: 0;
     margin: 0;
+    transform: translate3d(0,-30px,0);
     -webkit-transform: translate3d(0,-30px,0);
     visibility: hidden;
     width: 100%;
@@ -291,6 +297,7 @@ hr{
 .nav > li:hover .nav-sub{
     z-index: 9999;
     opacity: 1;
+    transform: translate3d(0,0,0);
     -webkit-transform: translate3d(0,0,0);
     visibility: visible;
 }
@@ -589,6 +596,7 @@ hr{
         top: auto;
         opacity: 1;
         visibility: visible;
+        transform: none;
         -webkit-transform: none;
         overflow: hidden;
         background-color: #AC4C1E;
@@ -635,4 +643,12 @@ hr{
 
 #cnzz_stat_icon_1252894789{
     display: none;
+}
+
+.nico-insert-code .am-flexbox{
+    display: flex;
+}
+
+.nico-insert-code .am-flexbox .am-flexbox-item{
+    flex: 1;
 }
