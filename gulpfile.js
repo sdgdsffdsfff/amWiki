@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-	prebuild = require('gulp-pulichomeport-prebuild'),
+	prebuild = require('gulp-nico-prebuild'),
 	es = require('event-stream');
 
 gulp.task('prebuild', function () {
