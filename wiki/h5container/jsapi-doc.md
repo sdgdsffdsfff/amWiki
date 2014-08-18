@@ -64,7 +64,7 @@ AlipayJSBridge.call('popTo', {
 });
 
 // 目标页代码
-AlipayJSBridge.on('resume', function (event) {
+document.addEventListener('resume', function (event) {
 	 console.log(event.data);
 	 console.log(event.resumeParams);
 });

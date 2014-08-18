@@ -41,11 +41,4 @@ js
 	 */
 	AliBridge.call = function (name,param,fn)
 
-	/**
-     * 绑定全局事件
-     * @param {string} event 事件名称
-     * @param {function} [fn] 回调函数
-     */
-    AliBridge.on = function (event, fn)
-
 ```
