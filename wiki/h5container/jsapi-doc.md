@@ -85,7 +85,7 @@ AlipayJSBridge.on('resume', function (event) {
 如果在事件的处理函数中调用了event.preventDefault()，容器将忽略backBehaviour，js需要负责回退或做其他操作
 
 ```javascript
-AlipayJSBridge.on('back', function (e) {
+document.addEventListener('back', function (e) {
 	 e.preventDefault();
 	 AlipayJSBridge.call('popTo', {index: 0});
 }, false);
@@ -97,7 +97,7 @@ AlipayJSBridge.on('back', function (e) {
 导航条右上角按钮被点击时触发
 
 ```javascript
-AlipayJSBridge.on('optionMenu', function () {
+document.addEventListener('optionMenu', function () {
 	 // ... do something
 }, false);
 ```
@@ -108,7 +108,7 @@ AlipayJSBridge.on('optionMenu', function () {
 在8.2及其以上的版本，如果添加了自定义的菜单，当用户点击按钮会触发回调，回调会返回当前点击按钮在初始化的时候传入的name和tag属性。从而做一些业务上的处理
 
 ```javascript
-AlipayJSBridge.on('toolbarMenuClick', function (e) {
+document.addEventListener('toolbarMenuClick', function (e) {
 	//得到name属性值
 	console.log(e.data.name);
 	//得到tag属性值
@@ -125,7 +125,7 @@ AlipayJSBridge.on('toolbarMenuClick', function (e) {
 - 事件描述：点击标题触发回调
 
 ```javascript
-AlipayJSBridge.on('titleClick', function () {
+document.addEventListener('titleClick', function () {
 }, false);
 ```
 
@@ -139,7 +139,7 @@ subtitleClick事件回调会触发titleClick回调，建议titleClick 和 subtit
 - 事件描述：点击子标题触发回调
 
 ```javascript
-AlipayJSBridge.on('subtitleClick', function () {
+document.addEventListener('subtitleClick', function () {
 }, false);
 ```
 
