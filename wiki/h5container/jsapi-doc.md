@@ -780,12 +780,12 @@ AlipayJSBridge.call('share', {
            contentType: 'url',
            extData:''
        }
-	   }, {
-	       name: 'CopyLink', //复制链接
-	       param: {
-	           url: 'http://m.alipay.com'
-	       }
-	   }]
+	 }, {
+       name: 'CopyLink', //复制链接
+       param: {
+           url: 'http://m.alipay.com'
+       }
+	 }]
 },function(result){
 });
 ```
