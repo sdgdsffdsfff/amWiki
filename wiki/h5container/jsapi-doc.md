@@ -755,6 +755,24 @@ AlipayJSBridge.call('share', {
 	     url: 'http://alipay.com'
 	   }
 	 }, {
+            name: 'Weixin', //微信
+            param: {
+              title: '分享的标题',
+              content: '分享的内容',
+              imageUrl: '分享的图片地址',
+              captureScreen: true, 
+              url: 'http://baidu.com' 
+            }
+          }, {
+            name: 'WeixinTimeLine', //微信朋友圈
+            param: {
+              title: '分享的标题',
+              content: '分享的内容',
+              imageUrl: '分享的图片地址',
+              captureScreen: true, 
+              url: 'http://baidu.com' 
+            }
+          },{
 	       name: 'SMS', //短信
 	       param: {
 	           content: '短信内容',
@@ -787,6 +805,7 @@ AlipayJSBridge.call('share', {
 
 ||类型|描述|
 |---|---|---|
+|result|dictionary|android 无回调|
 
 
 
