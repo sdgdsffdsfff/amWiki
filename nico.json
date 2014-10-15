@@ -147,7 +147,12 @@
 			"id": "issue",
 			"title": "提建议",
 			"link": "https://github.com/am-team/amWiki/issues/new"
-		}
+		},
+    {
+      "id": "joinus",
+      "title": "加入我们",
+      "link": "amteam/join.html"
+    }
 	],
 	"writers": [
 		"nico.PostWriter",
