@@ -1483,3 +1483,22 @@ iscroll的闪动问题也与渲染有关系，可以参考
 	    var fields       = ["displayName", "name","phoneNumbers"];
 	    navigator.contacts.find(fields, onSuccess, onError,options);
 	    }
+
+##iOS safari BUG 总结##
+
+safari对DOM中元素的冒泡机制有个奇葩的BUG，仅限iOS版才会触发~~~
+
+BUG重现用例请见线上DEMO: [地址](http://jsfiddle.net/e75od2bb/34/)
+
+###bug表现与规避###
+
+在进行事件委托时，如果将未存在于DOM的元素事件直接委托到body上的话,会导致事件委托失效，调试结果为事件响应到body子元素为止，既没有冒泡到body上，也没有被body所捕获。但如果事件是DOM元素本身具有的，则不会触发bug。换而言之，只有元素的非标准事件（比如click事件之于div）才会触发此bug。
+
+因为bug是由safari的事件解析机制导致，无法修复，但是有多种手段可以规避
+
+1. 如何避免bug触发：**不要委托到body结点上**，委托到任意指定父元素都可以，或者使用原生具有该事件的元素，如使用click事件触发就用a标签包一层。
+
+2. 已触发如何修补：safari对事件的解析非常特殊，如果一个事件曾经被响应过，则会一直冒泡（捕获）到根结点，所以对于已大规模触发的情况，只需要在**body元素的所有子元素绑定一个空事件**就好了，如：
+
+		("body > *").on("click", function(){};);
+可能会对性能有一定影响，但是使用方便，大家权衡考虑吧~~~
