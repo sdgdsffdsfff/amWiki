@@ -1,7 +1,6 @@
-# 关于AMJ
-- pubdate: 2014-03-06
+# 关于AMUtil
+- pubdate: 2014-11-25
 - tags: 关于
-- author: 仈爪
 
 ---
 ## 技术目标

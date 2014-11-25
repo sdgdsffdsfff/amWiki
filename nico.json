@@ -67,24 +67,24 @@
 			]
 		},
 		{
-			"id": "amj",
-			"title": "AMJ",
-			"link": "amj/about.html",
+			"id": "amutil",
+			"title": "AMUtil",
+			"link": "amutil/about.html",
 			"sub_nav": [
 				{
 					"id": "about",
-					"title": "关于AMJ",
-					"link": "amj/about.html"
+					"title": "关于AMUtil",
+					"link": "amutil/about.html"
 				},
 				{
 					"id": "doc",
 					"title": "接口文档",
-					"link": "amj/aj-doc.html"
+					"link": "amutil/autil-doc.html"
 				},
 				{
 					"id":"Github_AMJ",
 					"title":"Github",
-					"link":"https://github.com/am-team/amJS"
+					"link":"https://github.com/am-team/amUtil"
 				}
 			]
 		},
