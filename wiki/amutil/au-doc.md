@@ -1,6 +1,6 @@
-# AMJ - alipay mobile javascript kit
+# AMUtil - alipay mobile javascript kit
 
-- pubdate: 2014-06-19
+- pubdate: 2014-10-19
 
 ----
 <style>
@@ -9,7 +9,7 @@
 }
 </style>
 ## 源代码
-[amj源代码](https://github.com/am-team/amJS/tree/master/dist)
+[AMUtil源代码地址](https://github.com/am-team/amUtil/tree/master/dist)
 
 
 ## date
@@ -19,7 +19,7 @@ date提供了获取当前时间戳和格式化指定日期的方法
 js
 
 ```javascript
-	var date = AJ.date;
+	var date = AU.date;
 	var d = new Date();
 	var ds = date.format(d,'yy-MM-dd'); //2014-05-03
 	var dnow = date.now(); //返回当前时间戳，如：1403104207894
@@ -32,7 +32,7 @@ js
 	/**
 	 * 日期格式化方法
 	 *
-	 * @memberof AJ.date
+	 * @memberof AU.date
 	 * @param {!Date} date - 日期对象
 	 * @param {?String} formatter - 指定格式化格式 格式说明 y代表年份，M代表月份，d代表天数，h代表时，m代表分，s代表秒
 	 *
@@ -42,23 +42,23 @@ js
 	 *
 	 * @example
 	 * var d = new Date();
-	 * var ds = AJ.date.format(d,'yy-MM-dd'); //2014-05-03
-	 * var ds = AJ.date.format(d,'yy/M/d'); //2014/5/3
-	 * var ds = AJ.date.format(d,'yy/MM/d hh:mm:ss'); //2014/5/3 18:31:24
+	 * var ds = AU.date.format(d,'yy-MM-dd'); //2014-05-03
+	 * var ds = AU.date.format(d,'yy/M/d'); //2014/5/3
+	 * var ds = AU.date.format(d,'yy/MM/d hh:mm:ss'); //2014/5/3 18:31:24
 	 */
 	format: function (date, formatter)
 	
 	/**
 	 * 当前时间时间戳
 	 *
-	 * @memberof AJ.date
+	 * @memberof AU.date
 	 *
 	 * @returns {Number}
 	 *
 	 * @desc 当前时间时间戳
 	 *
 	 * @example
-	 * var nowStamp= AJ.date.now();
+	 * var nowStamp= AU.date.now();
 	 */
 	now: function ()
 ```
@@ -78,7 +78,7 @@ image提供了将图片文件转为base64编码的方法
 ### 示例代码
 js
 ```javascript
-	AJ.image.toBase64("abc.png",function(base64Data,error){
+	AU.image.toBase64("abc.png",function(base64Data,error){
 		//返回值base64Data即为结果，如"data:image/png;base64....."，
 	})
 ```
@@ -89,14 +89,14 @@ js
 	/**
 	 * image转换base64编码方法
 	 *
-	 * @memberof AJ.toBase64
+	 * @memberof AU.toBase64
 	 * @param {!path} path - 图片地址（需要同域,项目目录）
 	 * @param {!function} callback - 返回数据 callback有两个参数，如除非异常，error为具体的Exception对象，如果非异常的情况，为undefined
 	 *
 	 * @desc 图片转换base64编码
 	 *
 	 * @example
-	 * AJ.image.toBase64("abc.png",function(base64Data,error){
+	 * AU.image.toBase64("abc.png",function(base64Data,error){
      *  //data:image/png;base64.....
 	 * })
 	 */
@@ -124,7 +124,7 @@ storage提供了页面的数据存储的模式，采用了localstorage的机制�
 ### 示例代码
 js
 ```javascript
-	var storage = AJ.storage;
+	var storage = AU.storage;
 	storage.set("key1","value1");
 	storage.get("key1"); //返回value1
 	storage.clear();	//清空所有键值
@@ -142,7 +142,7 @@ js
 	 * @returns {string|undefined} 返回值为undefined没找到该内容
 	 *
 	 * @example
-	 * var content = AJ.storage.get("name");
+	 * var content = AU.storage.get("name");
 	 *
 	 * */
 	get: function (key)
@@ -206,7 +206,7 @@ string提供了计算字符串长度的方法，中文算两个，英文算一�
 js
 ```javascript
 	var str = "alipay";
-	var length = AJ.string.getFullLen(str); //返回字符串str的长度
+	var length = AU.string.getFullLen(str); //返回字符串str的长度
 ```
 
 ### 接口列表
@@ -215,7 +215,7 @@ js
     /**
      * 计算字符串长度的方法，中文算两个，英文算一个，特殊字符不算
      *
-     * @memberof AJ.string
+     * @memberof AU.string
      * @param {!str} str - 需要计算长度的字符串
      *
      * @returns {int|undefined} 如果传入的不是string字符串，一律返回undefined
@@ -223,7 +223,7 @@ js
      * @desc 计算字符串长度的方法
      *
      * @example
-     * AJ.string.getFullLen($(this).val())
+     * AU.string.getFullLen($(this).val())
      */
 	string.getFullLen = function (str)
 
@@ -246,7 +246,7 @@ uri提供了对url进行对象化以及提供了便捷的方法，更加容易�
 ### 示例代码
 js
 ```javascript
-	var uri = AJ.uri;
+	var uri = AU.uri;
 	var url = uri.parse(location.href); //返回一个uri对象
 	uri.setParam(location.href,"name","value"); //返回当前的url并且在queryString上加上name=value的值
 
@@ -270,7 +270,7 @@ js
 	 * @param {string} url url字符串,如果传入的是对象，这不做任何处理，返回
 	 * @returns {object} uri对象
 	 * @example
-	 * AJ.uri.parse(location.href);
+	 * AU.uri.parse(location.href);
 	 * */
 	parse: function (url)
 
@@ -281,7 +281,7 @@ js
 	 * @returns {string}
 	 *
 	 * @example
-	 * console.log(AJ.uri.stringify(uri)); // http://www.alipay.com
+	 * console.log(AU.uri.stringify(uri)); // http://www.alipay.com
 	 *
 	 * */
 	stringify: function (uri)
