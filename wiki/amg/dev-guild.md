@@ -1,3 +1,8 @@
+# 移动Web开发规范指南
+
+- pubdate: 2015-01-28
+
+---
 ## 移动基础规范指南
 （版本：1.0）
 
@@ -254,14 +259,11 @@
 *	不同设备的屏幕分辨率 - [http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density](http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density)
 
 #### 移动端Web分级标准
-![mobile-web-grade](https://i.alipayobjects.com/i/localhost/jpg/201407/32R8LNa4Ef.jpg)
+![mobile-web-grade](https://t.alipayobjects.com/images/T1mB0eXodbXXXXXXXX.jpg) 
 ##### 说明
 1. 作为一级的类目里面的设备，系统和浏览器是自测的必要选项【规范】
 2. 一级以下的类目不作为必须的自测项，手上有设备方便看的话，可以测试一下
-3. 该数据的统计时间为2014.7月份，今后每三个月会重新做一次统计
-
-##### 注释
-UC浏览器的市场占有率很高，但是在支付宝实际业务中，主要运行在native中，因此使用场景不是很多
+3. 该数据的统计时间为2015.1月份，今后每三个月会重新做一次统计
 
 ### 语言兼容性
 *   [html5兼容性参考](http://caniuse.com/#agents=ios_saf,op_mini,android,bb,ie_mob&cats=HTML5)
